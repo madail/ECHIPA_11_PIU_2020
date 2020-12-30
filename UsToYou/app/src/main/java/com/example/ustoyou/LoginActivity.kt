@@ -21,7 +21,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun signIn(view: View) {
-        val intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, HouseholdActivity::class.java)
         startActivity(intent)
     }
 }
