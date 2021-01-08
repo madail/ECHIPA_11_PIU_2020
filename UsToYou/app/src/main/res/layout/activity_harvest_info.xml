@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".HarvestActivity">
+
+    <TextView
+        android:id="@+id/surface"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Surface to be harvest:"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="90dp"
+        android:textColor="@color/primaryDarkColor"
+        android:textSize="25sp"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/surfaceEditText"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
+        android:hint="Ex: 80 AR"
+        android:background="@color/grey"
+        app:layout_constraintTop_toBottomOf="@+id/surface"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/addres"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Parcel's Address:"
+        app:layout_constraintTop_toTopOf="@+id/surfaceEditText"
+        android:layout_marginTop="70dp"
+        android:textColor="@color/primaryDarkColor"
+        android:textSize="25sp"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/addressEditText"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
+        android:background="@color/grey"
+        app:layout_constraintTop_toBottomOf="@+id/addres"
+        tools:ignore="MissingConstraints" />
+    <TextView
+        android:id="@+id/availability"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Availability:"
+        app:layout_constraintTop_toTopOf="@id/addressEditText"
+        android:layout_marginTop="70dp"
+        android:textColor="@color/primaryDarkColor"
+        android:textSize="25sp"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/availabilityEditText"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="40dp"
+        android:background="@color/grey"
+        android:hint="hh-hh dd/mm/yy"
+        app:layout_constraintTop_toBottomOf="@+id/availability"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/createAccountButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/radius_primary_button"
+        android:onClick="goToPaymentMethod"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
+        android:text="Payment method"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/availabilityEditText" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

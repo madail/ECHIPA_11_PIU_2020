@@ -1,0 +1,11 @@
+package com.example.ustoyou
+
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+
+class HarvestActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_harvest_info)
+    }
+}

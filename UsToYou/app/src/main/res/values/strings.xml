@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Us To You</string>
+    <string name="login">Login</string>
+    <string name="username">username</string>
+    <string name="password">password</string>
+    <string name="sign_in">Sign in</string>
+    <string name="or">or</string>
+    <string name="create_account">Create an account</string>
+    <string name="sign_up_google">Sign up with Google</string>
+    <string name="forgot_pass">Forgot password?</string>
+    <string name="first_name">first name</string>
+    <string name="last_name">last name</string>
+    <string name="email">email</string>
+    <string name="confirm_pass">confirm password</string>
+    <string name="sign_up">Sign up</string>
+    <string name="already_account">Already have an account? Login</string>
+    <string name="birthday">birthday</string>
+</resources>
