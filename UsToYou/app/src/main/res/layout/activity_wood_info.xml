@@ -7,11 +7,11 @@
     tools:context=".HarvestActivity">
 
     <TextView
-        android:id="@+id/harvest_info_surface"
+        android:id="@+id/wood_info_surface"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Surface to be harvest:"
+        android:text="Wood quantity to be processed:"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="90dp"
         android:textColor="@color/primaryDarkColor"
@@ -19,53 +19,53 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/harvest_info_surfaceEditText"
+        android:id="@+id/wood_info_surfaceEditText"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="40dp"
-        android:hint="Ex: 80 AR"
+        android:hint="Ex: 5 M3"
         android:background="@color/grey"
-        app:layout_constraintTop_toBottomOf="@+id/harvest_info_surface"
+        app:layout_constraintTop_toBottomOf="@+id/wood_info_surface"
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/harvest_info_address"
+        android:id="@+id/wood_info_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Parcel's Address:"
-        app:layout_constraintTop_toTopOf="@+id/harvest_info_surfaceEditText"
+        android:text="Address:"
+        app:layout_constraintTop_toTopOf="@+id/wood_info_surfaceEditText"
         android:layout_marginTop="70dp"
         android:textColor="@color/primaryDarkColor"
         android:textSize="25sp"
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/harvest_info_addressEditText"
+        android:id="@+id/wood_info_addressEditText"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="40dp"
         android:background="@color/grey"
-        app:layout_constraintTop_toBottomOf="@+id/harvest_info_address"
+        app:layout_constraintTop_toBottomOf="@+id/wood_info_address"
         tools:ignore="MissingConstraints" />
     <TextView
-        android:id="@+id/harvest_info_availability"
+        android:id="@+id/wood_info_availability"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Availability:"
-        app:layout_constraintTop_toTopOf="@id/harvest_info_addressEditText"
+        app:layout_constraintTop_toTopOf="@id/wood_info_addressEditText"
         android:layout_marginTop="70dp"
         android:textColor="@color/primaryDarkColor"
         android:textSize="25sp"
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/harvest_info_availabilityEditText"
+        android:id="@+id/wood_info_availabilityEditText"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginStart="40dp"
@@ -73,11 +73,11 @@
         android:layout_marginEnd="40dp"
         android:background="@color/grey"
         android:hint="hh-hh dd/mm/yy"
-        app:layout_constraintTop_toBottomOf="@+id/harvest_info_availability"
+        app:layout_constraintTop_toBottomOf="@+id/wood_info_availability"
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/harvest_info_createAccountButton"
+        android:id="@+id/wood_info_createAccountButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
@@ -89,7 +89,7 @@
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/harvest_info_availabilityEditText" />
+        app:layout_constraintTop_toBottomOf="@id/wood_info_availabilityEditText" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

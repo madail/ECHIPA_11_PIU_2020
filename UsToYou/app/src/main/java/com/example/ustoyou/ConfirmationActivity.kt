@@ -5,13 +5,13 @@ import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 
-class HarvestActivity : AppCompatActivity() {
+class ConfirmationActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_harvest_info)
+        setContentView(R.layout.activity_confirmation)
     }
 
-    fun goToPaymentMethod(view: View) {
+    fun home(view: View) {
         val intent = Intent(this, PaymentMethodActivity::class.java)
         startActivity(intent)
     }

@@ -12,12 +12,12 @@ class HouseholdActivity : AppCompatActivity() {
     }
 
     fun cornService(view: View) {
-        val intent = Intent(this, PaymentMethodActivity::class.java)
+        val intent = Intent(this, CornHarvestProvidersList::class.java)
         startActivity(intent)
     }
 
     fun woodService(view: View) {
-        val intent = Intent(this, PaymentMethodActivity::class.java)
+        val intent = Intent(this, WoodCuttingProvidersList::class.java)
         startActivity(intent)
     }
 }
