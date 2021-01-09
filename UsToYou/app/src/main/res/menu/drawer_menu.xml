@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/categories" android:title="@string/categories" android:icon="@drawable/ic_categories"/>
+    <item android:id="@+id/my_profile" android:title="@string/my_profile" android:icon="@drawable/ic_my_profile"/>
+    <item android:id="@+id/payment_details" android:title="@string/payment_details" android:icon="@drawable/ic_payment"/>
+    <item android:id="@+id/my_services" android:title="@string/my_services" android:icon="@drawable/ic_services"/>
+    <item android:id="@+id/my_orders" android:title="@string/my_orders" android:icon="@drawable/ic_orders"/>
+    <item android:id="@+id/settings" android:title="@string/settings" android:icon="@drawable/ic_settings"/>
+</menu>

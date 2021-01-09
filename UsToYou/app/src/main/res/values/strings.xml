@@ -15,4 +15,10 @@
     <string name="sign_up">Sign up</string>
     <string name="already_account">Already have an account? Login</string>
     <string name="birthday">birthday</string>
+    <string name="categories">Categories</string>
+    <string name="my_profile">My Profile</string>
+    <string name="payment_details">Payment Details</string>
+    <string name="my_services">My services</string>
+    <string name="my_orders">My Orders</string>
+    <string name="settings">Settings</string>
 </resources>
