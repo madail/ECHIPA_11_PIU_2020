@@ -9,6 +9,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true">
+        <activity android:name=".TeachingServiceDetails" android:theme="@style/Theme.UsToYouTheme"/>
         <activity
             android:name=".SplashActivity"
             android:theme="@style/Theme.FullScreen">

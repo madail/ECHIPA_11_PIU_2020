@@ -11,7 +11,7 @@ class PaymentMethodActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_payment_method)
 
-        val spinner : Spinner =findViewById(R.id.spinner)
+        val spinner: Spinner = findViewById(R.id.spinner)
 
         if (spinner != null) {
             val currencyAdapter = ArrayAdapter(
