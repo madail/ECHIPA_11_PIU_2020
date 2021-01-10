@@ -21,6 +21,8 @@
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginTop="15dp"
             android:layout_marginBottom="10dp"
+            android:paddingStart="5dp"
+            android:paddingEnd="5dp"
             tools:ignore="MissingConstraints" />
 
         <TextView

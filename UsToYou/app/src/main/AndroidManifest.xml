@@ -72,6 +72,9 @@
             android:name=".ITSupportActivity"
             android:theme="@style/Theme.UsToYouTheme"
             tools:ignore="Instantiatable" />
+        <activity
+            android:name=".PaymentDetailsActivity"
+            android:theme="@style/Theme.UsToYouTheme" />
     </application>
 
 </manifest>
