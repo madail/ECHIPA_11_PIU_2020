@@ -10,50 +10,47 @@
         android:id="@+id/payment_method_textViewAmount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="left"
-        android:layout_marginLeft="20dp"
-        android:text="Amount to be paid"
+        android:gravity="start"
+        android:layout_marginStart="20dp"
+        android:text="@string/amount_to_be_paid"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="60dp"
         android:textColor="@color/primaryDarkColor"
-        android:textSize="25sp"
-        tools:ignore="MissingConstraints" />
+        android:textSize="25sp" />
 
     <Spinner
         android:id="@+id/payment_method_spinner"
         android:layout_width="160dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="40dp"
-        android:textSize="18dp"
+        android:textSize="18sp"
         android:textStyle="bold"
         android:background="@color/grey"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/payment_method_textViewAmount"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/payment_method_textViewAmount" />
+
 
     <TextView
         android:id="@+id/payment_method_textAmount"
         android:layout_width="160dp"
         android:layout_height="50dp"
-        android:layout_marginRight="30dp"
-        android:hint="180"
-        android:background="@color/grey"
+        android:layout_marginEnd="30dp"
+        android:hint="@string/_180"
         android:textAlignment="center"
         app:layout_constraintTop_toBottomOf="@id/payment_method_textViewAmount"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="40dp"
         android:textColor="@color/primaryDarkColor"
-        android:textSize="25sp"
-        tools:ignore="MissingConstraints" />
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/payment_method_textViewMethod"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="left"
-        android:layout_marginLeft="20dp"
-        android:text="Method"
+        android:gravity="start"
+        android:layout_marginStart="20dp"
+        android:text="@string/method"
         app:layout_constraintTop_toBottomOf="@id/payment_method_spinner"
         android:layout_marginTop="60dp"
         android:textColor="@color/primaryDarkColor"
@@ -61,24 +58,24 @@
         tools:ignore="MissingConstraints" />
 
     <RadioGroup
-        android:id="@+id/payment_method_paymentMethod"
+        android:id="@+id/payMethodRadioButtons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/payment_method_textViewMethod"
         android:layout_marginTop="40dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="40dp"
-        tools:ignore="MissingConstraints">
+        android:layout_marginStart="40dp">
         <RadioButton
             android:id="@+id/payment_method_cash"
-            android:text="Cash payment"
-            android:textSize="25dp"
+            android:text="@string/cash_payment"
+            android:textSize="25sp"
+            android:checked="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <RadioButton
             android:id="@+id/payment_method_card"
-            android:text="Credit/Debit card payment"
-            android:textSize="25dp"
+            android:text="@string/credit_debit_card_payment"
+            android:textSize="25sp"
             android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
@@ -90,10 +87,10 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="100dp"
         android:background="@drawable/radius_primary_button"
-        android:onClick="goToPayment"
+        android:onClick="confirm"
         android:paddingStart="30dp"
         android:paddingEnd="30dp"
-        android:text="Next"
+        android:text="@string/next"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
