@@ -12,7 +12,8 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun signUpGoogle(view: View) {
-        TODO()
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
 
     fun createAccount(view: View) {
