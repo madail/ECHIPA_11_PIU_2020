@@ -21,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:text="Title of Subject"
+        tools:text="Title of Subject"
         android:textColor="@color/primaryDarkColor"
         android:textSize="20sp"
         app:layout_constraintTop_toBottomOf="@id/teachingServiceImage"/>
@@ -45,7 +45,7 @@
         app:layout_constraintEnd_toEndOf="@+id/view1"
         app:layout_constraintStart_toStartOf="@+id/view1"
         app:layout_constraintTop_toBottomOf="@id/view1"
-        android:text="Lorem ipsum is simply dummy text of printing and typesetting industry. Lorem ipsum is simply dummy text of printing and typesetting industry." />
+        tools:text="Lorem ipsum is simply dummy text of printing and typesetting industry. Lorem ipsum is simply dummy text of printing and typesetting industry." />
 
     <TextView
         android:id="@+id/priceTeachingService"
