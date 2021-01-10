@@ -47,6 +47,25 @@
             android:name=".HouseholdActivity"
             android:theme="@style/Theme.UsToYouTheme"
             tools:ignore="Instantiatable" />
+        <activity
+            android:name=".CornHarvestProvidersList"
+            android:theme="@style/Theme.UsToYouTheme" />
+        <activity
+            android:name=".ConfirmationActivity"
+            android:theme="@style/Theme.UsToYouTheme" />
+        <activity
+            android:name=".WoodCutActivity"
+            android:theme="@style/Theme.UsToYouTheme" />
+        <activity
+            android:name=".WoodCuttingProvidersList"
+            android:theme="@style/Theme.UsToYouTheme" />
+        <activity
+            android:name=".ITProvidersList"
+            android:theme="@style/Theme.UsToYouTheme" />
+        <activity
+            android:name=".ITSupportActivity"
+            android:theme="@style/Theme.UsToYouTheme"
+            tools:ignore="Instantiatable" />
     </application>
 
 </manifest>

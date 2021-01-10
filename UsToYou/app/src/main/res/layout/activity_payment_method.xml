@@ -7,7 +7,7 @@
     tools:context=".PaymentMethodActivity">
 
     <TextView
-        android:id="@+id/textViewAmount"
+        android:id="@+id/payment_method_textViewAmount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="start"
@@ -19,37 +19,39 @@
         android:textSize="25sp" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/payment_method_spinner"
         android:layout_width="160dp"
         android:layout_height="50dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="40dp"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:background="@color/grey"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAmount" />
+        app:layout_constraintTop_toBottomOf="@+id/payment_method_textViewAmount" />
+
 
     <TextView
-        android:id="@+id/textAmount"
+        android:id="@+id/payment_method_textAmount"
         android:layout_width="160dp"
         android:layout_height="50dp"
         android:layout_marginEnd="30dp"
         android:hint="@string/_180"
         android:textAlignment="center"
-        app:layout_constraintTop_toBottomOf="@id/textViewAmount"
+        app:layout_constraintTop_toBottomOf="@id/payment_method_textViewAmount"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="40dp"
         android:textColor="@color/primaryDarkColor"
         android:textSize="25sp" />
 
     <TextView
-        android:id="@+id/textViewMethod"
+        android:id="@+id/payment_method_textViewMethod"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="start"
         android:layout_marginStart="20dp"
         android:text="@string/method"
-        app:layout_constraintTop_toBottomOf="@id/spinner"
+        app:layout_constraintTop_toBottomOf="@id/payment_method_spinner"
         android:layout_marginTop="60dp"
         android:textColor="@color/primaryDarkColor"
         android:textSize="25sp"
@@ -59,19 +61,19 @@
         android:id="@+id/payMethodRadioButtons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/textViewMethod"
+        app:layout_constraintTop_toBottomOf="@id/payment_method_textViewMethod"
         android:layout_marginTop="40dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginStart="40dp">
         <RadioButton
-            android:id="@+id/cash"
+            android:id="@+id/payment_method_cash"
             android:text="@string/cash_payment"
             android:textSize="25sp"
             android:checked="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <RadioButton
-            android:id="@+id/card"
+            android:id="@+id/payment_method_card"
             android:text="@string/credit_debit_card_payment"
             android:textSize="25sp"
             android:layout_marginTop="20dp"
@@ -80,7 +82,7 @@
     </RadioGroup>
 
     <Button
-        android:id="@+id/createAccountButton"
+        android:id="@+id/payment_method_createAccountButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="100dp"

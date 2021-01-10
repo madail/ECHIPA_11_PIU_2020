@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".DeclinedActivity">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/sad"
@@ -17,7 +18,7 @@
         tools:ignore="MissingConstraints" />
 
     <TextView
-        android:id="@+id/confirm"
+        android:id="@+id/declined"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/your_payment_is_declined"
@@ -31,7 +32,7 @@
 
 
     <Button
-        android:id="@+id/createAccountButton"
+        android:id="@+id/declined_retryPayment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"

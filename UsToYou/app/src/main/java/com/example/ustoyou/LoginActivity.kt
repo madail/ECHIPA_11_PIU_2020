@@ -22,7 +22,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun signIn(view: View) {
-        val intent = Intent(this, HouseholdActivity::class.java)
+        val intent = Intent(this, ITProvidersList::class.java)
         startActivity(intent)
     }
 }
