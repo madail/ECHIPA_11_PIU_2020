@@ -16,8 +16,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="60dp"
         android:textColor="@color/primaryDarkColor"
-        android:textSize="25sp"
-        tools:ignore="MissingConstraints" />
+        android:textSize="25sp" />
 
     <Spinner
         android:id="@+id/spinner"
@@ -28,8 +27,7 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAmount"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewAmount" />
 
     <TextView
         android:id="@+id/textAmount"
@@ -42,8 +40,7 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="40dp"
         android:textColor="@color/primaryDarkColor"
-        android:textSize="25sp"
-        tools:ignore="MissingConstraints" />
+        android:textSize="25sp" />
 
     <TextView
         android:id="@+id/textViewMethod"
@@ -59,13 +56,13 @@
         tools:ignore="MissingConstraints" />
 
     <RadioGroup
+        android:id="@+id/payMethodRadioButtons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/textViewMethod"
         android:layout_marginTop="40dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginStart="40dp"
-        tools:ignore="MissingConstraints">
+        android:layout_marginStart="40dp">
         <RadioButton
             android:id="@+id/cash"
             android:text="@string/cash_payment"

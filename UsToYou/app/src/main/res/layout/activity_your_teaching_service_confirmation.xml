@@ -32,8 +32,10 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:layout_marginStart="20dp"
-            android:inputType="text"
+            android:inputType="none"
             android:textSize="18sp"
+            android:focusable="false"
+            android:clickable="false"
             android:hint="@string/your_name"/>
 
         <TextView
@@ -57,7 +59,9 @@
             android:layout_marginEnd="20dp"
             android:layout_marginStart="20dp"
             android:textSize="18sp"
-            android:inputType="phone"
+            android:inputType="none"
+            android:focusable="false"
+            android:clickable="false"
             android:hint="@string/phone_number"/>
 
         <TextView
@@ -81,6 +85,9 @@
             android:layout_marginEnd="20dp"
             android:layout_marginStart="20dp"
             android:textSize="18sp"
+            android:inputType="none"
+            android:focusable="false"
+            android:clickable="false"
             android:hint="@string/select_online_or_onsite"/>
 
         <TextView
@@ -99,7 +106,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="text"
+            android:inputType="none"
+            android:focusable="false"
+            android:clickable="false"
             android:textColor="@color/primaryDarkColor"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
@@ -123,7 +132,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="date"
+            android:inputType="none"
+            android:focusable="false"
+            android:clickable="false"
             android:textColor="@color/primaryDarkColor"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
@@ -147,12 +158,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="date"
+            android:inputType="none"
             android:textColor="@color/primaryDarkColor"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:layout_marginStart="20dp"
             android:textSize="18sp"
+            android:focusable="false"
+            android:clickable="false"
             android:hint="@string/xxxx_xxxx_xxxx_xxxx_xxxx"/>
 
         <FrameLayout
