@@ -5,6 +5,7 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ustoyou.R
@@ -42,7 +43,9 @@ class TeachingServiceAdapter(
 
         fun bind(item: TeachingService) {
             val title: TextView = itemView.findViewById(R.id.titleTeachingItem)
+            val image: ImageView = itemView.findViewById(R.id.teachingServiceImage)
 
+            image.setImageResource(item.imageRes)
             title.text = item.titleSubject
         }
 

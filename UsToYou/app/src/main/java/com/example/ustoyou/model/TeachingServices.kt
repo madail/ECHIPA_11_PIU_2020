@@ -6,12 +6,12 @@ class TeachingServices {
     fun getTeachingServices(): ArrayList<TeachingService> {
         return arrayListOf(
             TeachingService(
-                R.drawable.teaching_service_1,
+                R.drawable.teaching_service_2,
                 "English Teacher",
                 "Good teacher with a lot of experience, looking for students eager to learn english.",
                 30
             ), TeachingService(
-                R.drawable.teaching_service_2,
+                R.drawable.teaching_service_4,
                 "Math Teacher",
                 "Good teacher with a lot of experience, looking for students eager to learn math.",
                 35
@@ -21,7 +21,7 @@ class TeachingServices {
                 "Good teacher with a lot of experience, looking for students eager to learn how to dance like a butterfly.",
                 23
             ), TeachingService(
-                R.drawable.teaching_service_4,
+                R.drawable.teaching_service_1,
                 "Public Speaking Teacher",
                 "Good teacher with a lot of experience, looking for students eager to speak in public.",
                 70
