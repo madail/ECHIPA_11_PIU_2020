@@ -1,5 +1,6 @@
 package com.example.ustoyou
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
@@ -14,6 +15,7 @@ class TeachingServiceDetails : AppCompatActivity() {
     }
 
     fun orderNow(view: View) {
-        //TODO
+        val intent = Intent(this, YourTeachingServiceOrder::class.java)
+        startActivity(intent)
     }
 }
