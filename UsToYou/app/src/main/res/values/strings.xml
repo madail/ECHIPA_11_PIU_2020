@@ -52,4 +52,8 @@
     <string name="place_another_order">Place another order</string>
     <string name="your_payment_is_declined">Your payment is declined</string>
     <string name="retry_payment">Retry payment</string>
+    <string name="expiration_date">Expiration date</string>
+    <string name="cvc2">CVC2</string>
+    <string name="scan">Scan card</string>
+    <string name="mmyy">MM/YY</string>
 </resources>

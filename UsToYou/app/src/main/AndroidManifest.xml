@@ -52,7 +52,8 @@
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
             android:name=".ConfirmationActivity"
-            android:theme="@style/Theme.UsToYouTheme" />
+            android:theme="@style/Theme.UsToYouTheme"
+            tools:ignore="DuplicateActivity" />
         <activity
             android:name=".WoodCutActivity"
             android:theme="@style/Theme.UsToYouTheme" />
@@ -66,6 +67,9 @@
             android:name=".ITSupportActivity"
             android:theme="@style/Theme.UsToYouTheme"
             tools:ignore="Instantiatable" />
+        <activity
+            android:name=".PaymentDetailsActivity"
+            android:theme="@style/Theme.UsToYouTheme" />
     </application>
 
 </manifest>
