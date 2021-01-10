@@ -39,7 +39,7 @@ class PaymentMethodActivity : AppCompatActivity() {
         val intent = Intent(this, YourTeachingServiceConfirmation::class.java)
 
         intent.putExtra("teachingOrder", teachingServiceOrderDetails)
-        if (radioButtonSelected == "cash") {
+        if (radioButtonSelected == "payment_method_cash") {
             intent.putExtra("cash", true)
         }
 
