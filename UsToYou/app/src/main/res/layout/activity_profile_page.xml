@@ -20,7 +20,7 @@
         android:id="@+id/changePicture"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="Change picture"
+        android:text="Change picture"
         android:textColor="@color/primaryLightColor"
         android:textSize="15sp"
         android:gravity="center"
