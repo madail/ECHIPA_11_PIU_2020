@@ -58,10 +58,5 @@
     <string name="mmyy">MM/YY</string>
     <string name="child_s_age">Child\'s Age</string>
     <string name="total_0">Total: 0$</string>
-    <string-array name="category_list">
-        <item>Therapy</item>
-        <item>Babysitting</item>
-        <item>Delivery</item>
-    </string-array>
-    <string name="category">Category</string>
+    <string name="save">Save</string>
 </resources>
