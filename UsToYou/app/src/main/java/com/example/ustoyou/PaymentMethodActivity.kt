@@ -31,16 +31,19 @@ class PaymentMethodActivity : AppCompatActivity() {
     fun confirm(view: View) {
         val teachingServiceOrderDetails = intent.getSerializableExtra("teachingOrder")
         val babysittingOrder = intent.getSerializableExtra("babySittingOrder")
+        val pizza = intent.getStringExtra("pizza")
 
         val radioGroup: RadioGroup = findViewById(R.id.payMethodRadioButtons)
         val radioButtonSelected = resources.getResourceEntryName(radioGroup.checkedRadioButtonId)
         Log.d("PAYMENT", radioButtonSelected)
 
-        val intent: Intent
-        if (teachingServiceOrderDetails == null) {
+        var intent: Intent = Intent()
+        if (teachingServiceOrderDetails == null && pizza != "pizza") {
             intent = Intent(this, YourOrderBabysittingConfirmation::class.java)
-        } else {
+        } else if (babysittingOrder == null && pizza != "pizza") {
             intent = Intent(this, YourTeachingServiceConfirmation::class.java)
+        } else if (pizza == "pizza") {
+            intent = Intent(this, ConfirmationActivity::class.java)
         }
 
         intent.putExtra("teachingOrder", teachingServiceOrderDetails)

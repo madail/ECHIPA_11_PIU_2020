@@ -30,7 +30,7 @@ class TeachingServiceAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(genericServices[position])
         holder.itemView.setOnClickListener {
-            val intent = Intent(holder.itemView.context, TeachingServiceDetails::class.java)
+            val intent: Intent = Intent(holder.itemView.context, TeachingServiceDetails::class.java)
             intent.putExtra("selectedTeachingService", genericServices[position])
             intent.putExtra("type", type)
             holder.itemView.context.startActivity(intent)

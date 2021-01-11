@@ -57,4 +57,5 @@
     <string name="scan">Scan card</string>
     <string name="mmyy">MM/YY</string>
     <string name="child_s_age">Child\'s Age</string>
+    <string name="total_0">Total: 0$</string>
 </resources>

@@ -25,7 +25,14 @@ class TeachingServiceDetails : AppCompatActivity() {
         descriptionText.text = teachingService.description
 
         val priceText: TextView = findViewById(R.id.priceValueTeachingService)
-        priceText.text = "${teachingService.price}$"
+
+        if (intent.getStringExtra("type") == "delivery") {
+            val price: TextView = findViewById(R.id.priceTeachingService)
+            priceText.visibility = View.GONE
+            price.visibility = View.GONE
+        } else {
+            priceText.text = "${teachingService.price}$"
+        }
 
         val titleText: TextView = findViewById(R.id.titleTeachingSubject)
         titleText.text = teachingService.titleSubject
@@ -35,6 +42,9 @@ class TeachingServiceDetails : AppCompatActivity() {
         val type = intent.getStringExtra("type")
         if (type == "babysitting") {
             val intent = Intent(this, YourOrderBabysittingActivity::class.java)
+            startActivity(intent)
+        } else if (type == "delivery") {
+            val intent = Intent(this, YourPizzaDeliveryActivity::class.java)
             startActivity(intent)
         } else {
             val intent = Intent(this, YourTeachingServiceOrder::class.java)

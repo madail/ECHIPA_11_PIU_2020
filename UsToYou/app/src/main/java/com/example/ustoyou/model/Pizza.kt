@@ -1,9 +1,10 @@
 package com.example.ustoyou.model
 
 data class Pizza(
-    var imageRes: String,
+    var imageRes: Int,
     var ingredients: String,
     var pizzaName: String,
-    var price: Int
+    var price: Int,
+    var isChosen: Boolean
 ) {
 }
