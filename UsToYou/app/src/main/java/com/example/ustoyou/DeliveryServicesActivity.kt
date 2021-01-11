@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.ustoyou.adapters.TeachingServiceAdapter
+import com.example.ustoyou.adapters.ServiceAdapter
 import com.example.ustoyou.model.DeliveryServices
 
 class DeliveryServicesActivity : AppCompatActivity() {
@@ -16,7 +16,7 @@ class DeliveryServicesActivity : AppCompatActivity() {
         val layoutManager: RecyclerView.LayoutManager =
             GridLayoutManager(this, 2)
         recyclerView.layoutManager = layoutManager
-        val adapter = TeachingServiceAdapter(
+        val adapter = ServiceAdapter(
             DeliveryServices().getDeliveryServices(),
             this,
             "delivery"
