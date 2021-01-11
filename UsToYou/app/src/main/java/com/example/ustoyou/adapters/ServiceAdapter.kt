@@ -9,15 +9,15 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ustoyou.R
-import com.example.ustoyou.TeachingServiceDetails
+import com.example.ustoyou.ServiceDetails
 import com.example.ustoyou.model.GenericService
 
-class TeachingServiceAdapter(
+class ServiceAdapter(
     var genericServices: ArrayList<GenericService>,
     var context: Context,
     var type: String
 ) :
-    RecyclerView.Adapter<TeachingServiceAdapter.ViewHolder>() {
+    RecyclerView.Adapter<ServiceAdapter.ViewHolder>() {
 
     private val inflater: LayoutInflater =
         context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -30,9 +30,10 @@ class TeachingServiceAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(genericServices[position])
         holder.itemView.setOnClickListener {
-            val intent: Intent = Intent(holder.itemView.context, TeachingServiceDetails::class.java)
+            val intent: Intent = Intent(holder.itemView.context, ServiceDetails::class.java)
             intent.putExtra("selectedTeachingService", genericServices[position])
             intent.putExtra("type", type)
+            intent.putExtra("typeOfDelivery",position)
             holder.itemView.context.startActivity(intent)
         }
     }
