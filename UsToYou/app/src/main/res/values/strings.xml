@@ -63,4 +63,5 @@
         <item>Babysitting</item>
         <item>Delivery</item>
     </string-array>
+    <string name="category">Category</string>
 </resources>

@@ -10,11 +10,12 @@
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="100dp"
+        android:layout_width="200dp"
         android:layout_height="50dp"
         android:drawSelectorOnTop="true"
         android:background="@drawable/border"
-        android:spinnerMode="dropdown"/>
+        android:prompt="@string/category"
+        android:spinnerMode="dropdown" />
 
     <Button
         android:id="@+id/categoryContinue"

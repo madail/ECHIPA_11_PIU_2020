@@ -12,6 +12,8 @@ class Category : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_category)
+        supportActionBar?.title = "Create a new service"
+
 
         val categories = resources.getStringArray(R.array.category_list)
 
