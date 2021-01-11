@@ -5,15 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 
-class TherapyServiceForm2 : AppCompatActivity() {
+class MyServicesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_therapy_service_form2)
-        supportActionBar?.title = "New therapy service"
+        setContentView(R.layout.activity_my_services)
     }
 
-    fun continueToNextActivity(view:View) {
-        val intent = Intent(this, ConfirmService::class.java)
+    fun addService(view: View){
+        val intent = Intent(this, CategoryActivity::class.java)
         startActivity(intent)
     }
 }

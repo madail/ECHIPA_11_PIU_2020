@@ -6,7 +6,7 @@ import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 
-class Category : AppCompatActivity() {
+class CategoryActivity : AppCompatActivity() {
 
     var selectedPosition: Int = 0;
 
@@ -37,16 +37,15 @@ class Category : AppCompatActivity() {
 
     fun launchNextActivity(view: View) {
         if(selectedPosition == 0) {
-            val intent = Intent(this, TherapyServiceForm1::class.java)
+            val intent = Intent(this, TherapyServiceForm1Activity::class.java)
             startActivity(intent)
         }
         if(selectedPosition == 1) {
-            Toast.makeText(this@Category,
-                "1", Toast.LENGTH_SHORT).show()
+
         }
         if(selectedPosition == 2) {
-            Toast.makeText(this@Category,
-                "2", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, DeliveryServiceFormActivity::class.java)
+            startActivity(intent)
         }
     }
 }
