@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfilePage">
+
+    <ImageView
+        android:id="@+id/profilePicture"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/profile_picture"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/changePicture"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Change picture"
+        android:textColor="@color/primaryLightColor"
+        android:textSize="15sp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/profilePicture"
+        app:layout_constraintBottom_toTopOf="@+id/profileFirstName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/profileFirstName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textColor="@color/primaryDarkColor"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:inputType="text"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:hint="@string/first_name"
+        app:layout_constraintTop_toBottomOf="@id/changePicture"/>
+
+    <EditText
+        android:id="@+id/profileLastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textColor="@color/primaryDarkColor"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:inputType="text"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:hint="@string/last_name"
+        app:layout_constraintTop_toBottomOf="@id/profileFirstName"/>
+
+    <EditText
+        android:id="@+id/profilePhoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textColor="@color/primaryDarkColor"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:inputType="text"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:hint="@string/phone_number"
+        app:layout_constraintTop_toBottomOf="@id/profileLastName"
+        tools:ignore="TextFields" />
+
+    <EditText
+        android:id="@+id/profileEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textColor="@color/primaryDarkColor"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:inputType="text"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:hint="@string/email"
+        app:layout_constraintTop_toBottomOf="@id/profilePhoneNumber"
+        tools:ignore="TextFields" />
+
+    <EditText
+        android:id="@+id/profileBirthday"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textColor="@color/primaryDarkColor"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:inputType="text"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:hint="@string/birthday"
+        app:layout_constraintTop_toBottomOf="@id/profileEmail"/>
+
+    <Button
+        android:id="@+id/signInButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/radius_dark_button"
+        android:onClick="save"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp"
+        android:text="@string/save"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/profilePicture"
+        app:layout_constraintTop_toBottomOf="@id/profileBirthday"
+        app:layout_constraintVertical_bias="0.506" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
