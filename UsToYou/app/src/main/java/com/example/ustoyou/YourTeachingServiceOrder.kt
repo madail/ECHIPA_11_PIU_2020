@@ -54,6 +54,7 @@ class YourTeachingServiceOrder : AppCompatActivity() {
         val phoneEditText: EditText = findViewById(R.id.yourTeachingOrderPhoneEditText)
         val addressEditText: EditText = findViewById(R.id.yourTeachingOrderAddressEditText)
         val dateEditText: EditText = findViewById(R.id.yourTeachingOrderDateEditText)
+        val image: Int = intent.getIntExtra("image",-1)
 
         val isValid = validateDetails(
             nameEditText,
@@ -75,7 +76,7 @@ class YourTeachingServiceOrder : AppCompatActivity() {
             )
 
             intent.putExtra("teachingOrder", teachingServiceOrder)
-
+            intent.putExtra("image",image)
             startActivity(intent)
         }
     }

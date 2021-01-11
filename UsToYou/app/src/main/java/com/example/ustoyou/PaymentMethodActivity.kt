@@ -9,6 +9,7 @@ import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
+import com.example.ustoyou.model.Order
 
 class PaymentMethodActivity : AppCompatActivity() {
 
@@ -32,28 +33,36 @@ class PaymentMethodActivity : AppCompatActivity() {
         val teachingServiceOrderDetails = intent.getSerializableExtra("teachingOrder")
         val babysittingOrder = intent.getSerializableExtra("babySittingOrder")
         val pizza = intent.getStringExtra("pizza")
+        val image: Int = intent.getIntExtra("image", -1)
 
         val radioGroup: RadioGroup = findViewById(R.id.payMethodRadioButtons)
         val radioButtonSelected = resources.getResourceEntryName(radioGroup.checkedRadioButtonId)
         Log.d("PAYMENT", radioButtonSelected)
 
-        var intent: Intent = Intent()
+        var intent1: Intent = Intent()
         if (teachingServiceOrderDetails == null && pizza != "pizza") {
-            intent = Intent(this, YourOrderBabysittingConfirmation::class.java)
+            intent1 = Intent(this, YourOrderBabysittingConfirmation::class.java)
         } else if (babysittingOrder == null && pizza != "pizza") {
-            intent = Intent(this, YourTeachingServiceConfirmation::class.java)
+            intent1 = Intent(this, YourTeachingServiceConfirmation::class.java)
         } else if (pizza == "pizza") {
-            intent = Intent(this, ConfirmationActivity::class.java)
+            intent1 = Intent(this, ConfirmationActivity::class.java)
+            var name = intent.getStringExtra("name")
+            if (name == null) {
+                name = ""
+            }
+            val order = Order("Delivery", name, intent.getIntExtra("image", -1))
+            intent1.putExtra("order", order)
         }
 
-        intent.putExtra("teachingOrder", teachingServiceOrderDetails)
-        intent.putExtra("babySittingOrder", babysittingOrder)
+        intent1.putExtra("teachingOrder", teachingServiceOrderDetails)
+        intent1.putExtra("babySittingOrder", babysittingOrder)
+        intent1.putExtra("image", image)
 
         if (radioButtonSelected == "payment_method_cash") {
-            intent.putExtra("cash", true)
+            intent1.putExtra("cash", true)
         }
 
-        startActivity(intent)
+        startActivity(intent1)
     }
 
 
