@@ -7,6 +7,7 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ustoyou.model.BabysittingOrder
+import com.example.ustoyou.model.Order
 
 class YourOrderBabysittingConfirmation : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,7 +54,10 @@ class YourOrderBabysittingConfirmation : AppCompatActivity() {
     }
 
     fun order(view: View) {
-        val intent = Intent(this, ConfirmationActivity::class.java)
-        startActivity(intent)
+        val intent1 = Intent(this, ConfirmationActivity::class.java)
+        val babysittingOrder = intent.getSerializableExtra("babySittingOrder") as BabysittingOrder
+        val order = Order("Babysitting",babysittingOrder.name, intent.getIntExtra("image",-1))
+        intent1.putExtra("order",order)
+        startActivity(intent1)
     }
 }

@@ -12,6 +12,9 @@
         <activity android:name=".ProfilePage"
             android:theme="@style/Theme.UsToYouTheme"/>
         <activity
+            android:name=".MyOrdersActivity"
+            android:theme="@style/Theme.UsToYouTheme" />
+        <activity
             android:name=".YourOrderBabysittingConfirmation"
             android:theme="@style/Theme.UsToYouTheme" />
         <activity

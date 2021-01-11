@@ -5,6 +5,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import com.example.ustoyou.model.Order
+import com.example.ustoyou.model.Orders
 
 
 class ConfirmationActivity : AppCompatActivity() {
@@ -14,9 +16,9 @@ class ConfirmationActivity : AppCompatActivity() {
     }
 
     fun home(view: View) {
-
-        val intent = Intent(this, MainActivity::class.java)
-
+        val order = intent.getSerializableExtra("order") as Order
+        Orders.addOrder(order)
+        val intent = Intent(this, MyOrdersActivity::class.java)
         startActivity(intent)
     }
 }
