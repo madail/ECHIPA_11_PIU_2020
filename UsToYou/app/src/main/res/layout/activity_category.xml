@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity = "center"
+    tools:context=".Category">
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:drawSelectorOnTop="true"
+        android:background="@drawable/border"
+        android:spinnerMode="dropdown"/>
+
+    <Button
+        android:id="@+id/categoryContinue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/radius_primary_button"
+        android:onClick="launchNextActivity"
+        android:paddingStart="30dp"
+        android:paddingEnd="30dp"
+        android:layout_marginBottom="70dp"
+        android:text="Continue"
+        android:textColor="@color/white" />
+</LinearLayout>
