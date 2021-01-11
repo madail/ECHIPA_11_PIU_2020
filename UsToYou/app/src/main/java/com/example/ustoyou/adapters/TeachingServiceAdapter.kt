@@ -10,11 +10,12 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ustoyou.R
 import com.example.ustoyou.TeachingServiceDetails
-import com.example.ustoyou.model.TeachingService
+import com.example.ustoyou.model.GenericService
 
 class TeachingServiceAdapter(
-    var teachingServices: ArrayList<TeachingService>,
-    var context: Context
+    var genericServices: ArrayList<GenericService>,
+    var context: Context,
+    var type: String
 ) :
     RecyclerView.Adapter<TeachingServiceAdapter.ViewHolder>() {
 
@@ -22,26 +23,27 @@ class TeachingServiceAdapter(
         context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemView = inflater.inflate(R.layout.teaching_service_item, parent, false)
+        val itemView = inflater.inflate(R.layout.service_item, parent, false)
         return ViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(teachingServices[position])
+        holder.bind(genericServices[position])
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context, TeachingServiceDetails::class.java)
-            intent.putExtra("selectedTeachingService", teachingServices[position])
+            intent.putExtra("selectedTeachingService", genericServices[position])
+            intent.putExtra("type", type)
             holder.itemView.context.startActivity(intent)
         }
     }
 
     override fun getItemCount(): Int {
-        return teachingServices.size
+        return genericServices.size
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(item: TeachingService) {
+        fun bind(item: GenericService) {
             val title: TextView = itemView.findViewById(R.id.titleTeachingItem)
             val image: ImageView = itemView.findViewById(R.id.teachingServiceImage)
 

@@ -2,7 +2,7 @@ package com.example.ustoyou.model
 
 import java.io.Serializable
 
-data class TeachingService(
+data class GenericService(
     var imageRes: Int,
     var titleSubject: String,
     var description: String,

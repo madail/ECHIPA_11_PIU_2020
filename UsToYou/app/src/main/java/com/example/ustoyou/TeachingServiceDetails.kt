@@ -6,7 +6,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.ustoyou.model.TeachingService
+import com.example.ustoyou.model.GenericService
 
 class TeachingServiceDetails : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -14,7 +14,7 @@ class TeachingServiceDetails : AppCompatActivity() {
         setContentView(R.layout.activity_teaching_service_details)
 
         val teachingService =
-            intent.getSerializableExtra("selectedTeachingService") as TeachingService
+            intent.getSerializableExtra("selectedTeachingService") as GenericService
 
         supportActionBar?.title = teachingService.titleSubject
 
@@ -32,7 +32,13 @@ class TeachingServiceDetails : AppCompatActivity() {
     }
 
     fun orderNow(view: View) {
-        val intent = Intent(this, YourTeachingServiceOrder::class.java)
-        startActivity(intent)
+        val type = intent.getStringExtra("type")
+        if (type == "babysitting") {
+            val intent = Intent(this, YourOrderBabysittingActivity::class.java)
+            startActivity(intent)
+        } else {
+            val intent = Intent(this, YourTeachingServiceOrder::class.java)
+            startActivity(intent)
+        }
     }
 }
