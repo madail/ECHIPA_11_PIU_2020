@@ -13,6 +13,15 @@
             android:name=".UploadPhotoActivity"
             android:theme="@style/Theme.UsToYouTheme"/>
         <activity
+            android:name=".AccesVirtualLesson.VirtualLessonOrderDetails"
+            android:theme="@style/Theme.UsToYouTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".UploadFileActivity"
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
@@ -78,11 +87,7 @@
         <activity
             android:name=".SplashActivity"
             android:theme="@style/Theme.FullScreen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".RegisterActivity"
