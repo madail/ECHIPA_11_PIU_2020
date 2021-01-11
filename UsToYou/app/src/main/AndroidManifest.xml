@@ -40,7 +40,7 @@
             android:name=".BabySittingServiceActivity"
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
-            android:name=".YourPizzaDeliveryActivity"
+            android:name=".YourDeliveryActivity"
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
             android:name=".DeliveryServicesActivity"
@@ -61,7 +61,7 @@
             android:name=".YourTeachingServiceOrder"
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
-            android:name=".TeachingServiceDetails"
+            android:name=".ServiceDetails"
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
             android:name=".SplashActivity"

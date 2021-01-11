@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ustoyou.model.GenericService
 
-class TeachingServiceDetails : AppCompatActivity() {
+class ServiceDetails : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_teaching_service_details)
@@ -40,6 +40,8 @@ class TeachingServiceDetails : AppCompatActivity() {
 
     fun orderNow(view: View) {
         val type = intent.getStringExtra("type")
+        val typeDelivery = intent.getIntExtra("typeOfDelivery",-1)
+
         val teachingService =
             intent.getSerializableExtra("selectedTeachingService") as GenericService
         if (type == "babysitting") {
@@ -47,9 +49,10 @@ class TeachingServiceDetails : AppCompatActivity() {
             intent.putExtra("image",teachingService.imageRes)
             startActivity(intent)
         } else if (type == "delivery") {
-            val intent = Intent(this, YourPizzaDeliveryActivity::class.java)
+            val intent = Intent(this, YourDeliveryActivity::class.java)
             intent.putExtra("image",teachingService.imageRes)
             intent.putExtra("name",teachingService.titleSubject)
+            intent.putExtra("typeOfDelivery",typeDelivery)
             startActivity(intent)
         } else {
             val intent = Intent(this, YourTeachingServiceOrder::class.java)

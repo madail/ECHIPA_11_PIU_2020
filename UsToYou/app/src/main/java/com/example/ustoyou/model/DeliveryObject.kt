@@ -1,6 +1,6 @@
 package com.example.ustoyou.model
 
-data class Pizza(
+data class DeliveryObject(
     var imageRes: Int,
     var ingredients: String,
     var pizzaName: String,

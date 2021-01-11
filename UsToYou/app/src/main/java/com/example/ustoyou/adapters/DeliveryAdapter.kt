@@ -10,13 +10,13 @@ import android.widget.TextView
 import android.widget.ToggleButton
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ustoyou.R
-import com.example.ustoyou.model.Pizza
+import com.example.ustoyou.model.DeliveryObject
 
-class PizzaDeliveryAdapter(
-    var pizzaServices: ArrayList<Pizza>,
+class DeliveryAdapter(
+    var pizzaServices: ArrayList<DeliveryObject>,
     var context: Context
 ) :
-    RecyclerView.Adapter<PizzaDeliveryAdapter.ViewHolder>() {
+    RecyclerView.Adapter<DeliveryAdapter.ViewHolder>() {
 
     private val inflater: LayoutInflater =
         context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -39,7 +39,7 @@ class PizzaDeliveryAdapter(
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bind(item: Pizza, context: Context) {
+        fun bind(item: DeliveryObject, context: Context) {
             val title: TextView = itemView.findViewById(R.id.pizzaTitleItem)
             val image: ImageView = itemView.findViewById(R.id.pizzaServiceImage)
             val ingredients: TextView = itemView.findViewById(R.id.pizzaIngredientsItem)
