@@ -11,7 +11,7 @@ class ConfirmServiceActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        val intent = Intent(this, ProfilePageActivity::class.java)
+        val intent = Intent(this, MyServicesActivity::class.java)
         startActivity(intent)
     }
 }

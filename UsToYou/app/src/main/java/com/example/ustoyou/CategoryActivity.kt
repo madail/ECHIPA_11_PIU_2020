@@ -41,12 +41,11 @@ class CategoryActivity : AppCompatActivity() {
             startActivity(intent)
         }
         if(selectedPosition == 1) {
-            Toast.makeText(this@CategoryActivity,
-                "1", Toast.LENGTH_SHORT).show()
+
         }
         if(selectedPosition == 2) {
-            Toast.makeText(this@CategoryActivity,
-                "2", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, DeliveryServiceFormActivity::class.java)
+            startActivity(intent)
         }
     }
 }
