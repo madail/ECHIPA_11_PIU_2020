@@ -8,10 +8,10 @@
     tools:context=".DeliveryServiceFormActivity">
 
     <TextView
-        android:id="@+id/deliveryServiceNameText"
+        android:id="@+id/deliveryServiceTitleText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/name"
+        android:text="@string/title"
         android:textColor="@color/primaryDarkColor"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
@@ -19,7 +19,7 @@
         android:textSize="18sp"/>
 
     <EditText
-        android:id="@+id/deliveryServiceNameEditText"
+        android:id="@+id/deliveryServiceTitleEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -29,7 +29,7 @@
         android:layout_marginStart="20dp"
         android:inputType="text"
         android:textSize="18sp"
-        android:hint="@string/your_name"/>
+        android:hint="@string/service_title"/>
 
     <TextView
         android:id="@+id/deliveryServiceDescriptionText"
@@ -74,33 +74,36 @@
             android:onClick="onRadioButtonClicked"/>
     </RadioGroup>
 
+    <TextView
+        android:id="@+id/deliveryServicePriceText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/price"
+        android:textColor="@color/primaryDarkColor"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:textSize="18sp"/>
+
+    <EditText
+        android:id="@+id/deliveryServicePriceEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textColor="@color/primaryDarkColor"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:inputType="text"
+        android:textSize="18sp"
+        android:hint="@string/service_price"/>
+
     <ImageView
         android:id="@+id/image_display"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center"/>
 
-    <RelativeLayout
-        android:layout_alignParentBottom="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <EditText
-            android:id="@+id/image_name"
-            android:layout_width="match_parent"
-            android:hint="image uri"
-            android:layout_marginRight="100dp"
-            android:editable="false"
-            android:layout_height="wrap_content" />
-        <Button
-            android:id="@+id/add_image"
-            android:layout_width="wrap_content"
-            android:text="Add Image"
-            android:onClick="fetchImageFromGallery"
-            android:background="@drawable/radius_dark_button"
-            android:textColor="@color/white"
-            android:layout_alignParentRight="true"
-            android:layout_height="wrap_content" />
-    </RelativeLayout>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

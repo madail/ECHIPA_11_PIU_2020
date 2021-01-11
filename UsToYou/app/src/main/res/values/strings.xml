@@ -74,4 +74,9 @@
     <string name="succesfully_created_service">Succesfully created service!</string>
     <string name="drone">Drone</string>
     <string name="car">Car</string>
+    <string name="title">Title</string>
+    <string name="service_title">Service title</string>
+    <string name="service_price">Service price</string>
+    <string name="service_description">Service description</string>
+    <string name="your_phone_number">Your phone number</string>
 </resources>

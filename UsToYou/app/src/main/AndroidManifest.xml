@@ -10,8 +10,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true">
         <activity
-            android:name=".DeliveryServiceFormActivity"
+            android:name=".UploadPhotoActivity"
             android:theme="@style/Theme.UsToYouTheme"/>
+        <activity
+            android:name=".UploadFileActivity"
+            android:theme="@style/Theme.UsToYouTheme" />
+        <activity
+            android:name=".BabysittingServiceFormActivity"
+            android:theme="@style/Theme.UsToYouTheme" />
+        <activity
+            android:name=".DeliveryServiceFormActivity"
+            android:theme="@style/Theme.UsToYouTheme" />
         <activity
             android:name=".ConfirmServiceActivity"
             android:theme="@style/Theme.UsToYouTheme" />
