@@ -32,7 +32,13 @@ class TeachingServiceDetails : AppCompatActivity() {
     }
 
     fun orderNow(view: View) {
-        val intent = Intent(this, YourTeachingServiceOrder::class.java)
-        startActivity(intent)
+        val type = intent.getStringExtra("type")
+        if (type == "babysitting") {
+            val intent = Intent(this, YourOrderBabysittingActivity::class.java)
+            startActivity(intent)
+        } else {
+            val intent = Intent(this, YourTeachingServiceOrder::class.java)
+            startActivity(intent)
+        }
     }
 }

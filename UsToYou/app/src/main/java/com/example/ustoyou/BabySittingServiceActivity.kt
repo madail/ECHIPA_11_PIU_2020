@@ -5,23 +5,23 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ustoyou.adapters.TeachingServiceAdapter
-import com.example.ustoyou.model.DeliveryServices
+import com.example.ustoyou.model.BabysittingServices
 
-class DeliveryServicesActivity : AppCompatActivity() {
+class BabySittingServiceActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_delivery_services)
+        setContentView(R.layout.activity_baby_sitting_service)
 
         val recyclerView: RecyclerView = findViewById(R.id.rvBabySittingServices)
         val layoutManager: RecyclerView.LayoutManager =
             GridLayoutManager(this, 2)
         recyclerView.layoutManager = layoutManager
         val adapter = TeachingServiceAdapter(
-            DeliveryServices().getDeliveryServices(),
+            BabysittingServices().getBabysittingServices(),
             this,
-            "delivery"
+            "babysitting"
         )
-        supportActionBar?.title = "Delivery Services"
+        supportActionBar?.title = "Babysitting Services"
 
         recyclerView.adapter = adapter
     }

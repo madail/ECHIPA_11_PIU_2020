@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".YourTeachingServiceConfirmation">
+    tools:context=".YourOrderBabysittingActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,7 +13,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/yourTeachingOrderConfirmationNameText"
+            android:id="@+id/yourBabysittingOrderNameText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/name"
@@ -24,7 +24,7 @@
             android:textSize="18sp"/>
 
         <EditText
-            android:id="@+id/yourTeachingOrderConfirmationNameEditText"
+            android:id="@+id/yourBabysittingOrderNameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -32,14 +32,12 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:layout_marginStart="20dp"
-            android:inputType="none"
+            android:inputType="text"
             android:textSize="18sp"
-            android:focusable="false"
-            android:clickable="false"
             android:hint="@string/your_name"/>
 
         <TextView
-            android:id="@+id/yourTeachingOrderConfirmationPhoneText"
+            android:id="@+id/yourBabysittingOrderPhoneText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/phone"
@@ -50,7 +48,7 @@
             android:textSize="18sp"/>
 
         <EditText
-            android:id="@+id/yourTeachingOrderConfirmationPhoneEditText"
+            android:id="@+id/yourBabysittingOrderPhoneEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -59,39 +57,11 @@
             android:layout_marginEnd="20dp"
             android:layout_marginStart="20dp"
             android:textSize="18sp"
-            android:inputType="none"
-            android:focusable="false"
-            android:clickable="false"
+            android:inputType="phone"
             android:hint="@string/phone_number"/>
 
         <TextView
-            android:id="@+id/yourTeachingOrderConfirmationTypeText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/type"
-            android:textColor="@color/primaryDarkColor"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginStart="20dp"
-            android:textSize="18sp"/>
-
-        <EditText
-            android:id="@+id/yourTeachingOrderConfirmationTypeEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:textColor="@color/primaryDarkColor"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginStart="20dp"
-            android:textSize="18sp"
-            android:inputType="none"
-            android:focusable="false"
-            android:clickable="false"
-            android:hint="@string/select_online_or_onsite"/>
-
-        <TextView
-            android:id="@+id/yourTeachingOrderConfirmationAddressText"
+            android:id="@+id/yourBabysittingOrderAddressText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/address"
@@ -102,13 +72,11 @@
             android:textSize="18sp"/>
 
         <EditText
-            android:id="@+id/yourTeachingOrderConfirmationAddressEditText"
+            android:id="@+id/yourBabysittingOrderAddressEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="none"
-            android:focusable="false"
-            android:clickable="false"
+            android:inputType="text"
             android:textColor="@color/primaryDarkColor"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
@@ -117,7 +85,30 @@
             android:hint="@string/your_current_address"/>
 
         <TextView
-            android:id="@+id/yourTeachingOrderConfirmationDateText"
+            android:id="@+id/yourBabysittingOrderChildAgeText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/child_s_age"
+            android:textColor="@color/primaryDarkColor"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:textSize="18sp"/>
+        <EditText
+            android:id="@+id/yourBabysittingOrderChildAgeEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:hint="@string/child_s_age"
+            android:textSize="18sp"
+            android:inputType="number"
+            android:textColor="@color/primaryDarkColor"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/yourBabysittingOrderDateText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/date"
@@ -128,13 +119,11 @@
             android:textSize="18sp"/>
 
         <EditText
-            android:id="@+id/yourTeachingOrderConfirmationDateEditText"
+            android:id="@+id/yourBabysittingOrderDateEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="none"
-            android:focusable="false"
-            android:clickable="false"
+            android:inputType="datetime"
             android:textColor="@color/primaryDarkColor"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
@@ -142,68 +131,17 @@
             android:textSize="18sp"
             android:hint="@string/dd_mm_yyyy_hh_mm"/>
 
-        <TextView
-            android:id="@+id/yourTeachingOrderConfirmationCreditCardText"
-            android:layout_width="match_parent"
+        <Button
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/credit_card"
-            android:textColor="@color/primaryDarkColor"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginStart="20dp"
-            android:textSize="18sp"/>
-
-        <EditText
-            android:id="@+id/yourTeachingOrderConfirmationCreditCardEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="none"
-            android:textColor="@color/primaryDarkColor"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginStart="20dp"
-            android:textSize="18sp"
-            android:focusable="false"
-            android:clickable="false"
-            android:hint="@string/xxxx_xxxx_xxxx_xxxx_xxxx"/>
-
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginStart="20dp"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/yourTeachingOrderConfirmationBackButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/back"
-                android:onClick="back"
-                android:textAllCaps="false"
-                android:layout_gravity="start"
-                android:background="@drawable/radius_dark_button"
-                android:textColor="@color/white"
-                android:padding="10dp"
-                />
-
-            <Button
-                android:id="@+id/yourTeachingOrderConfirmationConfirmButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:background="@drawable/radius_dark_button"
-                android:onClick="order"
-                android:padding="10dp"
-                android:text="@string/confirm"
-                android:textAllCaps="false"
-                android:textColor="@color/white" />
-
-
-        </FrameLayout>
-
+            android:text="@string/payment_method"
+            android:onClick="payOrder"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/radius_dark_button"
+            android:textColor="@color/white"
+            android:padding="10dp"
+            />
 
     </LinearLayout>
 
