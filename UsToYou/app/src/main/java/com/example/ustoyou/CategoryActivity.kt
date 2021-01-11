@@ -41,7 +41,8 @@ class CategoryActivity : AppCompatActivity() {
             startActivity(intent)
         }
         if(selectedPosition == 1) {
-
+            val intent = Intent(this, BabysittingServiceFormActivity::class.java)
+            startActivity(intent)
         }
         if(selectedPosition == 2) {
             val intent = Intent(this, DeliveryServiceFormActivity::class.java)

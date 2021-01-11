@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".TherapyServiceForm2Activity">
+    tools:context=".BabysittingServiceFormActivity">
 
     <TextView
-        android:id="@+id/therapyServicePriceText"
+        android:id="@+id/babysittingServiceTitleText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/price"
+        android:text="@string/title"
         android:textColor="@color/primaryDarkColor"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
@@ -19,7 +19,7 @@
         android:textSize="18sp"/>
 
     <EditText
-        android:id="@+id/therapyServiceNameEditText"
+        android:id="@+id/babysittingServiceTitleEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -29,10 +29,10 @@
         android:layout_marginStart="20dp"
         android:inputType="text"
         android:textSize="18sp"
-        android:hint="@string/service_price"/>
+        android:hint="@string/service_title"/>
 
     <TextView
-        android:id="@+id/therapyServiceCityText"
+        android:id="@+id/babysittingServiceCityText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/city"
@@ -43,7 +43,7 @@
         android:textSize="18sp"/>
 
     <EditText
-        android:id="@+id/therapyServiceCityEditText"
+        android:id="@+id/babysittingServiceCityEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -56,63 +56,52 @@
         android:hint="@string/city"/>
 
     <TextView
-        android:id="@+id/therapyServiceContactInfoText"
+        android:id="@+id/babysittingServiceAgeText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Contact information"
+        android:text="@string/child_s_age"
         android:textColor="@color/primaryDarkColor"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
         android:textSize="18sp"/>
 
-    <TextView
-        android:id="@+id/therapyServicePhoneText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/phone_number"
-        android:textColor="@color/primaryDarkColor"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="30dp"
-        android:textSize="15sp"/>
-
     <EditText
-        android:id="@+id/therapyServicePhoneEditText"
+        android:id="@+id/babysittingServiceAgeEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:textColor="@color/primaryDarkColor"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginStart="30dp"
-        android:inputType="phone"
-        android:textSize="15sp"
-        android:hint="@string/your_phone_number"/>
-
-    <TextView
-        android:id="@+id/therapyServiceEmailText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/e_mail"
-        android:textColor="@color/primaryDarkColor"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="30dp"
-        android:textSize="15sp"/>
-
-    <EditText
-        android:id="@+id/therapyServiceEmailEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:textColor="@color/primaryDarkColor"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="30dp"
+        android:layout_marginStart="20dp"
         android:inputType="text"
-        android:textSize="15sp"
-        android:hint="Your e-mail"/>
+        android:textSize="18sp"
+        android:hint="@string/child_s_age"/>
+
+    <TextView
+        android:id="@+id/babysittingServicePriceText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/price"
+        android:textColor="@color/primaryDarkColor"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:textSize="18sp"/>
+
+    <EditText
+        android:id="@+id/babysittingServicePriceEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textColor="@color/primaryDarkColor"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:inputType="text"
+        android:textSize="18sp"
+        android:hint="@string/service_price"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -125,5 +114,4 @@
         android:textColor="@color/white"
         android:padding="10dp"
         />
-
 </LinearLayout>
