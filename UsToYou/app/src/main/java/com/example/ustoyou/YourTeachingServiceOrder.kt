@@ -2,17 +2,25 @@ package com.example.ustoyou
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.EditText
 import android.widget.Spinner
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import com.example.ustoyou.model.TeachingServiceOrderDetails
+import com.google.android.material.navigation.NavigationView
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 
-class YourTeachingServiceOrder : AppCompatActivity() {
+class YourTeachingServiceOrder : AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener{
+    private lateinit var drawerLayout: DrawerLayout
+    private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
+
     var types = arrayOf<String>("Online", "Onsite")
     lateinit var spinner: Spinner
 
@@ -47,6 +55,20 @@ class YourTeachingServiceOrder : AppCompatActivity() {
                 spinner.setSelection(1)
             }
         }
+
+        drawerLayout = findViewById(R.id.drawerLayout)
+        actionBarDrawerToggle = ActionBarDrawerToggle(
+            this,
+            drawerLayout,
+            R.string.open,
+            R.string.close
+        )
+        drawerLayout.addDrawerListener(actionBarDrawerToggle)
+        actionBarDrawerToggle.syncState()
+
+        setNavigationViewListener()
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     fun payOrder(view: View) {
@@ -127,5 +149,29 @@ class YourTeachingServiceOrder : AppCompatActivity() {
 
 
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
+            return true
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.my_services) {
+            val intent = Intent(this, TeachingServiceActivity::class.java)
+            startActivity(intent)
+
+        }
+
+        drawerLayout.closeDrawer(GravityCompat.START)
+        return true
+    }
+
+    private fun setNavigationViewListener() {
+        val navigationView: NavigationView = findViewById(R.id.navigationView)
+        navigationView.setNavigationItemSelectedListener(this)
     }
 }
