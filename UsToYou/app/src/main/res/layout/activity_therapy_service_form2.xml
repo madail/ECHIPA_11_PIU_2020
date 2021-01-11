@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".TherapyServiceForm2">
+
+    <TextView
+        android:id="@+id/therapyServicePriceText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/price"
+        android:textColor="@color/primaryDarkColor"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:textSize="18sp"/>
+
+    <EditText
+        android:id="@+id/therapyServiceNameEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textColor="@color/primaryDarkColor"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:inputType="text"
+        android:textSize="18sp"
+        android:hint="@string/price"/>
+
+    <TextView
+        android:id="@+id/therapyServiceCityText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/city"
+        android:textColor="@color/primaryDarkColor"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:textSize="18sp"/>
+
+    <EditText
+        android:id="@+id/therapyServiceDescriptionEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textColor="@color/primaryDarkColor"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:inputType="text"
+        android:textSize="18sp"
+        android:hint="@string/city"/>
+
+    <TextView
+        android:id="@+id/therapyServiceContactInfoText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Contact information"
+        android:textColor="@color/primaryDarkColor"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/therapyServicePhoneText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/phone_number"
+        android:textColor="@color/primaryDarkColor"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="30dp"
+        android:textSize="15sp"/>
+
+    <EditText
+        android:id="@+id/therapyServicePhoneEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textColor="@color/primaryDarkColor"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="30dp"
+        android:inputType="phone"
+        android:textSize="15sp"
+        android:hint="@string/phone_number"/>
+
+    <TextView
+        android:id="@+id/therapyServiceEmailText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/e_mail"
+        android:textColor="@color/primaryDarkColor"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="30dp"
+        android:textSize="15sp"/>
+
+    <EditText
+        android:id="@+id/therapyServiceEmailEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:textColor="@color/primaryDarkColor"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="30dp"
+        android:inputType="text"
+        android:textSize="15sp"
+        android:hint="@string/e_mail"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Continue"
+        android:onClick="continueToNextActivity"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/radius_dark_button"
+        android:textColor="@color/white"
+        android:padding="10dp"
+        />
+
+</LinearLayout>

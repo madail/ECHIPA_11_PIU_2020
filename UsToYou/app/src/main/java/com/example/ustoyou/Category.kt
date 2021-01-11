@@ -1,5 +1,6 @@
 package com.example.ustoyou
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.*
@@ -14,7 +15,6 @@ class Category : AppCompatActivity() {
         setContentView(R.layout.activity_category)
         supportActionBar?.title = "Create a new service"
 
-
         val categories = resources.getStringArray(R.array.category_list)
 
         val spinner = findViewById<Spinner>(R.id.spinner)
@@ -25,8 +25,7 @@ class Category : AppCompatActivity() {
 
         spinner.onItemSelectedListener = object :
             AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>,
-                                        view: View, position: Int, id: Long) {
+            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
                 selectedPosition = position;
             }
 
@@ -38,8 +37,8 @@ class Category : AppCompatActivity() {
 
     fun launchNextActivity(view: View) {
         if(selectedPosition == 0) {
-            Toast.makeText(this@Category,
-                "0", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, TherapyServiceForm1::class.java)
+            startActivity(intent)
         }
         if(selectedPosition == 1) {
             Toast.makeText(this@Category,
@@ -49,6 +48,5 @@ class Category : AppCompatActivity() {
             Toast.makeText(this@Category,
                 "2", Toast.LENGTH_SHORT).show()
         }
-
     }
 }
