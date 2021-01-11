@@ -9,8 +9,24 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true">
-        <activity android:name=".ProfilePage"
-            android:theme="@style/Theme.UsToYouTheme"/>
+        <activity
+            android:name=".ConfirmService"
+            android:theme="@style/Theme.UsToYouTheme"></activity>
+        <activity
+            android:name=".TherapyServiceForm2"
+            android:theme="@style/Theme.UsToYouTheme" />
+        <activity
+            android:name=".TherapyServiceForm1"
+            android:theme="@style/Theme.UsToYouTheme" />
+        <activity
+            android:name=".ProfilePage"
+            android:theme="@style/Theme.UsToYouTheme" />
+        <activity
+            android:name=".Category"
+            android:theme="@style/Theme.UsToYouTheme" />
+        <activity
+            android:name=".MyServices"
+            android:theme="@style/Theme.UsToYouTheme" />
         <activity
             android:name=".MyOrdersActivity"
             android:theme="@style/Theme.UsToYouTheme" />

@@ -59,4 +59,17 @@
     <string name="child_s_age">Child\'s Age</string>
     <string name="total_0">Total: 0$</string>
     <string name="save">Save</string>
+    <string-array name="category_list">
+        <item>Therapy</item>
+        <item>Babysitting</item>
+        <item>Delivery</item>
+    </string-array>
+    <string name="category">Category</string>
+    <string name="description">Description</string>
+    <string name="face_to_face">Face to face</string>
+    <string name="virtual">Virtual</string>
+    <string name="your_description">Your description</string>
+    <string name="city">City</string>
+    <string name="e_mail">E-mail</string>
+    <string name="succesfully_created_service">Succesfully created service!</string>
 </resources>

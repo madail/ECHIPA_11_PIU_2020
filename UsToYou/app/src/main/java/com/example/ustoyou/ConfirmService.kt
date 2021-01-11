@@ -5,15 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 
-class ProfilePage : AppCompatActivity() {
+class ConfirmService : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_profile_page)
-        supportActionBar?.title = "My profile"
+        setContentView(R.layout.activity_confirm_service)
     }
 
-    fun save(view: View) {
-        val intent = Intent(this, MainActivity::class.java)
+    override fun onBackPressed() {
+        val intent = Intent(this, ProfilePage::class.java)
         startActivity(intent)
     }
 }
