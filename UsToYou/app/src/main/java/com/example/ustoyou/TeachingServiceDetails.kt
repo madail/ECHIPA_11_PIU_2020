@@ -40,14 +40,20 @@ class TeachingServiceDetails : AppCompatActivity() {
 
     fun orderNow(view: View) {
         val type = intent.getStringExtra("type")
+        val teachingService =
+            intent.getSerializableExtra("selectedTeachingService") as GenericService
         if (type == "babysitting") {
             val intent = Intent(this, YourOrderBabysittingActivity::class.java)
+            intent.putExtra("image",teachingService.imageRes)
             startActivity(intent)
         } else if (type == "delivery") {
             val intent = Intent(this, YourPizzaDeliveryActivity::class.java)
+            intent.putExtra("image",teachingService.imageRes)
+            intent.putExtra("name",teachingService.titleSubject)
             startActivity(intent)
         } else {
             val intent = Intent(this, YourTeachingServiceOrder::class.java)
+            intent.putExtra("image",teachingService.imageRes)
             startActivity(intent)
         }
     }

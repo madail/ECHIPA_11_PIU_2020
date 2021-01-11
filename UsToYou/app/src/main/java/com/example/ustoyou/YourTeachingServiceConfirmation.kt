@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.ustoyou.model.Order
 import com.example.ustoyou.model.TeachingServiceOrderDetails
 
 class YourTeachingServiceConfirmation : AppCompatActivity() {
@@ -44,8 +45,11 @@ class YourTeachingServiceConfirmation : AppCompatActivity() {
     }
 
     fun order(view: View) {
-        val intent = Intent(this, ConfirmationActivity::class.java)
-        startActivity(intent)
+        val teachingOrder = intent.getSerializableExtra("teachingOrder") as TeachingServiceOrderDetails
+        val intent1 = Intent(this, ConfirmationActivity::class.java)
+        val order = Order("Babysitting",teachingOrder.name, intent.getIntExtra("image",-1))
+        intent1.putExtra("order",order)
+        startActivity(intent1)
     }
 
     fun back(view: View) {

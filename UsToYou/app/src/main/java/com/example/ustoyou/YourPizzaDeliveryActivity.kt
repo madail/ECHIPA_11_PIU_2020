@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ustoyou.adapters.PizzaDeliveryAdapter
 import com.example.ustoyou.model.Pizzas
-import com.example.ustoyou.model.TeachingServiceOrderDetails
 
 class YourPizzaDeliveryActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,17 +36,11 @@ class YourPizzaDeliveryActivity : AppCompatActivity() {
 
         if (isValid) {
 
-            val intent = Intent(this, PaymentMethodActivity::class.java)
-
-//            val pizza = Pizza(
-//                name.text.toString(),
-//                phone.text.toString(),
-//                address.text.toString(),
-//            )
-//
-            intent.putExtra("pizza", "pizza")
-
-            startActivity(intent)
+            val intent1 = Intent(this, PaymentMethodActivity::class.java)
+            intent1.putExtra("pizza", "pizza")
+            intent1.putExtra("image", intent.getIntExtra("image",-1))
+            intent1.putExtra("name", intent.getStringExtra("name"))
+            startActivity(intent1)
         }
 
     }
