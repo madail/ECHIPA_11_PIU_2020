@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.my_services) {
-            val intent = Intent(this, DeliveryServicesActivity::class.java)
+            val intent = Intent(this, TeachingServiceActivity::class.java)
             startActivity(intent)
 
         }

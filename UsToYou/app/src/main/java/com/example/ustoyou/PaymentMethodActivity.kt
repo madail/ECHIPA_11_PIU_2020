@@ -3,15 +3,22 @@ package com.example.ustoyou
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Spinner
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import com.example.ustoyou.model.Order
+import com.google.android.material.navigation.NavigationView
 
-class PaymentMethodActivity : AppCompatActivity() {
+class PaymentMethodActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+    private lateinit var drawerLayout: DrawerLayout
+    private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
 
     lateinit var spinner: Spinner
     private val currency = arrayOf<String>("RON", "GBP", "EUR", "USD")
@@ -27,6 +34,20 @@ class PaymentMethodActivity : AppCompatActivity() {
         )
         currencyAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item)
         spinner.adapter = currencyAdapter
+
+        drawerLayout = findViewById(R.id.drawerLayout)
+        actionBarDrawerToggle = ActionBarDrawerToggle(
+            this,
+            drawerLayout,
+            R.string.open,
+            R.string.close
+        )
+        drawerLayout.addDrawerListener(actionBarDrawerToggle)
+        actionBarDrawerToggle.syncState()
+
+        setNavigationViewListener()
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     fun confirm(view: View) {
@@ -74,5 +95,29 @@ class PaymentMethodActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
+            return true
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.my_services) {
+            val intent = Intent(this, TeachingServiceActivity::class.java)
+            startActivity(intent)
+
+        }
+
+        drawerLayout.closeDrawer(GravityCompat.START)
+        return true
+    }
+
+    private fun setNavigationViewListener() {
+        val navigationView: NavigationView = findViewById(R.id.navigationView)
+        navigationView.setNavigationItemSelectedListener(this)
     }
 }

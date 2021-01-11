@@ -2,9 +2,13 @@ package com.example.ustoyou
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.GravityCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ustoyou.adapters.DeliveryAdapter
@@ -12,8 +16,12 @@ import com.example.ustoyou.model.DeliveryObject
 import com.example.ustoyou.model.Pizzas
 import com.example.ustoyou.model.Shoes
 import com.example.ustoyou.model.Sushi
+import com.google.android.material.navigation.NavigationView
 
-class YourDeliveryActivity : AppCompatActivity() {
+class YourDeliveryActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener{
+    private lateinit var drawerLayout: DrawerLayout
+    private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_your_delivery)
@@ -39,6 +47,20 @@ class YourDeliveryActivity : AppCompatActivity() {
 
         val linearLayoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         recyclerView.layoutManager = linearLayoutManager
+
+        drawerLayout = findViewById(R.id.drawerLayout)
+        actionBarDrawerToggle = ActionBarDrawerToggle(
+            this,
+            drawerLayout,
+            R.string.open,
+            R.string.close
+        )
+        drawerLayout.addDrawerListener(actionBarDrawerToggle)
+        actionBarDrawerToggle.syncState()
+
+        setNavigationViewListener()
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     fun payOrder(view: View) {
@@ -85,5 +107,29 @@ class YourDeliveryActivity : AppCompatActivity() {
         }
 
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
+            return true
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.my_services) {
+            val intent = Intent(this, TeachingServiceActivity::class.java)
+            startActivity(intent)
+
+        }
+
+        drawerLayout.closeDrawer(GravityCompat.START)
+        return true
+    }
+
+    private fun setNavigationViewListener() {
+        val navigationView: NavigationView = findViewById(R.id.navigationView)
+        navigationView.setNavigationItemSelectedListener(this)
     }
 }
