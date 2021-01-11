@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 
-class TherapyServiceForm2 : AppCompatActivity() {
+class TherapyServiceForm2Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_therapy_service_form2)
@@ -13,7 +13,7 @@ class TherapyServiceForm2 : AppCompatActivity() {
     }
 
     fun continueToNextActivity(view:View) {
-        val intent = Intent(this, ConfirmService::class.java)
+        val intent = Intent(this, ConfirmServiceActivity::class.java)
         startActivity(intent)
     }
 }

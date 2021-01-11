@@ -10,22 +10,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true">
         <activity
-            android:name=".ConfirmService"
+            android:name=".ConfirmServiceActivity"
             android:theme="@style/Theme.UsToYouTheme"></activity>
         <activity
-            android:name=".TherapyServiceForm2"
+            android:name=".TherapyServiceForm2Activity"
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
-            android:name=".TherapyServiceForm1"
+            android:name=".TherapyServiceForm1Activity"
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
-            android:name=".ProfilePage"
+            android:name=".ProfilePageActivity"
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
-            android:name=".Category"
+            android:name=".CategoryActivity"
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
-            android:name=".MyServices"
+            android:name=".MyServicesActivity"
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
             android:name=".MyOrdersActivity"
