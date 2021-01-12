@@ -19,8 +19,10 @@ class BabysittingServiceFormActivity : AppCompatActivity() {
     fun continueToNextActivity(view: View) {
         val name = findViewById<EditText>(R.id.babysittingServiceTitleEditText).text.toString()
         val category = "Babysitting";
-        val service = Service(name, category)
-        ServicesListSingleton.services.add(service)
+        if(name != "") {
+            val service = Service(name, category)
+            ServicesListSingleton.services.add(service)
+        }
         val intent = Intent(this, UploadFileActivity::class.java)
         startActivity(intent)
     }

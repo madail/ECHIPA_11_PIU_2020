@@ -25,9 +25,11 @@ class DeliveryServiceFormActivity : AppCompatActivity() {
 
     fun continueToConfirmation(view : View) {
         val name = findViewById<EditText>(R.id.deliveryServiceTitleEditText).text.toString()
-        val category = "Delivery";
-        val service = Service(name, category)
-        ServicesListSingleton.services.add(service)
+        val category = "Delivery"
+        if(name != "") {
+            val service = Service(name, category)
+            ServicesListSingleton.services.add(service)
+        }
         val intent = Intent(this, UploadPhotoActivity::class.java)
         startActivity(intent)
     }
