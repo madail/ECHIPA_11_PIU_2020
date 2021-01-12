@@ -20,13 +20,7 @@
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
             android:name=".VirtualLesson.VirtualLessonActivity"
-            android:theme="@style/Theme.UsToYouTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/Theme.UsToYouTheme"></activity>
         <activity
             android:name=".UploadFileActivity"
             android:theme="@style/Theme.UsToYouTheme" />
@@ -92,7 +86,13 @@
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
             android:name=".SplashActivity"
-            android:theme="@style/Theme.FullScreen" />
+            android:theme="@style/Theme.FullScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".RegisterActivity"
             android:theme="@style/Theme.FullScreen" />

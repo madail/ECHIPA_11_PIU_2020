@@ -12,7 +12,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun signUpGoogle(view: View) {
-        val intent = Intent(this, MainActivity::class.java)
+        val intent = Intent(this, CategoryActivity::class.java)
         startActivity(intent)
     }
 
@@ -22,7 +22,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun signIn(view: View) {
-        val intent = Intent(this, ITProvidersList::class.java)
+        val intent = Intent(this, CategoryActivity::class.java)
         startActivity(intent)
     }
 }
