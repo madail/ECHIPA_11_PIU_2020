@@ -19,7 +19,7 @@
         tools:ignore="MissingConstraints" />
 
     <EditText
-        android:id="@+id/wood_info_surfaceEditText"
+        android:id="@+id/wood_info_quantityEditText"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginStart="40dp"
@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Address:"
-        app:layout_constraintTop_toTopOf="@+id/wood_info_surfaceEditText"
+        app:layout_constraintTop_toTopOf="@+id/wood_info_quantityEditText"
         android:layout_marginTop="70dp"
         android:textColor="@color/primaryDarkColor"
         android:textSize="25sp"
