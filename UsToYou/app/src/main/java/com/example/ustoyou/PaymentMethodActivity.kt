@@ -19,7 +19,7 @@ import com.google.android.material.navigation.NavigationView
 class PaymentMethodActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
-
+    lateinit var activity: String
     lateinit var spinner: Spinner
     private val currency = arrayOf<String>("RON", "GBP", "EUR", "USD")
 
@@ -28,6 +28,8 @@ class PaymentMethodActivity : AppCompatActivity(), NavigationView.OnNavigationIt
         setContentView(R.layout.activity_payment_method)
 
         spinner = findViewById(R.id.payment_method_spinner)
+
+        activity = intent.getStringExtra("activity").toString()
 
         val currencyAdapter = ArrayAdapter(
             this, R.layout.support_simple_spinner_dropdown_item, currency
@@ -48,6 +50,8 @@ class PaymentMethodActivity : AppCompatActivity(), NavigationView.OnNavigationIt
         setNavigationViewListener()
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+
     }
 
     fun confirm(view: View) {

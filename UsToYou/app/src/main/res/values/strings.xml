@@ -79,4 +79,11 @@
     <string name="service_price">Service price</string>
     <string name="service_description">Service description</string>
     <string name="your_phone_number">Your phone number</string>
+    <string name="surface">Surface</string>
+    <string name="availability">Availability</string>
+    <string name="av">HH-HH DD/MM/YY</string>
+    <string name="quantity">Quantity</string>
+    <string name="id">TeamViewer ID</string>
+    <string name="passwordT">TeamViewer Password</string>
+
 </resources>

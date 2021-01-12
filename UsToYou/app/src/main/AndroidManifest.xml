@@ -123,6 +123,15 @@
         <activity
             android:name=".PaymentDetailsActivity"
             android:theme="@style/Theme.UsToYouTheme" />
+        <activity
+            android:name=".HarvestConfirmation"
+            android:theme="@style/Theme.UsToYouTheme" />
+        <activity
+            android:name=".WoodCuttingConfirmation"
+            android:theme="@style/Theme.UsToYouTheme" />
+        <activity
+            android:name=".ITConfirmation"
+            android:theme="@style/Theme.UsToYouTheme" />
     </application>
 
 </manifest>

@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ITConfirmation">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/itConfirmationNameText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/name"
+            android:textColor="@color/primaryDarkColor"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/itConfirmationNameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textColor="@color/primaryDarkColor"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:inputType="none"
+            android:textSize="18sp"
+            android:focusable="false"
+            android:clickable="false"
+            android:hint="@string/your_name"/>
+
+
+        <TextView
+            android:id="@+id/itConfirmationAddressText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/address"
+            android:textColor="@color/primaryDarkColor"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/itConfirmationAddressEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="none"
+            android:focusable="false"
+            android:clickable="false"
+            android:textColor="@color/primaryDarkColor"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:textSize="18sp"
+            android:hint="@string/your_current_address"/>
+
+        <TextView
+            android:id="@+id/itConfirmationPriceText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/price"
+            android:textColor="@color/primaryDarkColor"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/itConfirmationPriceEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textColor="@color/primaryDarkColor"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:textSize="18sp"
+            android:inputType="none"
+            android:focusable="false"
+            android:clickable="false"
+            android:hint="@string/service_price"/>
+
+        <TextView
+            android:id="@+id/itConfirmationAvailabilityText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/availability"
+            android:textColor="@color/primaryDarkColor"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/itConfirmationAvailabilityEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="none"
+            android:focusable="false"
+            android:clickable="false"
+            android:textColor="@color/primaryDarkColor"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:textSize="18sp"
+            android:hint="@string/av"/>
+
+        <TextView
+            android:id="@+id/itConfirmationIdText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/id"
+            android:textColor="@color/primaryDarkColor"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/itConfirmationIdEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textColor="@color/primaryDarkColor"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:textSize="18sp"
+            android:inputType="none"
+            android:focusable="false"
+            android:clickable="false"
+            android:hint="@string/id"/>
+
+        <TextView
+            android:id="@+id/itConfirmationPasswordText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/passwordT"
+            android:textColor="@color/primaryDarkColor"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/itConfirmationPasswordEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:textColor="@color/primaryDarkColor"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:textSize="18sp"
+            android:inputType="none"
+            android:focusable="false"
+            android:clickable="false"
+            android:hint="@string/passwordT"/>
+
+        <TextView
+            android:id="@+id/itConfirmationCreditCardText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/credit_card"
+            android:textColor="@color/primaryDarkColor"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:textSize="18sp"/>
+
+        <EditText
+            android:id="@+id/itConfirmationCreditCardEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="none"
+            android:textColor="@color/primaryDarkColor"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:textSize="18sp"
+            android:focusable="false"
+            android:clickable="false"
+            android:hint="@string/xxxx_xxxx_xxxx_xxxx_xxxx"/>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/itConfirmationBackButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/back"
+                android:onClick="back"
+                android:textAllCaps="false"
+                android:layout_gravity="start"
+                android:background="@drawable/radius_dark_button"
+                android:textColor="@color/white"
+                android:padding="10dp"
+                />
+
+            <Button
+                android:id="@+id/itConfirmationConfirmButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:background="@drawable/radius_dark_button"
+                android:onClick="order"
+                android:padding="10dp"
+                android:text="@string/confirm"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+
+        </FrameLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>
