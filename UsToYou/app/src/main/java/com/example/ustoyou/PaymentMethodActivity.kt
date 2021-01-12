@@ -71,11 +71,13 @@ class PaymentMethodActivity : AppCompatActivity(), NavigationView.OnNavigationIt
                 intent1 = Intent(this, YourTeachingServiceConfirmation::class.java)
                 intent1.putExtra("teachingOrder", teachingServiceOrderDetails)
                 intent1.putExtra("image", image)
+                intent1.putExtra("name", intent.getStringExtra("name"))
             }
             "babysitting"->{
                 intent1 = Intent(this, YourOrderBabysittingConfirmation::class.java)
                 intent1.putExtra("babySittingOrder", babysittingOrder)
                 intent1.putExtra("image", image)
+                intent1.putExtra("name", intent.getStringExtra("name"))
             }
             "delivery" ->{
                 intent1 = Intent(this, YourDeliveryConfirmation::class.java)

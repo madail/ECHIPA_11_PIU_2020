@@ -70,6 +70,7 @@ class ServiceDetails : AppCompatActivity(), NavigationView.OnNavigationItemSelec
         if (type == "babysitting") {
             val intent = Intent(this, YourOrderBabysittingActivity::class.java)
             intent.putExtra("image", teachingService.imageRes)
+            intent.putExtra("name", teachingService.titleSubject)
             startActivity(intent)
         } else if (type == "delivery") {
             val intent = Intent(this, YourDeliveryActivity::class.java)
@@ -80,6 +81,7 @@ class ServiceDetails : AppCompatActivity(), NavigationView.OnNavigationItemSelec
         } else {
             val intent = Intent(this, YourTeachingServiceOrder::class.java)
             intent.putExtra("image", teachingService.imageRes)
+            intent.putExtra("name", teachingService.titleSubject)
             startActivity(intent)
         }
     }

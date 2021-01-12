@@ -28,7 +28,8 @@ class CategoryActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
         val spinner = findViewById<Spinner>(R.id.spinner)
         if (spinner != null) {
-            val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, categories)
+            val adapter =
+                ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, categories)
             spinner.adapter = adapter
         }
 
