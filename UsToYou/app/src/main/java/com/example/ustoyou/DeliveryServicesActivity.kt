@@ -3,6 +3,7 @@ package com.example.ustoyou
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
@@ -58,10 +59,31 @@ class DeliveryServicesActivity : AppCompatActivity(), NavigationView.OnNavigatio
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.my_services) {
-            val intent = Intent(this, TeachingServiceActivity::class.java)
-            startActivity(intent)
-
+        when (item.itemId) {
+            R.id.my_services -> {
+                val intent = Intent(this, MyServicesActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.my_profile -> {
+                val intent = Intent(this, ProfilePageActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.categories -> {
+                val intent = Intent(this, CategoryActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+            R.id.payment_details -> {
+                val intent = Intent(this, PaymentDetailsActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.my_orders -> {
+                val intent = Intent(this, MyOrdersActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.settings -> {
+                Toast.makeText(this, "Settings coming soon", Toast.LENGTH_LONG).show()
+            }
         }
 
         drawerLayout.closeDrawer(GravityCompat.START)

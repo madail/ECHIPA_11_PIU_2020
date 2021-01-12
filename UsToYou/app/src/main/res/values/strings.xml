@@ -63,6 +63,10 @@
         <item>Therapy</item>
         <item>Babysitting</item>
         <item>Delivery</item>
+        <item>Teaching</item>
+        <item>IT Support</item>
+        <item>Household</item>
+        <item>Be my eyes</item>
     </string-array>
     <string name="category">Category</string>
     <string name="description">Description</string>

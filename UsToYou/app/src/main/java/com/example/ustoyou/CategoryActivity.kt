@@ -4,7 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
-import android.widget.*
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
@@ -29,9 +32,16 @@ class CategoryActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
             spinner.adapter = adapter
         }
 
+        spinner.prompt = "Choose a category"
+
         spinner.onItemSelectedListener = object :
             AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+            override fun onItemSelected(
+                parent: AdapterView<*>,
+                view: View,
+                position: Int,
+                id: Long
+            ) {
                 selectedPosition = position;
             }
 
@@ -56,16 +66,32 @@ class CategoryActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
     }
 
     fun launchNextActivity(view: View) {
-        if(selectedPosition == 0) {
-            val intent = Intent(this, TherapyServiceForm1Activity::class.java)
+        if (selectedPosition == 0) {
+            val intent = Intent(this, TherapyServiceForm1Activity::class.java) //mada terapie
             startActivity(intent)
         }
-        if(selectedPosition == 1) {
-            val intent = Intent(this, BabysittingServiceFormActivity::class.java)
+        if (selectedPosition == 1) {
+            val intent = Intent(this, BabySittingServiceActivity::class.java)
             startActivity(intent)
         }
-        if(selectedPosition == 2) {
+        if (selectedPosition == 2) {
             val intent = Intent(this, DeliveryServiceFormActivity::class.java)
+            startActivity(intent)
+        }
+        if (selectedPosition == 3) {
+            val intent = Intent(this, TeachingServiceActivity::class.java)
+            startActivity(intent)
+        }
+        if (selectedPosition == 4) {
+            val intent = Intent(this, ITProvidersList::class.java)
+            startActivity(intent)
+        }
+        if (selectedPosition == 5) {
+            val intent = Intent(this, HouseholdActivity::class.java)
+            startActivity(intent)
+        }
+        if (selectedPosition == 6) {
+            val intent = Intent(this, TeachingServiceActivity::class.java) //mada be my eyes
             startActivity(intent)
         }
     }
@@ -79,10 +105,31 @@ class CategoryActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.my_services) {
-            val intent = Intent(this, DeliveryServicesActivity::class.java)
-            startActivity(intent)
-
+        when (item.itemId) {
+            R.id.my_services -> {
+                val intent = Intent(this, MyServicesActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.my_profile -> {
+                val intent = Intent(this, ProfilePageActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.categories -> {
+                val intent = Intent(this, CategoryActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
+            R.id.payment_details -> {
+                val intent = Intent(this, PaymentDetailsActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.my_orders -> {
+                val intent = Intent(this, MyOrdersActivity::class.java)
+                startActivity(intent)
+            }
+            R.id.settings -> {
+                Toast.makeText(this, "Settings coming soon", Toast.LENGTH_LONG).show()
+            }
         }
 
         drawerLayout.closeDrawer(GravityCompat.START)
