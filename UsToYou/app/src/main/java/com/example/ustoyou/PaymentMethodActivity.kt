@@ -10,13 +10,12 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import com.example.ustoyou.model.Order
 import com.google.android.material.navigation.NavigationView
 
 class PaymentMethodActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
-    lateinit var activity: String
+    lateinit var activityType: String
     lateinit var spinner: Spinner
     private val currency = arrayOf<String>("RON", "GBP", "EUR", "USD")
 
@@ -26,7 +25,7 @@ class PaymentMethodActivity : AppCompatActivity(), NavigationView.OnNavigationIt
 
         spinner = findViewById(R.id.payment_method_spinner)
 
-        activity = intent.getStringExtra("activity").toString()
+        activityType = intent.getStringExtra("activity").toString()
 
         val currencyAdapter = ArrayAdapter(
             this, R.layout.support_simple_spinner_dropdown_item, currency
@@ -65,27 +64,31 @@ class PaymentMethodActivity : AppCompatActivity(), NavigationView.OnNavigationIt
         val radioButtonSelected = resources.getResourceEntryName(radioGroup.checkedRadioButtonId)
         Log.d("PAYMENT", radioButtonSelected)
 
+        var intent1 = Intent()
 
-        var intent1: Intent = Intent()
-        if (teachingServiceOrderDetails == null && pizza != "pizza") {
-            intent1 = Intent(this, YourOrderBabysittingConfirmation::class.java)
-            intent1.putExtra("babySittingOrder", babysittingOrder)
-        } else if (babysittingOrder == null && pizza != "pizza") {
-            intent1 = Intent(this, YourTeachingServiceConfirmation::class.java)
-            intent1.putExtra("teachingOrder", teachingServiceOrderDetails)
-        } else if (pizza == "pizza") {
-            intent1 = Intent(this, YourDeliveryConfirmation::class.java)
-            intent1.putExtra("deliveryOrderName",deliveryOrderName)
-            intent1.putExtra("deliveryOrderPhone",deliveryOrderPhone)
-            intent1.putExtra("deliveryOrderAddress",deliveryOrderAddress)
-            intent1.putExtra("name",intent.getStringExtra("name"))
-            intent1.putExtra( "typeOfDelivery",intent.getIntExtra("typeOfDelivery", -1))
-            intent1.putExtra("total",intent.getStringExtra("total"))
-            intent1.putExtra("confirmation",true)
+        when(activityType){
+            "teaching" ->{
+                intent1 = Intent(this, YourTeachingServiceConfirmation::class.java)
+                intent1.putExtra("teachingOrder", teachingServiceOrderDetails)
+                intent1.putExtra("image", image)
+            }
+            "babysitting"->{
+                intent1 = Intent(this, YourOrderBabysittingConfirmation::class.java)
+                intent1.putExtra("babySittingOrder", babysittingOrder)
+                intent1.putExtra("image", image)
+            }
+            "delivery" ->{
+                intent1 = Intent(this, YourDeliveryConfirmation::class.java)
+                intent1.putExtra("deliveryOrderName",deliveryOrderName)
+                intent1.putExtra("deliveryOrderPhone",deliveryOrderPhone)
+                intent1.putExtra("deliveryOrderAddress",deliveryOrderAddress)
+                intent1.putExtra("name",intent.getStringExtra("name"))
+                intent1.putExtra( "typeOfDelivery",intent.getIntExtra("typeOfDelivery", -1))
+                intent1.putExtra("total",intent.getStringExtra("total"))
+                intent1.putExtra("confirmation",true)
+                intent1.putExtra("image", image)
+            }
         }
-
-
-        intent1.putExtra("image", image)
 
         if (radioButtonSelected == "payment_method_cash") {
             intent1.putExtra("cash", true)

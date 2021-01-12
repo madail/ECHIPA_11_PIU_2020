@@ -75,6 +75,7 @@ class YourDeliveryActivity : AppCompatActivity(), NavigationView.OnNavigationIte
             intent1.putExtra("deliveryOrderAddress",address.text.toString())
             intent1.putExtra( "typeOfDelivery",intent.getIntExtra("typeOfDelivery", -1))
             intent1.putExtra("total",currentPrice)
+            intent1.putExtra("activity","delivery")
             startActivity(intent1)
         }
 

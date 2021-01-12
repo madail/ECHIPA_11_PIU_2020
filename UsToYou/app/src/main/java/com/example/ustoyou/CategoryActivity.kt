@@ -75,7 +75,7 @@ class CategoryActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
             startActivity(intent)
         }
         if (selectedPosition == 2) {
-            val intent = Intent(this, DeliveryServiceFormActivity::class.java)
+            val intent = Intent(this, DeliveryServicesActivity::class.java)
             startActivity(intent)
         }
         if (selectedPosition == 3) {

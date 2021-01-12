@@ -1,15 +1,17 @@
 package com.example.ustoyou
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ustoyou.adapters.DeliveryAdapter
-import com.example.ustoyou.model.*
+import com.example.ustoyou.model.DeliveryObjects
+import com.example.ustoyou.model.Order
 
 class YourDeliveryConfirmation : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,8 +23,8 @@ class YourDeliveryConfirmation : AppCompatActivity() {
         val deliveryOrderAddress = intent.getStringExtra("deliveryOrderAddress")
 
         val nameEditText: EditText = findViewById(R.id.pizzaDeliveryConfirmationNameEditText)
-        val phoneEditText:EditText = findViewById(R.id.pizzaDeliveryConfirmationPhoneEditText)
-        val addressEditText:EditText = findViewById(R.id.pizzaDeliveryConfirmationAddressEditText)
+        val phoneEditText: EditText = findViewById(R.id.pizzaDeliveryConfirmationPhoneEditText)
+        val addressEditText: EditText = findViewById(R.id.pizzaDeliveryConfirmationAddressEditText)
 
         nameEditText.setText(deliveryOrderName)
         phoneEditText.setText(deliveryOrderPhone)
@@ -38,7 +40,8 @@ class YourDeliveryConfirmation : AppCompatActivity() {
         val linearLayoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         recyclerView.layoutManager = linearLayoutManager
 
-        val creditCardEditText: TextView = findViewById(R.id.yourDeliveryConfirmationCreditCardEditText)
+        val creditCardEditText: TextView =
+            findViewById(R.id.yourDeliveryConfirmationCreditCardEditText)
         val creditCardText: TextView = findViewById(R.id.yourDeliveryConfirmationCreditCardText)
 
         val cash = intent.getBooleanExtra("cash", false)
@@ -50,6 +53,10 @@ class YourDeliveryConfirmation : AppCompatActivity() {
             creditCardText.visibility = View.VISIBLE
         }
 
+        creditCardEditText.setOnClickListener {
+            Toast.makeText(this, "CLICK", Toast.LENGTH_LONG).show()
+        }
+
         val price: TextView = findViewById(R.id.pizzaDeliveryConfirmationTotal)
         price.text = "Price: ${intent.getStringExtra("total")}$"
     }
@@ -57,6 +64,7 @@ class YourDeliveryConfirmation : AppCompatActivity() {
     fun back(view: View) {
         //TODO
     }
+
     fun order(view: View) {
         val intent1 = Intent(this, ConfirmationActivity::class.java)
         var name = intent.getStringExtra("name")

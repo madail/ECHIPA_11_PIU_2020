@@ -166,6 +166,7 @@
             android:textSize="18sp"
             android:focusable="false"
             android:clickable="false"
+            android:drawableEnd="@drawable/ic_card_primary"
             android:hint="@string/xxxx_xxxx_xxxx_xxxx_xxxx"/>
 
         <FrameLayout
