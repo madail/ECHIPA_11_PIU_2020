@@ -44,19 +44,25 @@ class YourOrderBabysittingConfirmation : AppCompatActivity() {
             creditCardEditText.visibility = View.VISIBLE
             creditCardText.visibility = View.VISIBLE
         }
+
+        creditCardEditText.setOnClickListener {
+            val intent1 = Intent(this, PaymentDetailsActivity::class.java)
+            startActivity(intent1)
+        }
     }
 
     fun back(view: View) {
         val intent1 = Intent(this, YourOrderBabysittingActivity::class.java)
         intent1.putExtra("payBack", true)
+        intent1.putExtra("name",intent.getStringExtra("name"))
+        intent1.putExtra("image",intent.getIntExtra("image",-1))
         intent1.putExtra("babySittingOrder", intent.getSerializableExtra("babySittingOrder"))
         startActivity(intent1)
     }
 
     fun order(view: View) {
         val intent1 = Intent(this, ConfirmationActivity::class.java)
-        val babysittingOrder = intent.getSerializableExtra("babySittingOrder") as BabysittingOrder
-        val order = Order("Babysitting",babysittingOrder.name, intent.getIntExtra("image",-1))
+        val order = Order("Babysitting",intent.getStringExtra("name")!!, intent.getIntExtra("image",-1))
         intent1.putExtra("order",order)
         startActivity(intent1)
     }
