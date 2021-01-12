@@ -9,6 +9,8 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.RadioButton
 import androidx.appcompat.app.AppCompatActivity
+import com.example.ustoyou.model.Service
+import com.example.ustoyou.model.ServicesListSingleton
 import com.squareup.picasso.Picasso
 
 
@@ -22,6 +24,10 @@ class DeliveryServiceFormActivity : AppCompatActivity() {
     }
 
     fun continueToConfirmation(view : View) {
+        val name = findViewById<EditText>(R.id.deliveryServiceTitleEditText).text.toString()
+        val category = "Delivery";
+        val service = Service(name, category)
+        ServicesListSingleton.services.add(service)
         val intent = Intent(this, UploadPhotoActivity::class.java)
         startActivity(intent)
     }
