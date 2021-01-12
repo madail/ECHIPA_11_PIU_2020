@@ -10,8 +10,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true">
         <activity
+            android:name=".YourDeliveryConfirmation"
+            android:theme="@style/Theme.UsToYouTheme" />
+        <activity
             android:name=".UploadPhotoActivity"
-            android:theme="@style/Theme.UsToYouTheme"/>
+            android:theme="@style/Theme.UsToYouTheme" />
         <activity
             android:name=".UploadFileActivity"
             android:theme="@style/Theme.UsToYouTheme" />

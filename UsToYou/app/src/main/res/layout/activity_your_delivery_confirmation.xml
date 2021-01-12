@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".YourDeliveryConfirmation">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_pizzaDetailsDelivery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/pizzaDeliveryConfirmationNameText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/name"
+                android:textColor="@color/primaryDarkColor"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@id/rv_pizzaDetailsDelivery" />
+
+            <EditText
+                android:id="@+id/pizzaDeliveryConfirmationNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:ems="10"
+                android:hint="@string/your_name"
+                android:textColor="@color/primaryDarkColor"
+                android:textSize="18sp"
+                android:inputType="none"
+                android:focusable="false"
+                android:clickable="false"
+                app:layout_constraintTop_toBottomOf="@id/pizzaDeliveryConfirmationNameText" />
+
+            <TextView
+                android:id="@+id/pizzaDeliveryConfirmationPhoneText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/phone"
+                android:textColor="@color/primaryDarkColor"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@id/pizzaDeliveryConfirmationNameEditText" />
+
+            <EditText
+                android:id="@+id/pizzaDeliveryConfirmationPhoneEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:ems="10"
+                android:hint="@string/phone_number"
+                android:textColor="@color/primaryDarkColor"
+                android:textSize="18sp"
+                android:inputType="none"
+                android:focusable="false"
+                android:clickable="false"
+                app:layout_constraintTop_toBottomOf="@id/pizzaDeliveryConfirmationPhoneText" />
+
+            <TextView
+                android:id="@+id/pizzaDeliveryConfirmationAddressText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/address"
+                android:textColor="@color/primaryDarkColor"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@id/pizzaDeliveryConfirmationPhoneEditText" />
+
+            <EditText
+                android:id="@+id/pizzaDeliveryConfirmationAddressEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:ems="10"
+                android:hint="@string/your_current_address"
+                android:textColor="@color/primaryDarkColor"
+                android:textSize="18sp"
+                android:inputType="none"
+                android:focusable="false"
+                android:clickable="false"
+                app:layout_constraintTop_toBottomOf="@id/pizzaDeliveryConfirmationAddressText" />
+
+            <TextView
+                android:id="@+id/pizzaDeliveryConfirmationTotal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/total_0"
+                android:textColor="@color/primaryDarkColor"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@+id/yourDeliveryConfirmationCreditCardEditText"
+                tools:layout_editor_absoluteX="0dp" />
+
+            <TextView
+                android:id="@+id/yourDeliveryConfirmationCreditCardText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/credit_card"
+                android:textColor="@color/primaryDarkColor"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@+id/pizzaDeliveryConfirmationAddressEditText"
+                tools:layout_editor_absoluteX="10dp" />
+
+            <EditText
+                android:id="@+id/yourDeliveryConfirmationCreditCardEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:ems="10"
+                android:hint="@string/xxxx_xxxx_xxxx_xxxx_xxxx"
+                android:textColor="@color/primaryDarkColor"
+                android:textSize="18sp"
+                android:inputType="none"
+                android:focusable="false"
+                android:clickable="false"
+                app:layout_constraintTop_toBottomOf="@+id/yourDeliveryConfirmationCreditCardText" />
+
+            <Button
+                android:id="@+id/yourDeliveryConfirmationBackButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/radius_dark_button"
+                android:onClick="back"
+                android:padding="10dp"
+                android:text="@string/back"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pizzaDeliveryConfirmationTotal" />
+
+            <Button
+                android:id="@+id/yourDeliveryConfirmationConfirmButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/radius_dark_button"
+                android:onClick="order"
+                android:padding="10dp"
+                android:text="@string/confirm"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/pizzaDeliveryConfirmationTotal" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/primaryColor"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
+        app:menu="@menu/drawer_menu" />
+</androidx.drawerlayout.widget.DrawerLayout>

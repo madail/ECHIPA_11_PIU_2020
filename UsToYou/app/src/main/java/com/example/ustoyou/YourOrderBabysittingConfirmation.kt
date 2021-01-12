@@ -16,9 +16,9 @@ class YourOrderBabysittingConfirmation : AppCompatActivity() {
         supportActionBar?.title = "Your Order"
 
         val creditCardText: TextView =
-            findViewById(R.id.yourBabysittingOrderConfirmationCreditCardText)
+            findViewById(R.id.yourDeliveryConfirmationCreditCardText)
         val creditCardEditText: EditText =
-            findViewById(R.id.yourBabysittingOrderConfirmationCreditCardEditText)
+            findViewById(R.id.yourDeliveryConfirmationCreditCardEditText)
         val nameEditText: EditText = findViewById(R.id.yourBabysittingOrderConfirmationNameEditText)
         val phoneEditText: EditText =
             findViewById(R.id.yourBabysittingOrderConfirmationPhoneEditText)

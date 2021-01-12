@@ -11,9 +11,10 @@ import android.widget.ToggleButton
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ustoyou.R
 import com.example.ustoyou.model.DeliveryObject
+import com.example.ustoyou.model.DeliveryObjects
 
 class DeliveryAdapter(
-    var pizzaServices: ArrayList<DeliveryObject>,
+    private var services: ArrayList<DeliveryObject>,
     var context: Context
 ) :
     RecyclerView.Adapter<DeliveryAdapter.ViewHolder>() {
@@ -27,14 +28,11 @@ class DeliveryAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(pizzaServices[position], context)
-        holder.itemView.setOnClickListener {
-
-        }
+        holder.bind(services[position], context)
     }
 
     override fun getItemCount(): Int {
-        return pizzaServices.size
+        return services.size
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -45,23 +43,30 @@ class DeliveryAdapter(
             val ingredients: TextView = itemView.findViewById(R.id.pizzaIngredientsItem)
             val toggleButton: ToggleButton = itemView.findViewById(R.id.pizzaDeliveryToggle)
             val price: TextView = itemView.findViewById(R.id.pizzaPriceItem)
+            val activity = context as Activity
 
             image.setImageResource(item.imageRes)
-            title.text = item.pizzaName
-            ingredients.text = item.ingredients
-            item.isChosen = toggleButton.isChecked
+            title.text = item.objectName
+            ingredients.text = item.description
             price.text = "Price: ${item.price}$"
 
+            if(activity.intent.getBooleanExtra("confirmation",false)){
+                toggleButton.isClickable = false
+                toggleButton.isFocusable = false
+            }
+
+            toggleButton.isChecked = item.isChosen
+
             toggleButton.setOnCheckedChangeListener { _, b ->
+                DeliveryObjects.setIsChosen(item.objectName, b)
                 if (b) {
-                    val activity = context as Activity
-                    val price: TextView = activity.findViewById(R.id.pizzaDeliveryTotal)
+                    val price: TextView = activity.findViewById(R.id.pizzaDeliveryConfirmationTotal)
                     val currentPrice = price.text.toString().split(" ").toTypedArray()
                     val total = item.price + currentPrice[1].dropLast(1).toInt()
                     price.text = "Total: ${total}$"
                 } else {
                     val activity = context as Activity
-                    val price: TextView = activity.findViewById(R.id.pizzaDeliveryTotal)
+                    val price: TextView = activity.findViewById(R.id.pizzaDeliveryConfirmationTotal)
                     val currentPrice = price.text.toString().split(" ").toTypedArray()
                     val total = currentPrice[1].dropLast(1).toInt() - item.price
                     price.text = "Total: ${total}$"

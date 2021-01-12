@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
+import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
@@ -12,10 +13,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ustoyou.adapters.DeliveryAdapter
-import com.example.ustoyou.model.DeliveryObject
-import com.example.ustoyou.model.Pizzas
-import com.example.ustoyou.model.Shoes
-import com.example.ustoyou.model.Sushi
+import com.example.ustoyou.model.*
 import com.google.android.material.navigation.NavigationView
 
 class YourDeliveryActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener{
@@ -27,20 +25,13 @@ class YourDeliveryActivity : AppCompatActivity(), NavigationView.OnNavigationIte
         setContentView(R.layout.activity_your_delivery)
         supportActionBar?.title = "Your Order"
 
-        var deliveryServices: ArrayList<DeliveryObject> = ArrayList()
         val type = intent.getIntExtra("typeOfDelivery", -1)
 
-        if (type == 0) {
-            deliveryServices = Pizzas().getPizzas()
-        } else if (type == 1) {
-            deliveryServices = Sushi().getSushi()
-        } else {
-            deliveryServices = Shoes().getShoes()
-        }
+        DeliveryObjects.getObjects(type)
 
         val recyclerView: RecyclerView = findViewById(R.id.rv_pizzaDetailsDelivery)
         val pizzaDeliveryAdapter = DeliveryAdapter(
-            deliveryServices,
+            DeliveryObjects.objects,
             this
         )
         recyclerView.adapter = pizzaDeliveryAdapter
@@ -64,9 +55,11 @@ class YourDeliveryActivity : AppCompatActivity(), NavigationView.OnNavigationIte
     }
 
     fun payOrder(view: View) {
-        val name: EditText = findViewById(R.id.pizzaDeliveryNameEditText)
-        val phone: EditText = findViewById(R.id.pizzaDeliveryPhoneEditText)
-        val address: EditText = findViewById(R.id.pizzaDeliveryAddressEditText)
+        val name: EditText = findViewById(R.id.pizzaDeliveryConfirmationNameEditText)
+        val phone: EditText = findViewById(R.id.pizzaDeliveryConfirmationPhoneEditText)
+        val address: EditText = findViewById(R.id.pizzaDeliveryConfirmationAddressEditText)
+        val price: TextView = findViewById(R.id.pizzaDeliveryConfirmationTotal)
+        val currentPrice = price.text.toString().split(" ").toTypedArray()[1].dropLast(1)
 
         val isValid = validateDetails(name, phone, address)
 
@@ -76,6 +69,11 @@ class YourDeliveryActivity : AppCompatActivity(), NavigationView.OnNavigationIte
             intent1.putExtra("pizza", "pizza")
             intent1.putExtra("image", intent.getIntExtra("image", -1))
             intent1.putExtra("name", intent.getStringExtra("name"))
+            intent1.putExtra("deliveryOrderName",name.text.toString())
+            intent1.putExtra("deliveryOrderPhone",phone.text.toString())
+            intent1.putExtra("deliveryOrderAddress",address.text.toString())
+            intent1.putExtra( "typeOfDelivery",intent.getIntExtra("typeOfDelivery", -1))
+            intent1.putExtra("total",currentPrice)
             startActivity(intent1)
         }
 

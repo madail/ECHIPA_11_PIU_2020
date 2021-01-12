@@ -55,6 +55,10 @@ class PaymentMethodActivity : AppCompatActivity(), NavigationView.OnNavigationIt
         val babysittingOrder = intent.getSerializableExtra("babySittingOrder")
         val pizza = intent.getStringExtra("pizza")
         val image: Int = intent.getIntExtra("image", -1)
+        val deliveryOrderName = intent.getStringExtra("deliveryOrderName")
+        val deliveryOrderPhone = intent.getStringExtra("deliveryOrderPhone")
+        val deliveryOrderAddress = intent.getStringExtra("deliveryOrderAddress")
+
 
         val radioGroup: RadioGroup = findViewById(R.id.payMethodRadioButtons)
         val radioButtonSelected = resources.getResourceEntryName(radioGroup.checkedRadioButtonId)
@@ -63,20 +67,22 @@ class PaymentMethodActivity : AppCompatActivity(), NavigationView.OnNavigationIt
         var intent1: Intent = Intent()
         if (teachingServiceOrderDetails == null && pizza != "pizza") {
             intent1 = Intent(this, YourOrderBabysittingConfirmation::class.java)
+            intent1.putExtra("babySittingOrder", babysittingOrder)
         } else if (babysittingOrder == null && pizza != "pizza") {
             intent1 = Intent(this, YourTeachingServiceConfirmation::class.java)
+            intent1.putExtra("teachingOrder", teachingServiceOrderDetails)
         } else if (pizza == "pizza") {
-            intent1 = Intent(this, ConfirmationActivity::class.java)
-            var name = intent.getStringExtra("name")
-            if (name == null) {
-                name = ""
-            }
-            val order = Order("Delivery", name, intent.getIntExtra("image", -1))
-            intent1.putExtra("order", order)
+            intent1 = Intent(this, YourDeliveryConfirmation::class.java)
+            intent1.putExtra("deliveryOrderName",deliveryOrderName)
+            intent1.putExtra("deliveryOrderPhone",deliveryOrderPhone)
+            intent1.putExtra("deliveryOrderAddress",deliveryOrderAddress)
+            intent1.putExtra("name",intent.getStringExtra("name"))
+            intent1.putExtra( "typeOfDelivery",intent.getIntExtra("typeOfDelivery", -1))
+            intent1.putExtra("total",intent.getStringExtra("total"))
+            intent1.putExtra("confirmation",true)
         }
 
-        intent1.putExtra("teachingOrder", teachingServiceOrderDetails)
-        intent1.putExtra("babySittingOrder", babysittingOrder)
+
         intent1.putExtra("image", image)
 
         if (radioButtonSelected == "payment_method_cash") {
