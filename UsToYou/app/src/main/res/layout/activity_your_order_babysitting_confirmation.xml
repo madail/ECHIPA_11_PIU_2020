@@ -143,7 +143,7 @@
             android:hint="@string/dd_mm_yyyy_hh_mm"/>
 
         <TextView
-            android:id="@+id/yourBabysittingOrderConfirmationCreditCardText"
+            android:id="@+id/yourDeliveryConfirmationCreditCardText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/credit_card"
@@ -154,7 +154,7 @@
             android:textSize="18sp"/>
 
         <EditText
-            android:id="@+id/yourBabysittingOrderConfirmationCreditCardEditText"
+            android:id="@+id/yourDeliveryConfirmationCreditCardEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -177,7 +177,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/yourBabysittingOrderConfirmationBackButton"
+                android:id="@+id/yourDeliveryConfirmationBackButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/back"
@@ -190,7 +190,7 @@
                 />
 
             <Button
-                android:id="@+id/yourBabysittingOrderConfirmationConfirmButton"
+                android:id="@+id/yourDeliveryConfirmationConfirmButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"

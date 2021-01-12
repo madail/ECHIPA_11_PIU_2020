@@ -85,5 +85,12 @@
     <string name="quantity">Quantity</string>
     <string name="id">TeamViewer ID</string>
     <string name="passwordT">TeamViewer Password</string>
-
+    <string name="chat_area">Chat area</string>
+    <string name="details">Details</string>
+    <string name="teacher">Teacher</string>
+    <string name="teacher_name">Teacher name</string>
+    <string name="payment">Payment</string>
+    <string name="access_virtual_lesson">Access Virtual Lesson</string>
+    <string name="confirmed">confirmed</string>
+    <string name="leave_lesson">Leave lesson</string>
 </resources>
