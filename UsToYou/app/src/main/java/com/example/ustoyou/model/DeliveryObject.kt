@@ -2,8 +2,8 @@ package com.example.ustoyou.model
 
 data class DeliveryObject(
     var imageRes: Int,
-    var ingredients: String,
-    var pizzaName: String,
+    var description: String,
+    var objectName: String,
     var price: Int,
     var isChosen: Boolean
 ) {

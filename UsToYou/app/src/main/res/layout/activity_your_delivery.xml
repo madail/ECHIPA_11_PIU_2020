@@ -18,7 +18,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/pizzaDeliveryNameText"
+            android:id="@+id/pizzaDeliveryConfirmationNameText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
@@ -28,7 +28,7 @@
             app:layout_constraintTop_toBottomOf="@id/rv_pizzaDetailsDelivery" />
 
         <EditText
-            android:id="@+id/pizzaDeliveryNameEditText"
+            android:id="@+id/pizzaDeliveryConfirmationNameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -38,20 +38,20 @@
             android:inputType="text"
             android:textColor="@color/primaryDarkColor"
             android:textSize="18sp"
-            app:layout_constraintTop_toBottomOf="@id/pizzaDeliveryNameText" />
+            app:layout_constraintTop_toBottomOf="@id/pizzaDeliveryConfirmationNameText" />
 
         <TextView
-            android:id="@+id/pizzaDeliveryPhoneText"
+            android:id="@+id/pizzaDeliveryConfirmationPhoneText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:text="@string/phone"
             android:textColor="@color/primaryDarkColor"
             android:textSize="18sp"
-            app:layout_constraintTop_toBottomOf="@id/pizzaDeliveryNameEditText" />
+            app:layout_constraintTop_toBottomOf="@id/pizzaDeliveryConfirmationNameEditText" />
 
         <EditText
-            android:id="@+id/pizzaDeliveryPhoneEditText"
+            android:id="@+id/pizzaDeliveryConfirmationPhoneEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -61,20 +61,20 @@
             android:inputType="phone"
             android:textColor="@color/primaryDarkColor"
             android:textSize="18sp"
-            app:layout_constraintTop_toBottomOf="@id/pizzaDeliveryPhoneText" />
+            app:layout_constraintTop_toBottomOf="@id/pizzaDeliveryConfirmationPhoneText" />
 
         <TextView
-            android:id="@+id/pizzaDeliveryAddressText"
+            android:id="@+id/pizzaDeliveryConfirmationAddressText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:text="@string/address"
             android:textColor="@color/primaryDarkColor"
             android:textSize="18sp"
-            app:layout_constraintTop_toBottomOf="@id/pizzaDeliveryPhoneEditText" />
+            app:layout_constraintTop_toBottomOf="@id/pizzaDeliveryConfirmationPhoneEditText" />
 
         <EditText
-            android:id="@+id/pizzaDeliveryAddressEditText"
+            android:id="@+id/pizzaDeliveryConfirmationAddressEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -84,20 +84,20 @@
             android:inputType="textPostalAddress"
             android:textColor="@color/primaryDarkColor"
             android:textSize="18sp"
-            app:layout_constraintTop_toBottomOf="@id/pizzaDeliveryAddressText" />
+            app:layout_constraintTop_toBottomOf="@id/pizzaDeliveryConfirmationAddressText" />
 
         <TextView
-            android:id="@+id/pizzaDeliveryTotal"
+            android:id="@+id/pizzaDeliveryConfirmationTotal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:text="@string/total_0"
             android:textColor="@color/primaryDarkColor"
             android:textSize="18sp"
-            app:layout_constraintTop_toBottomOf="@id/pizzaDeliveryAddressEditText" />
+            app:layout_constraintTop_toBottomOf="@id/pizzaDeliveryConfirmationAddressEditText" />
 
         <Button
-            android:id="@+id/pizzaDeliveryButton"
+            android:id="@+id/pizzaDeliveryConfirmationButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -108,7 +108,7 @@
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/pizzaDeliveryTotal" />
+            app:layout_constraintTop_toBottomOf="@id/pizzaDeliveryConfirmationTotal" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
