@@ -4,15 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".AccesVirtualLesson.VirtualLessonOrderDetails"
+    tools:context=".VirtualLesson.VirtualLessonOrderDetailsActivity"
     android:padding="20dp"
     android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Details"
-        android:textSize="20dp"
+        android:text="@string/details"
+        android:textSize="@dimen/textSizeSubTitle"
         android:textColor="@color/primaryDarkColor" />
 
     <LinearLayout
@@ -25,30 +25,30 @@
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginRight="32dp">
+            android:layout_marginEnd="32dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:layout_marginBottom="24dp"
-                android:text="Teacher"
+                android:text="@string/teacher"
                 android:textColor="@color/primaryDarkColor"
-                android:textSize="16dp" />
+                android:textSize="@dimen/textSizeNormal" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Date"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:textColor="@color/primaryDarkColor"
                 android:layout_marginBottom="24dp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Type"
-                android:textSize="16dp"
+                android:text="@string/type"
+                android:textSize="@dimen/textSizeNormal"
                 android:textColor="@color/primaryDarkColor" />
 
         </LinearLayout>
@@ -75,10 +75,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/primaryDarkColor"
-                    android:text="Teacher name"
+                    android:text="@string/teacher_name"
                     android:layout_marginTop="12dp"
                     android:layout_marginBottom="24dp"
-                    android:textSize="16dp"/>
+                    android:textSize="@dimen/textSizeNormal"/>
             </LinearLayout>
 
             <TextView
@@ -86,16 +86,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/primaryDarkColor"
-                android:textSize="16dp"
-                android:text="DD/MM/YYYY  HH:MM"/>
+                android:textSize="@dimen/textSizeNormal"
+                android:text="@string/dd_mm_yyyy_hh_mm"/>
 
             <TextView
                 android:id="@+id/virtualLessonDetailsType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Virtual"
+                android:text="@string/virtual"
                 android:textColor="@color/primaryDarkColor"
-                android:textSize="16dp"
+                android:textSize="@dimen/textSizeNormal"
                 android:layout_marginTop="24dp"/>
         </LinearLayout>
 
@@ -112,9 +112,9 @@
             android:id="@+id/virtualLessonDetailsPaymentLabel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Payment"
+            android:text="@string/payment"
             android:textColor="@color/primaryDarkColor"
-            android:textSize="20dp"
+            android:textSize="@dimen/textSizeSubTitle"
             app:layout_constraintHorizontal_weight="0.8"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/virtualLessonDetailsConfirmedLabel"
@@ -126,8 +126,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="confirmed"
-            android:textSize="14dp"
+            android:text="@string/confirmed"
+            android:textSize="@dimen/textSizeDetails"
             app:layout_constraintHorizontal_weight="0.2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -152,8 +152,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Type"
-                android:textSize="16dp"
+                android:text="@string/type"
+                android:textSize="@dimen/textSizeNormal"
                 android:textColor="@color/primaryDarkColor" />
 
         </LinearLayout>
@@ -167,9 +167,9 @@
                 android:id="@+id/virtualLessonDetailsPaymentType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Credit Card"
+                android:text="@string/credit_card"
                 android:textColor="@color/primaryDarkColor"
-                android:textSize="16dp"/>
+                android:textSize="@dimen/textSizeNormal"/>
         </LinearLayout>
 
     </LinearLayout>
@@ -178,11 +178,12 @@
         android:id="@+id/virtualLessonDetailsAccessLessonLink"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="16dp"
+        android:textSize="@dimen/textSizeNormal"
         android:textColor="@color/primaryDarkColor"
-        android:text="Access Virtual Lesson"
+        android:text="@string/access_virtual_lesson"
         android:layout_marginTop="270dp"
         android:clickable="true"
-        android:textAlignment="center"/>
+        android:textAlignment="center"
+        android:focusable="true" />
 
 </LinearLayout>
