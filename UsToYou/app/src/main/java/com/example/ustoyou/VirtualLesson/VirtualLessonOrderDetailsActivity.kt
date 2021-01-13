@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.*
 import com.example.ustoyou.CategoryActivity
@@ -25,10 +26,10 @@ class VirtualLessonOrderDetailsActivity : AppCompatActivity() {
     private lateinit var virtualLessonContentRating: RatingBar;
     private lateinit var virtualLessonServiceRating: RatingBar;
 
-    private lateinit var teacherName: String
-    private lateinit var date: String
-    private lateinit var type: String
-    private lateinit var paymentType: String
+    private var teacherName: String = ""
+    private var date: String = ""
+    private var lessonType: String = ""
+    private var paymentType: String = ""
     private var contentRating: Float = 0.0F
     private var teacherRating: Float = 0.0F
     private var serviceRating: Float = 0.0F
@@ -65,7 +66,7 @@ class VirtualLessonOrderDetailsActivity : AppCompatActivity() {
     private fun getExtras() {
         teacherName = intent.getStringExtra("teacherName").toString()
         date = intent.getStringExtra("date").toString()
-        type = intent.getStringExtra("type").toString()
+        lessonType = intent.getStringExtra("lessonType").toString()
         paymentType = intent.getStringExtra("paymentType").toString()
 
         contentRating = intent.getFloatExtra("contentRating", 0.0F)
@@ -79,7 +80,7 @@ class VirtualLessonOrderDetailsActivity : AppCompatActivity() {
     private fun initLayout() {
         virtualLessonDetailsTeacherName.text = teacherName
         virtualLessonDetailsDate.text = date
-        virtualLessonDetailsType.text = type
+        virtualLessonDetailsType.text = lessonType
         virtualLessonDetailsPaymentType.text = paymentType
 
         virtualLessonTeacherRating.rating  = teacherRating
@@ -120,13 +121,14 @@ class VirtualLessonOrderDetailsActivity : AppCompatActivity() {
         val intent  = Intent(this, VirtualLessonActivity::class.java).apply {
             putExtra("teacherName", teacherName)
             putExtra("date", date)
-            putExtra("type", type)
+            putExtra("lessonType", lessonType)
             putExtra("paymentType", paymentType)
             putExtra("contentRating", contentRating)
             putExtra("teacherRating", teacherRating)
             putExtra("serviceRating", serviceRating)
         }
         startActivity(intent)
+        finish()
     }
 
     override fun onBackPressed() {

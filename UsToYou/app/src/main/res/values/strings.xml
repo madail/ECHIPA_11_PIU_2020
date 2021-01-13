@@ -105,4 +105,8 @@
     <string name="end_call">End call</string>
     <string name="activate_deactivate_microphone">Activate/Deactivate microphone</string>
     <string name="listening">Listening...</string>
+    <string name="us_to_you">Us to You</string>
+    <string name="assistant">Assistant</string>
+    <string name="interface_label">Interface</string>
+    <string name="skip">Skip</string>
 </resources>

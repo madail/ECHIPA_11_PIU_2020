@@ -63,7 +63,6 @@ class PaymentMethodActivity : AppCompatActivity(), NavigationView.OnNavigationIt
         val deliveryOrderPhone = intent.getStringExtra("deliveryOrderPhone")
         val deliveryOrderAddress = intent.getStringExtra("deliveryOrderAddress")
 
-
         val radioGroup: RadioGroup = findViewById(R.id.payMethodRadioButtons)
         val radioButtonSelected = resources.getResourceEntryName(radioGroup.checkedRadioButtonId)
         Log.d("PAYMENT", radioButtonSelected)

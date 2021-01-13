@@ -52,7 +52,7 @@ class MyOrdersAdapter(
                         val intent = Intent(context, VirtualLessonOrderDetailsActivity::class.java).apply {
                             putExtra("teacherName", item.orderName)
                             putExtra("date", item.date)
-                            putExtra("type", item.type)
+                            putExtra("lessonType", item.type)
                             putExtra("paymentType", item.paymentType)
                             putExtra("contentRating", 0.0F)
                             putExtra("teacherRating", 0.0F)
