@@ -39,16 +39,41 @@ class BabysittingServiceFormActivity : AppCompatActivity(), NavigationView.OnNav
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
-    fun continueToNextActivity(view: View) {
-        val name = findViewById<EditText>(R.id.babysittingServiceTitleEditText).text.toString()
-        val category = "Babysitting";
-        if(name != "") {
-            val service = Service(name, category)
-            ServicesListSingleton.services.add(service)
+    fun validate(name: EditText, city: EditText, age:EditText, price: EditText,) : Boolean {
+        if(name.text.toString() == "") {
+            name.error = "Title missing!"
+            return false
         }
-        val intent = Intent(this, UploadFileActivity::class.java)
-        startActivity(intent)
+        if(price.text.toString() == "") {
+            price.error = "Price missing!"
+            return false
+        }
+        if(age.text.toString() == "") {
+            age.error = "Age missing!"
+            return false;
+        }
+        if(city.text.toString() == "") {
+            city.error = "City missing!"
+            return false
+        }
+        return true;
     }
+
+    fun continueToNextActivity(view: View) {
+        val name = findViewById<EditText>(R.id.babysittingServiceTitleEditText)
+        val city = findViewById<EditText>(R.id.babysittingServiceCityEditText)
+        val age = findViewById<EditText>(R.id.babysittingServiceAgeEditText)
+        val price = findViewById<EditText>(R.id.babysittingServicePriceEditText)
+        val category = "Babysitting";
+        val isValid = validate(name, city, age, price)
+        if(isValid) {
+            val service = Service(name.text.toString(), category)
+            ServicesListSingleton.services.add(service)
+            val intent = Intent(this, UploadFileActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
