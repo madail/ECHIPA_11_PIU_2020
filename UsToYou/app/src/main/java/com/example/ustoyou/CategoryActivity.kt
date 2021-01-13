@@ -29,7 +29,10 @@ class CategoryActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_category)
-        supportActionBar?.title = "Create a new service"
+        val adding = intent.getBooleanExtra("adding",false)
+        if(adding)
+            supportActionBar?.title = "Create a new service"
+        else supportActionBar?.title = "Categories"
 
         val categories = resources.getStringArray(R.array.category_list)
 
