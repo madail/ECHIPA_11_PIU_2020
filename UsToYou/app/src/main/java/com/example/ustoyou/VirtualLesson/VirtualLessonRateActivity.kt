@@ -27,9 +27,9 @@ class VirtualLessonRateActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_virtual_lesson_rate)
 
-        virtualLessonTeacherRating  = findViewById(R.id.virtualLessonTeacherRating)
-        virtualLessonContentRating  = findViewById(R.id.virtualLessonContentRating)
-        virtualLessonServiceRating  = findViewById(R.id.virtualLessonServiceRating)
+        virtualLessonTeacherRating  = findViewById(R.id.providerRating)
+        virtualLessonContentRating  = findViewById(R.id.contentRating)
+        virtualLessonServiceRating  = findViewById(R.id.serviceRating)
         virtualLessonMessageTeacherInput  = findViewById(R.id.virtualLessonMessageTeacherInput)
 
         supportActionBar?.title = "Rate your lesson"
@@ -40,9 +40,9 @@ class VirtualLessonRateActivity : AppCompatActivity() {
     }
 
     private fun bindItems() {
-        virtualLessonTeacherRating  = findViewById(R.id.virtualLessonTeacherRating)
-        virtualLessonContentRating  = findViewById(R.id.virtualLessonContentRating)
-        virtualLessonServiceRating  = findViewById(R.id.virtualLessonServiceRating)
+        virtualLessonTeacherRating  = findViewById(R.id.providerRating)
+        virtualLessonContentRating  = findViewById(R.id.contentRating)
+        virtualLessonServiceRating  = findViewById(R.id.serviceRating)
 
         virtualLessonMessageTeacherInput  = findViewById(R.id.virtualLessonMessageTeacherInput)
     }

@@ -55,15 +55,15 @@ class VirtualLessonOrderDetailsActivity : AppCompatActivity() {
         virtualLessonDetailsPaymentType  = findViewById(R.id.virtualLessonDetailsPaymentType)
         virtualLessonDetailsAccessLessonLink  = findViewById(R.id.virtualLessonDetailsAccessLessonLink)
 
-        virtualLessonTeacherRating  = findViewById(R.id.virtualLessonTeacherRating)
-        virtualLessonContentRating  = findViewById(R.id.virtualLessonContentRating)
-        virtualLessonServiceRating  = findViewById(R.id.virtualLessonServiceRating)
+        virtualLessonTeacherRating  = findViewById(R.id.providerRating)
+        virtualLessonContentRating  = findViewById(R.id.contentRating)
+        virtualLessonServiceRating  = findViewById(R.id.serviceRating)
 
         ratingLessonLayout = findViewById(R.id.virtualLessonDetailsRating)
     }
 
     private fun getExtras() {
-        teacherName = intent.getStringExtra("teacher_name").toString()
+        teacherName = intent.getStringExtra("teacherName").toString()
         if(teacherName.isEmpty()){
             teacherName = "Teacher name"
         }

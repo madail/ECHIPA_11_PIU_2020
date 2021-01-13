@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:id="@+id/ratingLessonLayout">
+    android:id="@+id/ratingLayout">
 
     <TextView
         android:layout_width="match_parent"
@@ -25,6 +25,7 @@
             android:layout_marginEnd="20dp">
 
             <TextView
+                android:id="@+id/providerRatingLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
@@ -34,6 +35,7 @@
                 android:textSize="@dimen/textSizeNormal" />
 
             <TextView
+                android:id="@+id/contentRatingLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/content"
@@ -42,6 +44,7 @@
                 android:layout_marginBottom="24dp"/>
 
             <TextView
+                android:id="@+id/serviceRatingLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/service_quality"
@@ -56,7 +59,7 @@
             android:orientation="vertical">
 
             <RatingBar
-                android:id="@+id/virtualLessonTeacherRating"
+                android:id="@+id/providerRating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Widget.AppCompat.RatingBar.Indicator"
@@ -67,7 +70,7 @@
                 android:isIndicator="false"/>
 
             <RatingBar
-                android:id="@+id/virtualLessonContentRating"
+                android:id="@+id/contentRating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Widget.AppCompat.RatingBar.Indicator"
@@ -78,7 +81,7 @@
                 android:isIndicator="false"/>
 
             <RatingBar
-                android:id="@+id/virtualLessonServiceRating"
+                android:id="@+id/serviceRating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/Widget.AppCompat.RatingBar.Indicator"

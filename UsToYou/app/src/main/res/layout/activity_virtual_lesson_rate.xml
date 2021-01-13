@@ -8,7 +8,7 @@
     android:padding="20dp">
 
 
-    <include layout="@layout/rating_lesson_item"
+    <include layout="@layout/rating_layout"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"/>
 
