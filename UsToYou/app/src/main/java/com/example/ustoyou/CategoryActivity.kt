@@ -12,6 +12,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.example.ustoyou.VisualAid.VisualAidActivity
 import com.google.android.material.navigation.NavigationView
 
 class CategoryActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -92,7 +93,7 @@ class CategoryActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
             startActivity(intent)
         }
         if (selectedPosition == 6) {
-            val intent = Intent(this, TeachingServiceActivity::class.java) //mada be my eyes
+            val intent = Intent(this, VisualAidActivity::class.java)
             startActivity(intent)
         }
     }

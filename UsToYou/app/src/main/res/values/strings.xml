@@ -66,7 +66,7 @@
         <item>Teaching</item>
         <item>IT Support</item>
         <item>Household</item>
-        <item>Be my eyes</item>
+        <item>Visual Aid</item>
     </string-array>
     <string name="category">Category</string>
     <string name="description">Description</string>
@@ -102,4 +102,7 @@
     <string name="service_quality">Service quality</string>
     <string name="message_the_teacher">Message the teacher</string>
     <string name="virtual_link_expired">Virtual link expired</string>
+    <string name="end_call">End call</string>
+    <string name="activate_deactivate_microphone">Activate/Deactivate microphone</string>
+    <string name="listening">Listening...</string>
 </resources>

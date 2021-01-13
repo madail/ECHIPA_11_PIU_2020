@@ -9,10 +9,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true">
+        <activity android:name=".VisualAid.VisualAidRateActivity"></activity>
+        <activity
+            android:name=".VisualAid.VisualAidActivity"
+            android:theme="@style/Theme.UsToYouTheme" />
         <activity
             android:name=".VirtualLesson.VirtualLessonRateActivity"
-            android:theme="@style/Theme.UsToYouTheme">
-        </activity>
+            android:theme="@style/Theme.UsToYouTheme" />
         <activity
             android:name=".YourDeliveryConfirmation"
             android:theme="@style/Theme.UsToYouTheme" />
@@ -21,7 +24,7 @@
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
             android:name=".VirtualLesson.VirtualLessonOrderDetailsActivity"
-            android:theme="@style/Theme.UsToYouTheme" >
+            android:theme="@style/Theme.UsToYouTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -54,7 +57,9 @@
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
             android:name=".CategoryActivity"
-            android:theme="@style/Theme.UsToYouTheme" />
+            android:theme="@style/Theme.UsToYouTheme">
+
+        </activity>
         <activity
             android:name=".MyServicesActivity"
             android:theme="@style/Theme.UsToYouTheme" />
@@ -96,8 +101,7 @@
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
             android:name=".SplashActivity"
-            android:theme="@style/Theme.FullScreen">
-        </activity>
+            android:theme="@style/Theme.FullScreen" />
         <activity
             android:name=".RegisterActivity"
             android:theme="@style/Theme.FullScreen" />

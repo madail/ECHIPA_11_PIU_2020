@@ -55,33 +55,18 @@ class VirtualLessonOrderDetailsActivity : AppCompatActivity() {
         virtualLessonDetailsPaymentType  = findViewById(R.id.virtualLessonDetailsPaymentType)
         virtualLessonDetailsAccessLessonLink  = findViewById(R.id.virtualLessonDetailsAccessLessonLink)
 
-        virtualLessonTeacherRating  = findViewById(R.id.virtualLessonTeacherRating)
-        virtualLessonContentRating  = findViewById(R.id.virtualLessonContentRating)
-        virtualLessonServiceRating  = findViewById(R.id.virtualLessonServiceRating)
+        virtualLessonTeacherRating  = findViewById(R.id.providerRating)
+        virtualLessonContentRating  = findViewById(R.id.contentRating)
+        virtualLessonServiceRating  = findViewById(R.id.serviceRating)
 
         ratingLessonLayout = findViewById(R.id.virtualLessonDetailsRating)
     }
 
     private fun getExtras() {
-        teacherName = intent.getStringExtra("teacher_name").toString()
-        if(teacherName.isEmpty()){
-            teacherName = "Teacher name"
-        }
-
+        teacherName = intent.getStringExtra("teacherName").toString()
         date = intent.getStringExtra("date").toString()
-        if(teacherName.isEmpty()){
-            date = "14/01/2021 14:30"
-        }
-
         type = intent.getStringExtra("type").toString()
-        if(type.isEmpty()){
-            type = "Virtual"
-        }
-
         paymentType = intent.getStringExtra("paymentType").toString()
-        if(teacherName.isEmpty()){
-            paymentType = "Credit Card"
-        }
 
         contentRating = intent.getFloatExtra("contentRating", 0.0F)
         teacherRating = intent.getFloatExtra("teacherRating", 0.0F)

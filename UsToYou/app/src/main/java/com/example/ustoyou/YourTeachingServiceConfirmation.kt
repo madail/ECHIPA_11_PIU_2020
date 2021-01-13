@@ -10,6 +10,8 @@ import com.example.ustoyou.model.Order
 import com.example.ustoyou.model.TeachingServiceOrderDetails
 
 class YourTeachingServiceConfirmation : AppCompatActivity() {
+    private final lateinit var order: Order
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_your_teaching_service_confirmation)
@@ -25,13 +27,16 @@ class YourTeachingServiceConfirmation : AppCompatActivity() {
         val addressEditText : EditText = findViewById(R.id.yourTeachingOrderConfirmationAddressEditText)
         val dateEditText : EditText = findViewById(R.id.yourTeachingOrderConfirmationDateEditText)
 
-        val order = intent.getSerializableExtra("teachingOrder") as TeachingServiceOrderDetails
+        val extraOrder = intent.getSerializableExtra("teachingOrder") as TeachingServiceOrderDetails
 
-        nameEditText.setText(order.name)
-        phoneEditText.setText(order.phone)
-        typeEditText.setText(order.type)
-        addressEditText.setText(order.address)
-        dateEditText.setText(order.date)
+        nameEditText.setText(extraOrder.name)
+        phoneEditText.setText(extraOrder.phone)
+        typeEditText.setText(extraOrder.type)
+        addressEditText.setText(extraOrder.address)
+        dateEditText.setText(extraOrder.date)
+
+        order = Order("Teaching", "John Doe", intent.getIntExtra("image",-1),
+            extraOrder.date, extraOrder.type, "Credit Card")
 
         val cash = intent.getBooleanExtra("cash", false)
         if (cash) {
@@ -51,8 +56,9 @@ class YourTeachingServiceConfirmation : AppCompatActivity() {
 
     fun order(view: View) {
         val intent1 = Intent(this, ConfirmationActivity::class.java)
-        val order = Order("Babysitting",intent.getStringExtra("name")!!, intent.getIntExtra("image",-1))
-        intent1.putExtra("order",order)
+        val newOrder = Order("Teaching",intent.getStringExtra("name")!!,
+            intent.getIntExtra("image",-1), order.date, order.type, order.paymentType)
+        intent1.putExtra("order",newOrder)
         startActivity(intent1)
     }
 

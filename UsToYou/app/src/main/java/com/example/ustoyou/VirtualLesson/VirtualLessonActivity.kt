@@ -27,25 +27,10 @@ class VirtualLessonActivity : AppCompatActivity() {
     }
 
     private fun getExtras() {
-        teacherName = intent.getStringExtra("teacher_name").toString()
-        if(teacherName.isEmpty()){
-            teacherName = "Teacher name"
-        }
-
+        teacherName = intent.getStringExtra("teacherName").toString()
         date = intent.getStringExtra("date").toString()
-        if(teacherName.isEmpty()){
-            date = "14/01/2021 14:30"
-        }
-
         type = intent.getStringExtra("type").toString()
-        if(teacherName.isEmpty()){
-            type = "Virtual"
-        }
-
         paymentType = intent.getStringExtra("paymentType").toString()
-        if(teacherName.isEmpty()){
-            paymentType = "Credit Card"
-        }
     }
 
     fun toggleWebBetweenTeacherAndStudent(view: View) {

@@ -22,10 +22,10 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="80dp"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginEnd="32dp">
+            android:layout_marginEnd="20dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -146,10 +146,10 @@
         android:layout_marginBottom="10dp">
 
         <LinearLayout
-            android:layout_width="80dp"
+            android:layout_width="70dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginRight="32dp">
+            android:layout_marginRight="20dp">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -176,7 +176,7 @@
     </LinearLayout>
 
     <include
-        layout="@layout/rating_lesson_item"
+        layout="@layout/rating_layout"
         android:id="@+id/virtualLessonDetailsRating"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"

@@ -27,9 +27,9 @@ class VirtualLessonRateActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_virtual_lesson_rate)
 
-        virtualLessonTeacherRating  = findViewById(R.id.virtualLessonTeacherRating)
-        virtualLessonContentRating  = findViewById(R.id.virtualLessonContentRating)
-        virtualLessonServiceRating  = findViewById(R.id.virtualLessonServiceRating)
+        virtualLessonTeacherRating  = findViewById(R.id.providerRating)
+        virtualLessonContentRating  = findViewById(R.id.contentRating)
+        virtualLessonServiceRating  = findViewById(R.id.serviceRating)
         virtualLessonMessageTeacherInput  = findViewById(R.id.virtualLessonMessageTeacherInput)
 
         supportActionBar?.title = "Rate your lesson"
@@ -40,33 +40,18 @@ class VirtualLessonRateActivity : AppCompatActivity() {
     }
 
     private fun bindItems() {
-        virtualLessonTeacherRating  = findViewById(R.id.virtualLessonTeacherRating)
-        virtualLessonContentRating  = findViewById(R.id.virtualLessonContentRating)
-        virtualLessonServiceRating  = findViewById(R.id.virtualLessonServiceRating)
+        virtualLessonTeacherRating  = findViewById(R.id.providerRating)
+        virtualLessonContentRating  = findViewById(R.id.contentRating)
+        virtualLessonServiceRating  = findViewById(R.id.serviceRating)
 
         virtualLessonMessageTeacherInput  = findViewById(R.id.virtualLessonMessageTeacherInput)
     }
 
     private fun getExtras() {
-        teacherName = intent.getStringExtra("teacher_name").toString()
-        if(teacherName.isEmpty()){
-            teacherName = "Teacher name"
-        }
-
+        teacherName = intent.getStringExtra("teacherName").toString()
         date = intent.getStringExtra("date").toString()
-        if(teacherName.isEmpty()){
-            date = "14/01/2021 14:30"
-        }
-
         type = intent.getStringExtra("type").toString()
-        if(teacherName.isEmpty()){
-            type = "Virtual"
-        }
-
         paymentType = intent.getStringExtra("paymentType").toString()
-        if(teacherName.isEmpty()){
-            paymentType = "Credit Card"
-        }
     }
 
     fun onSaveRating(view: View) {
