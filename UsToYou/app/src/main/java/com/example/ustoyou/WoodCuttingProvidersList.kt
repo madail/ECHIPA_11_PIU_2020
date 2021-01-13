@@ -36,15 +36,15 @@ class WoodCuttingProvidersList : AppCompatActivity(), AdapterView.OnItemClickLis
         val address =  p1?.findViewById<TextView>(R.id.provider_item_address)
         val price =  p1?.findViewById<TextView>(R.id.provider_item_price)
 
-        val Price= price?.text.toString().split(" ")[1]
-        val intent  = Intent(this, HarvestActivity::class.java).apply {
+        val price1= price?.text.toString().split(" ")[1]
+        val intent  = Intent(this, WoodCutActivity::class.java).apply {
             if (nameText != null) {
                 putExtra("name",nameText.text.toString())
             }
             if (address != null) {
                 putExtra("address", address.text.toString())
             }
-            putExtra("price", Price.toInt())
+            putExtra("price", price1.toInt())
         }
         startActivity(intent)
     }

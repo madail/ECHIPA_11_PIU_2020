@@ -27,6 +27,9 @@
     <string name="first_price">10$</string>
     <string name="order_now">Order Now</string>
     <string name="name">Name</string>
+    <string name="provider_name">Provider\'s Name</string>
+    <string name="parcel_address">Parcel\'s Address</string>
+    <string name="place_address">Place Address</string>
     <string name="your_name">Your Name</string>
     <string name="phone">Phone</string>
     <string name="phone_number">Phone Number</string>

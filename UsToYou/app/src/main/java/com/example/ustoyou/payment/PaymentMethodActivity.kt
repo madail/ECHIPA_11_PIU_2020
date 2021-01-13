@@ -13,6 +13,9 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.example.ustoyou.*
 import com.example.ustoyou.babysitting.YourOrderBabysittingConfirmation
 import com.example.ustoyou.delivery.YourDeliveryConfirmation
+import com.example.ustoyou.model.HarvestConfirmationDetails
+import com.example.ustoyou.model.ITConfirmationDetails
+import com.example.ustoyou.model.WoodCuttingConfirmationDetails
 import com.example.ustoyou.model.User
 import com.example.ustoyou.teaching.YourTeachingServiceConfirmation
 import com.google.android.material.navigation.NavigationView
@@ -99,6 +102,21 @@ class PaymentMethodActivity : AppCompatActivity(), NavigationView.OnNavigationIt
                 intent1.putExtra("image", image)
                 intent1.putExtra("card", intent.getStringExtra("card"))
                 finish()
+            }
+            "Harvest" ->{
+                intent1 = Intent(this, HarvestConfirmation::class.java)
+                val details = intent.getSerializableExtra("HarvestInfo") as HarvestConfirmationDetails
+                intent1.putExtra("HarvestInfo",details)
+            }
+            "IT" ->{
+                intent1 = Intent(this, ITConfirmation::class.java)
+                val details = intent.getSerializableExtra("ITInfo") as ITConfirmationDetails
+                intent1.putExtra("ITInfo",details)
+            }
+            "WoodCutting" ->{
+                intent1 = Intent(this, WoodCuttingConfirmation::class.java)
+                val details = intent.getSerializableExtra("WoodInfo") as WoodCuttingConfirmationDetails
+                intent1.putExtra("WoodInfo",details)
             }
         }
 
