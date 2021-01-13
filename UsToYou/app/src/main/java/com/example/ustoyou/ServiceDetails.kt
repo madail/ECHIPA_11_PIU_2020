@@ -11,6 +11,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.example.ustoyou.ScheduleTherapySession.ScheduleTherapyDetailsActivity
 import com.example.ustoyou.babysitting.YourOrderBabysittingActivity
 import com.example.ustoyou.delivery.YourDeliveryActivity
 import com.example.ustoyou.model.GenericService
@@ -81,6 +82,11 @@ class ServiceDetails : AppCompatActivity(), NavigationView.OnNavigationItemSelec
             intent.putExtra("image", teachingService.imageRes)
             intent.putExtra("name", teachingService.titleSubject)
             intent.putExtra("typeOfDelivery", typeDelivery)
+            startActivity(intent)
+        } else if(type == "therapy") {
+            val intent = Intent(this, ScheduleTherapyDetailsActivity::class.java)
+            intent.putExtra("image", teachingService.imageRes)
+            intent.putExtra("name", teachingService.titleSubject)
             startActivity(intent)
         } else {
             val intent = Intent(this, YourTeachingServiceOrder::class.java)

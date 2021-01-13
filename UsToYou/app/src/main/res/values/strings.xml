@@ -112,4 +112,5 @@
     <string name="assistant">Assistant</string>
     <string name="interface_label">Interface</string>
     <string name="skip">Skip</string>
+    <string name="session_type">Session Type</string>
 </resources>
