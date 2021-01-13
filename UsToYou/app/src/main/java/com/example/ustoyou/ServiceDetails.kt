@@ -11,7 +11,11 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.example.ustoyou.babysitting.YourOrderBabysittingActivity
+import com.example.ustoyou.delivery.YourDeliveryActivity
 import com.example.ustoyou.model.GenericService
+import com.example.ustoyou.payment.PaymentDetailsActivity
+import com.example.ustoyou.teaching.YourTeachingServiceOrder
 import com.google.android.material.navigation.NavigationView
 
 class ServiceDetails : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {

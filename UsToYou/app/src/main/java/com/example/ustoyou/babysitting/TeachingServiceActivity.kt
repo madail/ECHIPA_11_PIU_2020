@@ -1,33 +1,41 @@
-package com.example.ustoyou
+package com.example.ustoyou.babysitting
 
-import android.app.Activity
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.View
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import com.example.ustoyou.model.Service
-import com.example.ustoyou.model.ServicesListSingleton
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.ustoyou.*
+import com.example.ustoyou.adapters.ServiceAdapter
+import com.example.ustoyou.model.TeachingServices
+import com.example.ustoyou.payment.PaymentDetailsActivity
 import com.google.android.material.navigation.NavigationView
-import com.squareup.picasso.Picasso
 
-
-class DeliveryServiceFormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class TeachingServiceActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_delivery_service_form)
-        supportActionBar?.title = "New delivery service"
+        setContentView(R.layout.activity_teaching_service)
+
+        val recyclerView: RecyclerView = findViewById(R.id.rvTeachingServices)
+        val layoutManager: RecyclerView.LayoutManager =
+            GridLayoutManager(this, 2)
+        recyclerView.layoutManager = layoutManager
+        val adapter = ServiceAdapter(
+            TeachingServices().getTeachingServices(),
+            this,
+            "teaching"
+        )
+        supportActionBar?.title = "Teaching Services"
+
+        recyclerView.adapter = adapter
 
         drawerLayout = findViewById(R.id.drawerLayout)
         actionBarDrawerToggle = ActionBarDrawerToggle(
@@ -42,51 +50,6 @@ class DeliveryServiceFormActivity : AppCompatActivity(), NavigationView.OnNaviga
         setNavigationViewListener()
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-    }
-
-    fun validate(name: EditText, city: EditText, price: EditText,) : Boolean {
-        if(name.text.toString() == "") {
-            name.error = "Title missing!"
-            return false
-        }
-        if(price.text.toString() == "") {
-            price.error = "Price missing!"
-            return false
-        }
-        if(city.text.toString() == "") {
-            city.error = "City missing!"
-            return false
-        }
-        return true;
-    }
-
-    fun continueToConfirmation(view : View) {
-        val name = findViewById<EditText>(R.id.deliveryServiceTitleEditText)
-        val city = findViewById<EditText>(R.id.deliveryServiceCityEditText)
-        val price = findViewById<EditText>(R.id.deliveryServicePriceEditText)
-        val isValid = validate(name, city, price)
-        val category = "Delivery"
-        if(isValid) {
-            val service = Service(name.text.toString(), category, R.drawable.delivery_service_1)
-            ServicesListSingleton.services.add(service)
-            val intent = Intent(this, UploadPhotoActivity::class.java)
-            startActivity(intent)
-        }
-    }
-
-    fun onRadioButtonClicked(view: View) {
-        if (view is RadioButton) {
-            val checked = view.isChecked
-            when (view.getId()) {
-                R.id.radioDrone ->
-                    if (checked) {
-
-                    }
-                R.id.radioCar ->
-                    if (checked) {
-                    }
-            }
-        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -133,5 +96,4 @@ class DeliveryServiceFormActivity : AppCompatActivity(), NavigationView.OnNaviga
         val navigationView: NavigationView = findViewById(R.id.navigationView)
         navigationView.setNavigationItemSelectedListener(this)
     }
-
 }

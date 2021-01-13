@@ -9,7 +9,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true">
-        <activity android:name=".VisualAid.VisualAidRateActivity"></activity>
+        <activity
+            android:name=".VisualAid.VisualAidRateActivity"
+            android:theme="@style/Theme.UsToYouTheme" />
         <activity
             android:name=".VisualAid.VisualAidActivity"
             android:theme="@style/Theme.UsToYouTheme" />
@@ -17,7 +19,7 @@
             android:name=".VirtualLesson.VirtualLessonRateActivity"
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
-            android:name=".YourDeliveryConfirmation"
+            android:name=".delivery.YourDeliveryConfirmation"
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
             android:name=".UploadPhotoActivity"
@@ -25,11 +27,7 @@
         <activity
             android:name=".VirtualLesson.VirtualLessonOrderDetailsActivity"
             android:theme="@style/Theme.UsToYouTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".VirtualLesson.VirtualLessonActivity"
@@ -38,10 +36,10 @@
             android:name=".UploadFileActivity"
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
-            android:name=".BabysittingServiceFormActivity"
+            android:name=".babysitting.BabysittingServiceFormActivity"
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
-            android:name=".DeliveryServiceFormActivity"
+            android:name=".delivery.DeliveryServiceFormActivity"
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
             android:name=".ConfirmServiceActivity"
@@ -67,22 +65,22 @@
             android:name=".MyOrdersActivity"
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
-            android:name=".YourOrderBabysittingConfirmation"
+            android:name=".babysitting.YourOrderBabysittingConfirmation"
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
-            android:name=".YourOrderBabysittingActivity"
+            android:name=".babysitting.YourOrderBabysittingActivity"
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
-            android:name=".BabySittingServiceActivity"
+            android:name=".babysitting.BabySittingServiceActivity"
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
-            android:name=".YourDeliveryActivity"
+            android:name=".delivery.YourDeliveryActivity"
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
-            android:name=".DeliveryServicesActivity"
+            android:name=".delivery.DeliveryServicesActivity"
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
-            android:name=".TeachingServiceActivity"
+            android:name=".babysitting.TeachingServiceActivity"
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
             android:name=".DeclinedActivity"
@@ -91,17 +89,23 @@
             android:name=".ConfirmationActivity"
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
-            android:name=".YourTeachingServiceConfirmation"
+            android:name=".teaching.YourTeachingServiceConfirmation"
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
-            android:name=".YourTeachingServiceOrder"
+            android:name=".teaching.YourTeachingServiceOrder"
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
             android:name=".ServiceDetails"
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
             android:name=".SplashActivity"
-            android:theme="@style/Theme.FullScreen" />
+            android:theme="@style/Theme.FullScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".RegisterActivity"
             android:theme="@style/Theme.FullScreen" />
@@ -115,7 +119,7 @@
             android:name=".HarvestActivity"
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
-            android:name=".PaymentMethodActivity"
+            android:name=".payment.PaymentMethodActivity"
             android:theme="@style/Theme.UsToYouTheme"
             tools:ignore="Instantiatable" />
         <activity
@@ -139,7 +143,7 @@
             android:theme="@style/Theme.UsToYouTheme"
             tools:ignore="Instantiatable" />
         <activity
-            android:name=".PaymentDetailsActivity"
+            android:name=".payment.PaymentDetailsActivity"
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
             android:name=".HarvestConfirmation"

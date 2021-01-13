@@ -1,44 +1,48 @@
-package com.example.ustoyou
+package com.example.ustoyou.babysitting
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.ustoyou.adapters.DeliveryAdapter
-import com.example.ustoyou.model.*
+import com.example.ustoyou.*
+import com.example.ustoyou.model.BabysittingOrder
+import com.example.ustoyou.payment.PaymentDetailsActivity
+import com.example.ustoyou.payment.PaymentMethodActivity
 import com.google.android.material.navigation.NavigationView
+import java.text.ParseException
+import java.text.SimpleDateFormat
+import java.util.*
 
-class YourDeliveryActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener{
+class YourOrderBabysittingActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_your_delivery)
+        setContentView(R.layout.activity_your_order_babysitting)
         supportActionBar?.title = "Your Order"
 
-        val type = intent.getIntExtra("typeOfDelivery", -1)
+        val nameEditText: EditText = findViewById(R.id.yourBabysittingOrderNameEditText)
+        val phoneEditText: EditText = findViewById(R.id.yourBabysittingOrderPhoneEditText)
+        val addressEditText: EditText = findViewById(R.id.yourBabysittingOrderAddressEditText)
+        val dateEditText: EditText = findViewById(R.id.yourBabysittingOrderDateEditText)
+        val childEditText: EditText = findViewById(R.id.yourBabysittingOrderChildAgeEditText)
 
-        DeliveryObjects.getObjects(type)
+        if (intent.getBooleanExtra("payBack", false)) {
+            val order = intent.getSerializableExtra("babySittingOrder") as BabysittingOrder
 
-        val recyclerView: RecyclerView = findViewById(R.id.rv_pizzaDetailsDelivery)
-        val pizzaDeliveryAdapter = DeliveryAdapter(
-            DeliveryObjects.objects,
-            this
-        )
-        recyclerView.adapter = pizzaDeliveryAdapter
-
-        val linearLayoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        recyclerView.layoutManager = linearLayoutManager
+            nameEditText.setText(order.name)
+            phoneEditText.setText(order.phone)
+            addressEditText.setText(order.address)
+            dateEditText.setText(order.date)
+            childEditText.setText(order.childsAge)
+        }
 
         drawerLayout = findViewById(R.id.drawerLayout)
         actionBarDrawerToggle = ActionBarDrawerToggle(
@@ -56,36 +60,53 @@ class YourDeliveryActivity : AppCompatActivity(), NavigationView.OnNavigationIte
     }
 
     fun payOrder(view: View) {
-        val name: EditText = findViewById(R.id.pizzaDeliveryConfirmationNameEditText)
-        val phone: EditText = findViewById(R.id.pizzaDeliveryConfirmationPhoneEditText)
-        val address: EditText = findViewById(R.id.pizzaDeliveryConfirmationAddressEditText)
-        val price: TextView = findViewById(R.id.pizzaDeliveryConfirmationTotal)
-        val currentPrice = price.text.toString().split(" ").toTypedArray()[1].dropLast(1)
+        val nameEditText: EditText = findViewById(R.id.yourBabysittingOrderNameEditText)
+        val phoneEditText: EditText = findViewById(R.id.yourBabysittingOrderPhoneEditText)
+        val addressEditText: EditText = findViewById(R.id.yourBabysittingOrderAddressEditText)
+        val dateEditText: EditText = findViewById(R.id.yourBabysittingOrderDateEditText)
+        val childEditText: EditText = findViewById(R.id.yourBabysittingOrderChildAgeEditText)
 
-        val isValid = validateDetails(name, phone, address)
+        val isValid = validateDetails(
+            nameEditText,
+            phoneEditText,
+            addressEditText,
+            dateEditText,
+            childEditText
+        )
 
         if (isValid) {
 
             val intent1 = Intent(this, PaymentMethodActivity::class.java)
-            intent1.putExtra("pizza", "pizza")
+
+            val babysittingOrder = BabysittingOrder(
+                nameEditText.text.toString(),
+                phoneEditText.text.toString(),
+                addressEditText.text.toString(),
+                childEditText.text.toString(),
+                dateEditText.text.toString()
+            )
+
+            intent1.putExtra("babySittingOrder", babysittingOrder)
+            intent1.putExtra("activity","babysitting")
             intent1.putExtra("image", intent.getIntExtra("image", -1))
             intent1.putExtra("name", intent.getStringExtra("name"))
-            intent1.putExtra("deliveryOrderName",name.text.toString())
-            intent1.putExtra("deliveryOrderPhone",phone.text.toString())
-            intent1.putExtra("deliveryOrderAddress",address.text.toString())
-            intent1.putExtra( "typeOfDelivery",intent.getIntExtra("typeOfDelivery", -1))
-            intent1.putExtra("total",currentPrice)
-            intent1.putExtra("activity","delivery")
+
             startActivity(intent1)
         }
-
     }
 
     private fun validateDetails(
         name: EditText,
         phone: EditText,
-        address: EditText
+        address: EditText,
+        date: EditText,
+        childsAge: EditText
     ): Boolean {
+        if (childsAge.text.toString().isEmpty()) {
+            childsAge.error = "Child's age required!"
+            return false
+        }
+
         if (name.text.toString().isEmpty()) {
             name.error = "Name required!"
             return false
@@ -105,6 +126,25 @@ class YourDeliveryActivity : AppCompatActivity(), NavigationView.OnNavigationIte
             address.error = "Address required!"
             return false
         }
+
+        if (date.text.toString().isEmpty()) {
+            date.error = "Date required!"
+            return false
+        } else {
+            try {
+                val formatter = SimpleDateFormat("dd/MM/yyyy HH:MM", Locale.getDefault())
+                val myDate = formatter.parse(date.text.toString())
+                val current = Date()
+                if (!current.before(myDate)) {
+                    date.error = "The date should be in the future!"
+                    return false
+                }
+            } catch (ex: ParseException) {
+                date.error = "Format should be DD/MM/YYYY HH:MM"
+                return false
+            }
+        }
+
 
         return true
     }

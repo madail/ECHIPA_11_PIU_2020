@@ -1,14 +1,17 @@
-package com.example.ustoyou
+package com.example.ustoyou.delivery
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.ustoyou.ConfirmationActivity
+import com.example.ustoyou.payment.PaymentDetailsActivity
+import com.example.ustoyou.R
 import com.example.ustoyou.adapters.DeliveryAdapter
 import com.example.ustoyou.model.DeliveryObjects
 import com.example.ustoyou.model.Order
@@ -55,7 +58,7 @@ class YourDeliveryConfirmation : AppCompatActivity() {
 
         creditCardEditText.setOnClickListener {
             val intent1 = Intent(this, PaymentDetailsActivity::class.java)
-            startActivity(intent1)
+            startActivityForResult(intent1, 1234)
         }
 
         val price: TextView = findViewById(R.id.pizzaDeliveryConfirmationTotal)
@@ -75,5 +78,24 @@ class YourDeliveryConfirmation : AppCompatActivity() {
         val order = Order("Delivery", name, intent.getIntExtra("image", -1))
         intent1.putExtra("order", order)
         startActivity(intent1)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == 1234) {
+            if (resultCode == Activity.RESULT_OK) {
+                val cardNumber = data!!.getStringExtra("cardNumber")
+                val expDate = data.getStringExtra("expirationDate")
+                val cvc = data.getStringExtra("cvc")
+
+                val creditCardEditText: EditText =
+                    findViewById(R.id.yourDeliveryConfirmationCreditCardEditText)
+
+                val cardString = "$cardNumber $expDate $cvc"
+
+                creditCardEditText.setText(cardString)
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data)
+        }
     }
 }

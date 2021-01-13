@@ -1,4 +1,4 @@
-package com.example.ustoyou
+package com.example.ustoyou.delivery
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,8 +10,10 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.ustoyou.*
 import com.example.ustoyou.adapters.ServiceAdapter
 import com.example.ustoyou.model.DeliveryServices
+import com.example.ustoyou.payment.PaymentDetailsActivity
 import com.google.android.material.navigation.NavigationView
 
 class DeliveryServicesActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
