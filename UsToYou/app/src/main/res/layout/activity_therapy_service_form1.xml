@@ -44,8 +44,8 @@
 
     <EditText
         android:id="@+id/therapyServiceDescriptionEditText"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:ems="10"
         android:textColor="@color/primaryDarkColor"
         android:layout_marginTop="10dp"
@@ -53,9 +53,10 @@
         android:layout_marginStart="20dp"
         android:inputType="text"
         android:textSize="18sp"
+        android:maxLines="8"
         android:hint="@string/service_description"/>
 
-    <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    <RadioGroup
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"

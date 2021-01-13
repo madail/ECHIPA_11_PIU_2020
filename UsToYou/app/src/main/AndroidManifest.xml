@@ -82,7 +82,7 @@
             android:name=".delivery.DeliveryServicesActivity"
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
-            android:name=".babysitting.TeachingServiceActivity"
+            android:name=".teaching.TeachingServiceActivity"
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
             android:name=".DeclinedActivity"

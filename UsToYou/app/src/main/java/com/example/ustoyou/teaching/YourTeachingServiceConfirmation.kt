@@ -14,7 +14,8 @@ import com.example.ustoyou.model.Order
 import com.example.ustoyou.model.TeachingServiceOrderDetails
 
 class YourTeachingServiceConfirmation : AppCompatActivity() {
-    private final lateinit var order: Order
+    private lateinit var order: Order
+    private var cardString: String = "XXXX-XXXX-XXXX-XXXX MM/YY CVV"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,6 +57,12 @@ class YourTeachingServiceConfirmation : AppCompatActivity() {
             startActivityForResult(intent1, 1234)
         }
 
+
+        if(intent.getStringExtra("card") != null) {
+            cardString = intent.getStringExtra("card")!!
+        }
+
+        creditCardEditText.setText(cardString)
     }
 
     fun order(view: View) {
@@ -71,6 +78,7 @@ class YourTeachingServiceConfirmation : AppCompatActivity() {
         intent1.putExtra("payBack",true)
         intent1.putExtra("name",intent.getStringExtra("name"))
         intent1.putExtra("image",intent.getIntExtra("image",-1))
+        intent1.putExtra("card", cardString)
         intent1.putExtra("teachingOrder", intent.getSerializableExtra("teachingOrder"))
         startActivity(intent1)
     }
@@ -85,7 +93,7 @@ class YourTeachingServiceConfirmation : AppCompatActivity() {
                 val creditCardEditText: EditText =
                     findViewById(R.id.yourTeachingOrderConfirmationCreditCardEditText)
 
-                val cardString = "$cardNumber $expDate $cvc"
+                cardString = "$cardNumber $expDate $cvc"
 
                 creditCardEditText.setText(cardString)
             }

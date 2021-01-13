@@ -3,8 +3,8 @@ package com.example.ustoyou.model
 import com.example.ustoyou.R
 
 class DeliveryServices {
-    fun getDeliveryServices(): ArrayList<GenericService>{
-        return arrayListOf(
+    companion object{
+        var deliveryServices = arrayListOf(
             GenericService(
                 R.drawable.delivery_service_1,
                 "Pizza Delivery",
@@ -24,5 +24,9 @@ class DeliveryServices {
                 25
             )
         )
+
+        fun addService(genericService: GenericService){
+            deliveryServices.add(genericService)
+        }
     }
 }

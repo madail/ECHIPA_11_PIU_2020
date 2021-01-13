@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
+import com.example.ustoyou.model.GenericService
 
 class TherapyServiceForm2Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
