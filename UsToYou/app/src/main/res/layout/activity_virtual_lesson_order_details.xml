@@ -142,7 +142,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="20dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp">
 
         <LinearLayout
             android:layout_width="80dp"
@@ -174,6 +175,13 @@
 
     </LinearLayout>
 
+    <include
+        layout="@layout/rating_lesson_item"
+        android:id="@+id/virtualLessonDetailsRating"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:visibility="invisible"/>
+
     <TextView
         android:id="@+id/virtualLessonDetailsAccessLessonLink"
         android:layout_width="match_parent"
@@ -181,9 +189,10 @@
         android:textSize="@dimen/textSizeNormal"
         android:textColor="@color/primaryDarkColor"
         android:text="@string/access_virtual_lesson"
-        android:layout_marginTop="270dp"
+        android:layout_marginTop="80dp"
         android:clickable="true"
         android:textAlignment="center"
-        android:focusable="true" />
+        android:focusable="true"
+        android:onClick="handleOnLinkClick"/>
 
 </LinearLayout>

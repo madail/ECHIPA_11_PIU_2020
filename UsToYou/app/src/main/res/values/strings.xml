@@ -101,4 +101,5 @@
     <string name="content">Content</string>
     <string name="service_quality">Service quality</string>
     <string name="message_the_teacher">Message the teacher</string>
+    <string name="virtual_link_expired">Virtual link expired</string>
 </resources>
