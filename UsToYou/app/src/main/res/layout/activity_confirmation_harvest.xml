@@ -16,7 +16,7 @@
             android:id="@+id/harvestConfirmationNameText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/name"
+            android:text="@string/provider_name"
             android:textColor="@color/primaryDarkColor"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
@@ -36,14 +36,14 @@
             android:textSize="18sp"
             android:focusable="false"
             android:clickable="false"
-            android:hint="@string/your_name"/>
+            android:hint="@string/provider_name"/>
 
 
         <TextView
             android:id="@+id/harvestConfirmationAddressText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/address"
+            android:text="@string/parcel_address"
             android:textColor="@color/primaryDarkColor"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
@@ -63,7 +63,7 @@
             android:layout_marginEnd="20dp"
             android:layout_marginStart="20dp"
             android:textSize="18sp"
-            android:hint="@string/your_current_address"/>
+            android:hint="@string/parcel_address"/>
 
         <TextView
             android:id="@+id/harvestConfirmationPriceText"
@@ -167,6 +167,7 @@
             android:textSize="18sp"
             android:focusable="false"
             android:clickable="false"
+            android:drawableEnd="@drawable/ic_card_primary"
             android:hint="@string/xxxx_xxxx_xxxx_xxxx_xxxx"/>
 
         <FrameLayout
@@ -178,7 +179,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/yourBabysittingOrderConfirmationBackButton"
+                android:id="@+id/harvestConfirmationBackButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/back"
@@ -191,12 +192,12 @@
                 />
 
             <Button
-                android:id="@+id/yourBabysittingOrderConfirmationConfirmButton"
+                android:id="@+id/harvestConfirmationConfirmButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:background="@drawable/radius_dark_button"
-                android:onClick="order"
+                android:onClick="confirm"
                 android:padding="10dp"
                 android:text="@string/confirm"
                 android:textAllCaps="false"

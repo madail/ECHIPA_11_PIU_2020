@@ -45,6 +45,7 @@
             android:hint="@string/_180"
             android:focusable="false"
             android:clickable="false"
+            android:text="@string/_180"
             android:textAlignment="center"
             app:layout_constraintTop_toBottomOf="@id/payment_method_textViewAmount"
             app:layout_constraintRight_toRightOf="parent"
