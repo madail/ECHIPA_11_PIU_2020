@@ -92,6 +92,7 @@ class YourOrderBabysittingActivity : AppCompatActivity(), NavigationView.OnNavig
             intent1.putExtra("name", intent.getStringExtra("name"))
             intent1.putExtra("card", intent.getStringExtra("card"))
             startActivity(intent1)
+            finish()
         }
     }
 

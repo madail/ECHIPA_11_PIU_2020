@@ -6,16 +6,19 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ustoyou.ConfirmationActivity
+import com.example.ustoyou.DeclinedActivity
 import com.example.ustoyou.payment.PaymentDetailsActivity
 import com.example.ustoyou.R
 import com.example.ustoyou.adapters.DeliveryAdapter
 import com.example.ustoyou.babysitting.YourOrderBabysittingActivity
 import com.example.ustoyou.model.DeliveryObjects
 import com.example.ustoyou.model.Order
+import com.example.ustoyou.model.User
 
 class YourDeliveryConfirmation : AppCompatActivity() {
     private var cardString: String = "XXXX-XXXX-XXXX-XXXX MM/YY CVV"
@@ -85,14 +88,26 @@ class YourDeliveryConfirmation : AppCompatActivity() {
     }
 
     fun order(view: View) {
-        val intent1 = Intent(this, ConfirmationActivity::class.java)
-        var name = intent.getStringExtra("name")
-        if (name == null) {
-            name = ""
+        if(User.currentUser?.cash!!) {
+            if(cardString != "XXXX-XXXX-XXXX-XXXX MM/YY CVV") {
+                val intent1 = Intent(this, ConfirmationActivity::class.java)
+                var name = intent.getStringExtra("name")
+                if (name == null) {
+                    name = ""
+                }
+                val order = Order("Delivery", name, intent.getIntExtra("image", -1))
+                intent1.putExtra("order", order)
+                startActivity(intent1)
+                finish()
+            }else{
+                Toast.makeText(this,"CARD REQUIRED", Toast.LENGTH_LONG).show()
+            }
+        }else{
+            val intent = Intent(this, DeclinedActivity::class.java)
+            intent.putExtra("activity","delivery")
+            startActivity(intent)
+            finish()
         }
-        val order = Order("Delivery", name, intent.getIntExtra("image", -1))
-        intent1.putExtra("order", order)
-        startActivity(intent1)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
