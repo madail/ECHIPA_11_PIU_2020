@@ -56,6 +56,26 @@ class PaymentMethodActivity : AppCompatActivity(), NavigationView.OnNavigationIt
         val price: EditText = findViewById(R.id.payment_method_textAmount)
         price.setText(CurrentPrice.price.toString())
 
+        spinner.onItemSelectedListener = object :
+            AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>,
+                view: View,
+                position: Int,
+                id: Long
+            ) {
+                when (position) {
+                    0 -> price.setText((CurrentPrice.price * 4.01).toString())
+                    1 -> price.setText((CurrentPrice.price * 0.73).toString())
+                    2 -> price.setText((CurrentPrice.price * 0.82).toString())
+                    3 -> price.setText((CurrentPrice.price).toString())
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>) {
+            }
+        }
+
     }
 
     fun confirm(view: View) {
@@ -72,8 +92,8 @@ class PaymentMethodActivity : AppCompatActivity(), NavigationView.OnNavigationIt
 
         var intent1 = Intent()
 
-        when(activityType){
-            "teaching" ->{
+        when (activityType) {
+            "teaching" -> {
                 intent1 = Intent(this, YourTeachingServiceConfirmation::class.java)
                 intent1.putExtra("teachingOrder", teachingServiceOrderDetails)
                 intent1.putExtra("image", image)
@@ -81,7 +101,7 @@ class PaymentMethodActivity : AppCompatActivity(), NavigationView.OnNavigationIt
                 intent1.putExtra("name", intent.getStringExtra("name"))
                 finish()
             }
-            "babysitting"->{
+            "babysitting" -> {
                 intent1 = Intent(this, YourOrderBabysittingConfirmation::class.java)
                 intent1.putExtra("babySittingOrder", babysittingOrder)
                 intent1.putExtra("image", image)
@@ -89,16 +109,16 @@ class PaymentMethodActivity : AppCompatActivity(), NavigationView.OnNavigationIt
                 intent1.putExtra("name", intent.getStringExtra("name"))
                 finish()
             }
-            "delivery" ->{
+            "delivery" -> {
                 intent1 = Intent(this, YourDeliveryConfirmation::class.java)
-                intent1.putExtra("deliveryOrderName",deliveryOrderName)
-                intent1.putExtra("deliveryOrderPhone",deliveryOrderPhone)
-                intent1.putExtra("deliveryOrderAddress",deliveryOrderAddress)
-                intent1.putExtra("deliveryOrder",intent.getSerializableExtra("deliveryOrder"))
-                intent1.putExtra("name",intent.getStringExtra("name"))
-                intent1.putExtra( "typeOfDelivery",intent.getIntExtra("typeOfDelivery", -1))
-                intent1.putExtra("total",intent.getStringExtra("total"))
-                intent1.putExtra("confirmation",true)
+                intent1.putExtra("deliveryOrderName", deliveryOrderName)
+                intent1.putExtra("deliveryOrderPhone", deliveryOrderPhone)
+                intent1.putExtra("deliveryOrderAddress", deliveryOrderAddress)
+                intent1.putExtra("deliveryOrder", intent.getSerializableExtra("deliveryOrder"))
+                intent1.putExtra("name", intent.getStringExtra("name"))
+                intent1.putExtra("typeOfDelivery", intent.getIntExtra("typeOfDelivery", -1))
+                intent1.putExtra("total", intent.getStringExtra("total"))
+                intent1.putExtra("confirmation", true)
                 intent1.putExtra("image", image)
                 intent1.putExtra("card", intent.getStringExtra("card"))
                 finish()
