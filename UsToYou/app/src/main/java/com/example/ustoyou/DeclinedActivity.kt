@@ -17,7 +17,7 @@ class DeclinedActivity : AppCompatActivity() {
 
     fun payment(view: View) {
         var intent1 = Intent()
-        when (intent1.getStringExtra("activity")) {
+        when (intent.getStringExtra("activity")) {
             "babysitting" -> intent1 = Intent(this, BabySittingServiceActivity::class.java)
             "delivery" -> intent1 = Intent(this, DeliveryServicesActivity::class.java)
             "teaching" -> intent1 = Intent(this, TeachingServiceActivity::class.java)

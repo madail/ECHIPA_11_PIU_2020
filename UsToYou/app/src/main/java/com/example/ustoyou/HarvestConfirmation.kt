@@ -8,6 +8,8 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ustoyou.model.HarvestConfirmationDetails
+import com.example.ustoyou.model.Order
+import com.example.ustoyou.model.Orders
 import com.example.ustoyou.model.WoodCuttingConfirmationDetails
 import com.example.ustoyou.payment.PaymentDetailsActivity
 import com.example.ustoyou.payment.PaymentMethodActivity
@@ -51,16 +53,20 @@ class HarvestConfirmation : AppCompatActivity() {
     }
 
     fun confirm(view: View) {
+        val details = intent.getSerializableExtra("HarvestInfo") as HarvestConfirmationDetails
         val cashPayment = intent.getBooleanExtra("cash", false)
         val cardDetails: EditText = findViewById<EditText>(R.id.harvestConfirmationCreditCardEditText)
+        val order = Order("Harvest",details.name,R.drawable.harvest_service)
 
         if(cashPayment)
         {
             val intent = Intent(this, ConfirmationActivity::class.java)
+            intent.putExtra("order",order)
             startActivity(intent)
         }else if(cardDetails.text.toString()!="")
         {
             val intent = Intent(this, ConfirmationActivity::class.java)
+            intent.putExtra("order",order)
             startActivity(intent)
         }else{
             cardDetails.error = "Card Number is required!"

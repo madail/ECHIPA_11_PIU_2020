@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.ustoyou.model.Order
 import com.example.ustoyou.model.WoodCuttingConfirmationDetails
 import com.example.ustoyou.payment.PaymentDetailsActivity
 
@@ -48,16 +49,20 @@ class WoodCuttingConfirmation : AppCompatActivity() {
     }
 
     fun confirm(view: View) {
+        val details = intent.getSerializableExtra("WoodInfo") as WoodCuttingConfirmationDetails
         val cashPayment = intent.getBooleanExtra("cash", false)
         val cardDetails: EditText = findViewById<EditText>(R.id.woodConfirmationCreditCardEditText)
+        val order = Order("Wood Cutting",details.name,R.drawable.wood_cutting)
 
         if(cashPayment)
         {
             val intent = Intent(this, ConfirmationActivity::class.java)
+            intent.putExtra("order",order)
             startActivity(intent)
         }else if(cardDetails.text.toString()!="")
         {
             val intent = Intent(this, ConfirmationActivity::class.java)
+            intent.putExtra("order",order)
             startActivity(intent)
         }else{
             cardDetails.error = "Card Number is required!"
