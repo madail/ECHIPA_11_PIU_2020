@@ -16,6 +16,8 @@ class ITConfirmation : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_confirmation_it)
 
+        supportActionBar?.title = "IT Support Confirmation"
+
         val details = intent.getSerializableExtra("ITInfo") as ITConfirmationDetails
         System.out.println("fhfhfhdhhdhd" + details.price)
         val cashPayment = intent.getBooleanExtra("cash", false)

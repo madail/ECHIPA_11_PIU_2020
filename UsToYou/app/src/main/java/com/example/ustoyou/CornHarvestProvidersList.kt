@@ -18,6 +18,8 @@ class CornHarvestProvidersList : AppCompatActivity(), AdapterView.OnItemClickLis
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_providers_list)
 
+        supportActionBar?.title = "Corn Harvest Providers"
+
         val listReference = findViewById<ListView>(R.id.providers_list)
         listReference.visibility = View.VISIBLE
 

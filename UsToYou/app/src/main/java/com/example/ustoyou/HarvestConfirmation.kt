@@ -17,6 +17,8 @@ class HarvestConfirmation : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_confirmation_harvest)
 
+        supportActionBar?.title = "Corn Harvest Confirmation"
+
         val details = intent.getSerializableExtra("HarvestInfo") as HarvestConfirmationDetails
         val cashPayment = intent.getBooleanExtra("cash", false)
 

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import com.example.ustoyou.model.CurrentPrice
 import com.example.ustoyou.model.HarvestConfirmationDetails
 import com.example.ustoyou.payment.PaymentMethodActivity
 import java.text.ParseException
@@ -15,6 +16,7 @@ class HarvestActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_harvest_info)
+        supportActionBar?.title = "Corn Harvest Info"
     }
 
     fun goToPaymentMethod(view: View) {
@@ -44,6 +46,7 @@ class HarvestActivity : AppCompatActivity() {
 
             val intent = Intent(this, PaymentMethodActivity::class.java).apply {
                 putExtra("HarvestInfo", harvestDetails)
+                CurrentPrice.price=total
                 putExtra("activity", "Harvest")
             }
             startActivity(intent)

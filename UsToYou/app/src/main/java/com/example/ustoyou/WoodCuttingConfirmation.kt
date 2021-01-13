@@ -15,6 +15,8 @@ class WoodCuttingConfirmation : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_confirmation_wood_cutting)
 
+        supportActionBar?.title = "Wood Cutting Confirmation"
+
         val details = intent.getSerializableExtra("WoodInfo") as WoodCuttingConfirmationDetails
         val cashPayment = intent.getBooleanExtra("cash", false)
 
