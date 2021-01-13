@@ -13,10 +13,9 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.example.ustoyou.*
 import com.example.ustoyou.babysitting.YourOrderBabysittingConfirmation
 import com.example.ustoyou.delivery.YourDeliveryConfirmation
-import com.example.ustoyou.model.CurrentPrice
-import com.example.ustoyou.model.HarvestConfirmationDetails
-import com.example.ustoyou.model.ITConfirmationDetails
-import com.example.ustoyou.model.WoodCuttingConfirmationDetails
+import com.example.ustoyou.model.*
+import com.example.ustoyou.teaching.YourTeachingServiceConfirmation
+import com.google.android.material.navigation.NavigationView
 
 
 class PaymentMethodActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
