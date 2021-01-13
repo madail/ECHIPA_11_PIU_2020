@@ -88,7 +88,7 @@ class YourTeachingServiceOrder : AppCompatActivity() , NavigationView.OnNavigati
 
         if (isValid) {
 
-            val intent = Intent(this, PaymentMethodActivity::class.java)
+            val intent1 = Intent(this, PaymentMethodActivity::class.java)
 
             val teachingServiceOrder = TeachingServiceOrderDetails(
                 nameEditText.text.toString(),
@@ -98,9 +98,13 @@ class YourTeachingServiceOrder : AppCompatActivity() , NavigationView.OnNavigati
                 dateEditText.text.toString()
             )
 
-            intent.putExtra("teachingOrder", teachingServiceOrder)
-            intent.putExtra("image",image)
-            startActivity(intent)
+            intent1.putExtra("teachingOrder", teachingServiceOrder)
+            intent1.putExtra("image",image)
+            intent1.putExtra("activity","teaching")
+            intent1.putExtra("image", intent.getIntExtra("image", -1))
+            intent1.putExtra("name", intent.getStringExtra("name"))
+
+            startActivity(intent1)
         }
     }
 

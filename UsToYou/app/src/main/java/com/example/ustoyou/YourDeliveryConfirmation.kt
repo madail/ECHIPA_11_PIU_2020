@@ -54,7 +54,8 @@ class YourDeliveryConfirmation : AppCompatActivity() {
         }
 
         creditCardEditText.setOnClickListener {
-            Toast.makeText(this, "CLICK", Toast.LENGTH_LONG).show()
+            val intent1 = Intent(this, PaymentDetailsActivity::class.java)
+            startActivity(intent1)
         }
 
         val price: TextView = findViewById(R.id.pizzaDeliveryConfirmationTotal)

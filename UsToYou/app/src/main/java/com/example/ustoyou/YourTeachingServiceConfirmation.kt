@@ -42,12 +42,16 @@ class YourTeachingServiceConfirmation : AppCompatActivity() {
             creditCardText.visibility = View.VISIBLE
         }
 
+        creditCardEditText.setOnClickListener {
+            val intent1 = Intent(this, PaymentDetailsActivity::class.java)
+            startActivity(intent1)
+        }
+
     }
 
     fun order(view: View) {
-        val teachingOrder = intent.getSerializableExtra("teachingOrder") as TeachingServiceOrderDetails
         val intent1 = Intent(this, ConfirmationActivity::class.java)
-        val order = Order("Babysitting",teachingOrder.name, intent.getIntExtra("image",-1))
+        val order = Order("Babysitting",intent.getStringExtra("name")!!, intent.getIntExtra("image",-1))
         intent1.putExtra("order",order)
         startActivity(intent1)
     }
@@ -55,6 +59,8 @@ class YourTeachingServiceConfirmation : AppCompatActivity() {
     fun back(view: View) {
         val intent1 = Intent(this, YourTeachingServiceOrder::class.java)
         intent1.putExtra("payBack",true)
+        intent1.putExtra("name",intent.getStringExtra("name"))
+        intent1.putExtra("image",intent.getIntExtra("image",-1))
         intent1.putExtra("teachingOrder", intent.getSerializableExtra("teachingOrder"))
         startActivity(intent1)
     }

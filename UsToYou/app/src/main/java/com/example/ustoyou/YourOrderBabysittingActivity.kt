@@ -73,7 +73,7 @@ class YourOrderBabysittingActivity : AppCompatActivity(), NavigationView.OnNavig
 
         if (isValid) {
 
-            val intent = Intent(this, PaymentMethodActivity::class.java)
+            val intent1 = Intent(this, PaymentMethodActivity::class.java)
 
             val babysittingOrder = BabysittingOrder(
                 nameEditText.text.toString(),
@@ -83,9 +83,12 @@ class YourOrderBabysittingActivity : AppCompatActivity(), NavigationView.OnNavig
                 dateEditText.text.toString()
             )
 
-            intent.putExtra("babySittingOrder", babysittingOrder)
+            intent1.putExtra("babySittingOrder", babysittingOrder)
+            intent1.putExtra("activity","babysitting")
+            intent1.putExtra("image", intent.getIntExtra("image", -1))
+            intent1.putExtra("name", intent.getStringExtra("name"))
 
-            startActivity(intent)
+            startActivity(intent1)
         }
     }
 

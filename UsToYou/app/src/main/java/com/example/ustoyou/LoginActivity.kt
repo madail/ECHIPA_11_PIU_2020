@@ -14,6 +14,7 @@ class LoginActivity : AppCompatActivity() {
     fun signUpGoogle(view: View) {
         val intent = Intent(this, CategoryActivity::class.java)
         startActivity(intent)
+        finish()
     }
 
     fun createAccount(view: View) {
@@ -24,5 +25,6 @@ class LoginActivity : AppCompatActivity() {
     fun signIn(view: View) {
         val intent = Intent(this, CategoryActivity::class.java)
         startActivity(intent)
+        finish()
     }
 }
