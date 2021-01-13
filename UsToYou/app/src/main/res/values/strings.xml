@@ -97,4 +97,8 @@
     <string name="access_virtual_lesson">Access Virtual Lesson</string>
     <string name="confirmed">confirmed</string>
     <string name="leave_lesson">Leave lesson</string>
+    <string name="rating">Rating</string>
+    <string name="content">Content</string>
+    <string name="service_quality">Service quality</string>
+    <string name="message_the_teacher">Message the teacher</string>
 </resources>
