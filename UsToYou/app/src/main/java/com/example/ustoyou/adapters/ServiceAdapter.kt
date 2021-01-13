@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ustoyou.R
 import com.example.ustoyou.ServiceDetails
+import com.example.ustoyou.model.CurrentPrice
 import com.example.ustoyou.model.GenericService
 
 class ServiceAdapter(
@@ -33,6 +34,7 @@ class ServiceAdapter(
             val intent: Intent = Intent(holder.itemView.context, ServiceDetails::class.java)
             intent.putExtra("selectedTeachingService", genericServices[position])
             intent.putExtra("type", type)
+            CurrentPrice.price = genericServices[position].price
             intent.putExtra("typeOfDelivery",position)
             holder.itemView.context.startActivity(intent)
         }

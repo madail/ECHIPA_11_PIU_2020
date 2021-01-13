@@ -73,7 +73,7 @@ class YourTeachingServiceConfirmation : AppCompatActivity() {
 
     fun order(view: View) {
         if (User.currentUser?.cash!!) {
-            if (cardString != "XXXX-XXXX-XXXX-XXXX MM/YY CVV") {
+            if (cardString != "XXXX-XXXX-XXXX-XXXX MM/YY CVV" || intent.getBooleanExtra("cash", false)) {
                 val intent1 = Intent(this, ConfirmationActivity::class.java)
                 val newOrder = Order(
                     "Teaching", intent.getStringExtra("name")!!,

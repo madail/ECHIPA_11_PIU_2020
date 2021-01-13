@@ -37,11 +37,14 @@
             app:layout_constraintTop_toBottomOf="@+id/payment_method_textViewAmount" />
 
 
-        <TextView
+        <EditText
             android:id="@+id/payment_method_textAmount"
             android:layout_width="160dp"
             android:layout_height="50dp"
             android:layout_marginEnd="30dp"
+            android:hint="@string/_180"
+            android:focusable="false"
+            android:clickable="false"
             android:text="@string/_180"
             android:textAlignment="center"
             app:layout_constraintTop_toBottomOf="@id/payment_method_textViewAmount"
