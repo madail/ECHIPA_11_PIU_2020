@@ -86,7 +86,6 @@ class PaymentMethodActivity : AppCompatActivity(), NavigationView.OnNavigationIt
         val deliveryOrderName = intent.getStringExtra("deliveryOrderName")
         val deliveryOrderPhone = intent.getStringExtra("deliveryOrderPhone")
         val deliveryOrderAddress = intent.getStringExtra("deliveryOrderAddress")
-        val therapyOrderDetails = intent.getStringExtra("therapyOrder")
 
         val radioGroup: RadioGroup = findViewById(R.id.payMethodRadioButtons)
         val radioButtonSelected = resources.getResourceEntryName(radioGroup.checkedRadioButtonId)
@@ -143,6 +142,7 @@ class PaymentMethodActivity : AppCompatActivity(), NavigationView.OnNavigationIt
             "therapy" ->{
                 intent1 = Intent(this, ScheduleTherapyConfirmationActivity::class.java)
                 val details = intent.getSerializableExtra("therapyOrder") as TherapyOrder
+                TherapyOrder.orders = details
                 intent1.putExtra("sessionDetails", details)
             }
         }

@@ -34,6 +34,7 @@ class VirtualLessonActivity : AppCompatActivity() {
         paymentType = intent.getStringExtra("paymentType").toString()
     }
 
+
     fun toggleWebBetweenTeacherAndStudent(view: View) {
         Toast.makeText(this@VirtualLessonActivity, "Switching to your camera...", Toast.LENGTH_SHORT).show()
     }

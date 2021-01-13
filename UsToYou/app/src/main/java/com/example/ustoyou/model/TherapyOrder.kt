@@ -7,7 +7,8 @@ class TherapyOrder(
     var phone: String,
     var address: String,
     var sessionType: String,
-    var date: String
+    var date: String,
+    var providerName: String,
 ) : Serializable {
     companion object {
         lateinit var orders: TherapyOrder

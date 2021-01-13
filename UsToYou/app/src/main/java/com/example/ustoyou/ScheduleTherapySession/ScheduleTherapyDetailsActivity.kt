@@ -1,6 +1,7 @@
 package com.example.ustoyou.ScheduleTherapySession
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -16,6 +17,7 @@ import com.example.ustoyou.babysitting.BabysittingServiceFormActivity
 import com.example.ustoyou.delivery.DeliveryServiceFormActivity
 import com.example.ustoyou.delivery.DeliveryServicesActivity
 import com.example.ustoyou.model.BabysittingOrder
+import com.example.ustoyou.model.TeachingServiceOrderDetails
 import com.example.ustoyou.model.TherapyOrder
 import com.example.ustoyou.payment.PaymentDetailsActivity
 import com.example.ustoyou.payment.PaymentMethodActivity
@@ -36,7 +38,11 @@ class ScheduleTherapyDetailsActivity : AppCompatActivity(), NavigationView.OnNav
 
     private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
 
+    var types = arrayOf<String>("Online", "Onsite")
+
     var selectedPosition: Int = 0
+
+    var sessionType: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,6 +69,12 @@ class ScheduleTherapyDetailsActivity : AppCompatActivity(), NavigationView.OnNav
             }
         }
 
+        val currencyAdapter = ArrayAdapter(
+            this, R.layout.support_simple_spinner_dropdown_item, types
+        )
+        currencyAdapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item)
+        scheduleTherapyTypeDropdown.adapter = currencyAdapter
+
         scheduleTherapyDrawerLayout = findViewById(R.id.scheduleTherapyDrawerLayout)
         actionBarDrawerToggle = ActionBarDrawerToggle(
             this,
@@ -74,6 +86,21 @@ class ScheduleTherapyDetailsActivity : AppCompatActivity(), NavigationView.OnNav
         actionBarDrawerToggle.syncState()
 
         setNavigationViewListener()
+
+        if (intent.getBooleanExtra("payBack", false)) {
+            val order = intent.getSerializableExtra("teachingOrder") as TeachingServiceOrderDetails
+
+            sessionType = order.type
+            scheduleTherapyUserName.setText(order.name)
+            scheduleTherapyUserPhone.setText(order.phone)
+            scheduleTherapyUserAddress.setText(order.address)
+            scheduleTherapyDate.setText(order.date)
+            if (order.type == "Online") {
+                scheduleTherapyTypeDropdown.setSelection(0)
+            } else {
+                scheduleTherapyTypeDropdown.setSelection(1)
+            }
+        }
     }
 
     private fun bindItems() {
@@ -97,14 +124,19 @@ class ScheduleTherapyDetailsActivity : AppCompatActivity(), NavigationView.OnNav
 
         if (isValid) {
 
+            if (scheduleTherapyTypeDropdown.selectedItemPosition == 0 ) {
+                sessionType = "Online"
+            } else {
+                sessionType = "Onsite"
+            }
             val intent1 = Intent(this, PaymentMethodActivity::class.java)
-
             val therapyOrder = TherapyOrder(
                 scheduleTherapyUserName.text.toString(),
                 scheduleTherapyUserPhone.text.toString(),
                 scheduleTherapyUserAddress.text.toString(),
-                "Virtual",
+                sessionType,
                 scheduleTherapyDate.text.toString(),
+                intent.getStringExtra("name").toString()
             )
 
             intent1.putExtra("therapyOrder", therapyOrder)
