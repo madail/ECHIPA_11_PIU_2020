@@ -20,7 +20,7 @@ import com.example.ustoyou.payment.PaymentDetailsActivity
 import com.example.ustoyou.payment.PaymentMethodActivity
 import com.google.android.material.navigation.NavigationView
 
-class YourDeliveryActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener{
+class YourDeliveryActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
 
@@ -31,7 +31,28 @@ class YourDeliveryActivity : AppCompatActivity(), NavigationView.OnNavigationIte
 
         val type = intent.getIntExtra("typeOfDelivery", -1)
 
-        DeliveryObjects.getObjects(type)
+        val name: EditText = findViewById(R.id.pizzaDeliveryConfirmationNameEditText)
+        val phone: EditText = findViewById(R.id.pizzaDeliveryConfirmationPhoneEditText)
+        val address: EditText = findViewById(R.id.pizzaDeliveryConfirmationAddressEditText)
+
+        if (intent.getBooleanExtra("payBack", false)) {
+            val order = intent.getSerializableExtra("deliveryOrder") as BabysittingOrder
+
+            name.setText(order.name)
+            phone.setText(order.phone)
+            address.setText(order.address)
+            var total = 0
+            for(obj in DeliveryObjects.objects){
+                if(obj.isChosen){
+                    total += obj.price
+                }
+            }
+
+            val price: TextView = findViewById(R.id.pizzaDeliveryConfirmationTotal)
+            price.text = "Total: $total$"
+        } else {
+            DeliveryObjects.getObjects(type)
+        }
 
         val recyclerView: RecyclerView = findViewById(R.id.rv_pizzaDetailsDelivery)
         val pizzaDeliveryAdapter = DeliveryAdapter(
@@ -56,6 +77,7 @@ class YourDeliveryActivity : AppCompatActivity(), NavigationView.OnNavigationIte
         setNavigationViewListener()
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
     }
 
     fun payOrder(view: View) {
@@ -70,16 +92,26 @@ class YourDeliveryActivity : AppCompatActivity(), NavigationView.OnNavigationIte
         if (isValid) {
 
             val intent1 = Intent(this, PaymentMethodActivity::class.java)
+
+            val babysittingOrder = BabysittingOrder(
+                name.text.toString(),
+                phone.text.toString(),
+                address.text.toString(), "", ""
+            )
+
+            intent1.putExtra("deliveryOrder", babysittingOrder)
+            intent1.putExtra("card",intent.getStringExtra("card"))
             intent1.putExtra("pizza", "pizza")
             intent1.putExtra("image", intent.getIntExtra("image", -1))
             intent1.putExtra("name", intent.getStringExtra("name"))
-            intent1.putExtra("deliveryOrderName",name.text.toString())
-            intent1.putExtra("deliveryOrderPhone",phone.text.toString())
-            intent1.putExtra("deliveryOrderAddress",address.text.toString())
-            intent1.putExtra( "typeOfDelivery",intent.getIntExtra("typeOfDelivery", -1))
-            intent1.putExtra("total",currentPrice)
-            intent1.putExtra("activity","delivery")
+            intent1.putExtra("deliveryOrderName", name.text.toString())
+            intent1.putExtra("deliveryOrderPhone", phone.text.toString())
+            intent1.putExtra("deliveryOrderAddress", address.text.toString())
+            intent1.putExtra("typeOfDelivery", intent.getIntExtra("typeOfDelivery", -1))
+            intent1.putExtra("total", currentPrice)
+            intent1.putExtra("activity", "delivery")
             startActivity(intent1)
+            finish()
         }
 
     }

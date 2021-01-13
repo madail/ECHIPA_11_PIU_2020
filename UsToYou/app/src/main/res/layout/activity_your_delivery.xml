@@ -7,111 +7,118 @@
     android:layout_height="match_parent"
     tools:context=".delivery.YourDeliveryActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_pizzaDetailsDelivery"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:paddingBottom="30dp"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/pizzaDeliveryConfirmationNameText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="@string/name"
-            android:textColor="@color/primaryDarkColor"
-            android:textSize="18sp"
-            app:layout_constraintTop_toBottomOf="@id/rv_pizzaDetailsDelivery" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_pizzaDetailsDelivery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/pizzaDeliveryConfirmationNameEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:ems="10"
-            android:hint="@string/your_name"
-            android:inputType="text"
-            android:textColor="@color/primaryDarkColor"
-            android:textSize="18sp"
-            app:layout_constraintTop_toBottomOf="@id/pizzaDeliveryConfirmationNameText" />
+            <TextView
+                android:id="@+id/pizzaDeliveryConfirmationNameText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/name"
+                android:textColor="@color/primaryDarkColor"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@id/rv_pizzaDetailsDelivery" />
 
-        <TextView
-            android:id="@+id/pizzaDeliveryConfirmationPhoneText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="@string/phone"
-            android:textColor="@color/primaryDarkColor"
-            android:textSize="18sp"
-            app:layout_constraintTop_toBottomOf="@id/pizzaDeliveryConfirmationNameEditText" />
+            <EditText
+                android:id="@+id/pizzaDeliveryConfirmationNameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:ems="10"
+                android:hint="@string/your_name"
+                android:inputType="text"
+                android:textColor="@color/primaryDarkColor"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@id/pizzaDeliveryConfirmationNameText" />
 
-        <EditText
-            android:id="@+id/pizzaDeliveryConfirmationPhoneEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:ems="10"
-            android:hint="@string/phone_number"
-            android:inputType="phone"
-            android:textColor="@color/primaryDarkColor"
-            android:textSize="18sp"
-            app:layout_constraintTop_toBottomOf="@id/pizzaDeliveryConfirmationPhoneText" />
+            <TextView
+                android:id="@+id/pizzaDeliveryConfirmationPhoneText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/phone"
+                android:textColor="@color/primaryDarkColor"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@id/pizzaDeliveryConfirmationNameEditText" />
 
-        <TextView
-            android:id="@+id/pizzaDeliveryConfirmationAddressText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="@string/address"
-            android:textColor="@color/primaryDarkColor"
-            android:textSize="18sp"
-            app:layout_constraintTop_toBottomOf="@id/pizzaDeliveryConfirmationPhoneEditText" />
+            <EditText
+                android:id="@+id/pizzaDeliveryConfirmationPhoneEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:ems="10"
+                android:hint="@string/phone_number"
+                android:inputType="phone"
+                android:textColor="@color/primaryDarkColor"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@id/pizzaDeliveryConfirmationPhoneText" />
 
-        <EditText
-            android:id="@+id/pizzaDeliveryConfirmationAddressEditText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="5dp"
-            android:ems="10"
-            android:hint="@string/your_current_address"
-            android:inputType="textPostalAddress"
-            android:textColor="@color/primaryDarkColor"
-            android:textSize="18sp"
-            app:layout_constraintTop_toBottomOf="@id/pizzaDeliveryConfirmationAddressText" />
+            <TextView
+                android:id="@+id/pizzaDeliveryConfirmationAddressText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/address"
+                android:textColor="@color/primaryDarkColor"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@id/pizzaDeliveryConfirmationPhoneEditText" />
 
-        <TextView
-            android:id="@+id/pizzaDeliveryConfirmationTotal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="@string/total_0"
-            android:textColor="@color/primaryDarkColor"
-            android:textSize="18sp"
-            app:layout_constraintTop_toBottomOf="@id/pizzaDeliveryConfirmationAddressEditText" />
+            <EditText
+                android:id="@+id/pizzaDeliveryConfirmationAddressEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp"
+                android:ems="10"
+                android:hint="@string/your_current_address"
+                android:inputType="textPostalAddress"
+                android:textColor="@color/primaryDarkColor"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@id/pizzaDeliveryConfirmationAddressText" />
 
-        <Button
-            android:id="@+id/pizzaDeliveryConfirmationButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/radius_dark_button"
-            android:onClick="payOrder"
-            android:padding="10dp"
-            android:text="@string/payment_method"
-            android:textColor="@color/white"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/pizzaDeliveryConfirmationTotal" />
+            <TextView
+                android:id="@+id/pizzaDeliveryConfirmationTotal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="@string/total_0"
+                android:textColor="@color/primaryDarkColor"
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@id/pizzaDeliveryConfirmationAddressEditText" />
+
+            <Button
+                android:id="@+id/pizzaDeliveryConfirmationButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/radius_dark_button"
+                android:onClick="payOrder"
+                android:padding="10dp"
+                android:text="@string/payment_method"
+                android:textColor="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/pizzaDeliveryConfirmationTotal" />
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navigationView"

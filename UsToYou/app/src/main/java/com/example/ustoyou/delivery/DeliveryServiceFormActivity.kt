@@ -12,13 +12,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.ustoyou.*
+import com.example.ustoyou.model.DeliveryServices
+import com.example.ustoyou.model.GenericService
 import com.example.ustoyou.model.Service
 import com.example.ustoyou.model.ServicesListSingleton
 import com.example.ustoyou.payment.PaymentDetailsActivity
 import com.google.android.material.navigation.NavigationView
 
 
-class DeliveryServiceFormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class DeliveryServiceFormActivity : AppCompatActivity(),
+    NavigationView.OnNavigationItemSelectedListener {
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
 
@@ -42,31 +45,47 @@ class DeliveryServiceFormActivity : AppCompatActivity(), NavigationView.OnNaviga
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
-    fun validate(name: EditText, city: EditText, price: EditText,) : Boolean {
-        if(name.text.toString() == "") {
+    fun validate(name: EditText, city: EditText, price: EditText, description: EditText): Boolean {
+        if (name.text.toString() == "") {
             name.error = "Title missing!"
             return false
         }
-        if(price.text.toString() == "") {
+        if (price.text.toString() == "") {
             price.error = "Price missing!"
             return false
         }
-        if(city.text.toString() == "") {
+        if (city.text.toString() == "") {
             city.error = "City missing!"
+            return false
+        }
+        if (description.text.toString() == "") {
+            description.error = "Description missing!"
             return false
         }
         return true;
     }
 
-    fun continueToConfirmation(view : View) {
+    fun continueToConfirmation(view: View) {
         val name = findViewById<EditText>(R.id.deliveryServiceTitleEditText)
         val city = findViewById<EditText>(R.id.deliveryServiceCityEditText)
         val price = findViewById<EditText>(R.id.deliveryServicePriceEditText)
-        val isValid = validate(name, city, price)
+        val description = findViewById<EditText>(R.id.deliveryServiceDescriptionEditText)
+
+        val isValid = validate(name, city, price, description)
         val category = "Delivery"
-        if(isValid) {
+        if (isValid) {
             val service = Service(name.text.toString(), category, R.drawable.delivery_service_1)
             ServicesListSingleton.services.add(service)
+
+            DeliveryServices.addService(
+                GenericService(
+                    R.drawable.delivery_service_2,
+                    name.text.toString(),
+                    description.text.toString(),
+                    price.text.toString().toInt()
+                )
+            )
+
             val intent = Intent(this, UploadPhotoActivity::class.java)
             startActivity(intent)
         }

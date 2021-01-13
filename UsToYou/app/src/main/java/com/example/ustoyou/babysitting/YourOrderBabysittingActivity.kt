@@ -90,8 +90,9 @@ class YourOrderBabysittingActivity : AppCompatActivity(), NavigationView.OnNavig
             intent1.putExtra("activity","babysitting")
             intent1.putExtra("image", intent.getIntExtra("image", -1))
             intent1.putExtra("name", intent.getStringExtra("name"))
-
+            intent1.putExtra("card", intent.getStringExtra("card"))
             startActivity(intent1)
+            finish()
         }
     }
 
@@ -105,6 +106,11 @@ class YourOrderBabysittingActivity : AppCompatActivity(), NavigationView.OnNavig
         if (childsAge.text.toString().isEmpty()) {
             childsAge.error = "Child's age required!"
             return false
+        }else{
+            if(childsAge.text.toString().toInt() > 15){
+                childsAge.error = "Child's age too big!"
+                return false
+            }
         }
 
         if (name.text.toString().isEmpty()) {

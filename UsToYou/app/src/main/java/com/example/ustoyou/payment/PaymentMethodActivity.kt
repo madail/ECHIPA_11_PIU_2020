@@ -16,6 +16,7 @@ import com.example.ustoyou.delivery.YourDeliveryConfirmation
 import com.example.ustoyou.model.HarvestConfirmationDetails
 import com.example.ustoyou.model.ITConfirmationDetails
 import com.example.ustoyou.model.WoodCuttingConfirmationDetails
+import com.example.ustoyou.model.User
 import com.example.ustoyou.teaching.YourTeachingServiceConfirmation
 import com.google.android.material.navigation.NavigationView
 
@@ -60,12 +61,10 @@ class PaymentMethodActivity : AppCompatActivity(), NavigationView.OnNavigationIt
     fun confirm(view: View) {
         val teachingServiceOrderDetails = intent.getSerializableExtra("teachingOrder")
         val babysittingOrder = intent.getSerializableExtra("babySittingOrder")
-        val pizza = intent.getStringExtra("pizza")
         val image: Int = intent.getIntExtra("image", -1)
         val deliveryOrderName = intent.getStringExtra("deliveryOrderName")
         val deliveryOrderPhone = intent.getStringExtra("deliveryOrderPhone")
         val deliveryOrderAddress = intent.getStringExtra("deliveryOrderAddress")
-
 
         val radioGroup: RadioGroup = findViewById(R.id.payMethodRadioButtons)
         val radioButtonSelected = resources.getResourceEntryName(radioGroup.checkedRadioButtonId)
@@ -78,24 +77,31 @@ class PaymentMethodActivity : AppCompatActivity(), NavigationView.OnNavigationIt
                 intent1 = Intent(this, YourTeachingServiceConfirmation::class.java)
                 intent1.putExtra("teachingOrder", teachingServiceOrderDetails)
                 intent1.putExtra("image", image)
+                intent1.putExtra("card", intent.getStringExtra("card"))
                 intent1.putExtra("name", intent.getStringExtra("name"))
+                finish()
             }
             "babysitting"->{
                 intent1 = Intent(this, YourOrderBabysittingConfirmation::class.java)
                 intent1.putExtra("babySittingOrder", babysittingOrder)
                 intent1.putExtra("image", image)
+                intent1.putExtra("card", intent.getStringExtra("card"))
                 intent1.putExtra("name", intent.getStringExtra("name"))
+                finish()
             }
             "delivery" ->{
                 intent1 = Intent(this, YourDeliveryConfirmation::class.java)
                 intent1.putExtra("deliveryOrderName",deliveryOrderName)
                 intent1.putExtra("deliveryOrderPhone",deliveryOrderPhone)
                 intent1.putExtra("deliveryOrderAddress",deliveryOrderAddress)
+                intent1.putExtra("deliveryOrder",intent.getSerializableExtra("deliveryOrder"))
                 intent1.putExtra("name",intent.getStringExtra("name"))
                 intent1.putExtra( "typeOfDelivery",intent.getIntExtra("typeOfDelivery", -1))
                 intent1.putExtra("total",intent.getStringExtra("total"))
                 intent1.putExtra("confirmation",true)
                 intent1.putExtra("image", image)
+                intent1.putExtra("card", intent.getStringExtra("card"))
+                finish()
             }
             "Harvest" ->{
                 intent1 = Intent(this, HarvestConfirmation::class.java)
@@ -116,20 +122,10 @@ class PaymentMethodActivity : AppCompatActivity(), NavigationView.OnNavigationIt
 
         if (radioButtonSelected == "payment_method_cash") {
             intent1.putExtra("cash", true)
+            User.currentUser?.cash = true
         }
 
         startActivity(intent1)
-    }
-
-
-    fun goToPayment(view: View) {
-        val cashPayment: RadioButton = findViewById(R.id.payment_method_cash)
-        val cardPayment: RadioButton = findViewById(R.id.payment_method_card)
-        if (cashPayment.isChecked) {
-            val intent = Intent(this, ConfirmationActivity::class.java)
-            startActivity(intent)
-        }
-
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

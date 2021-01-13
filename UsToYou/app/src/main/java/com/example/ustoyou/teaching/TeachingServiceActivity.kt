@@ -1,4 +1,4 @@
-package com.example.ustoyou.babysitting
+package com.example.ustoyou.teaching
 
 import android.content.Intent
 import android.os.Bundle
@@ -29,7 +29,7 @@ class TeachingServiceActivity : AppCompatActivity(), NavigationView.OnNavigation
             GridLayoutManager(this, 2)
         recyclerView.layoutManager = layoutManager
         val adapter = ServiceAdapter(
-            TeachingServices().getTeachingServices(),
+            TeachingServices.teachingServices,
             this,
             "teaching"
         )

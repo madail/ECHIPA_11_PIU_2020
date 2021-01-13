@@ -1,29 +1,26 @@
-package com.example.ustoyou
+package com.example.ustoyou.authentication
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import com.example.ustoyou.CategoryActivity
+import com.example.ustoyou.R
 
-class LoginActivity : AppCompatActivity() {
+class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_register)
     }
 
-    fun signUpGoogle(view: View) {
+    fun signUp(view: View) {
         val intent = Intent(this, CategoryActivity::class.java)
         startActivity(intent)
         finish()
     }
 
-    fun createAccount(view: View) {
-        val intent = Intent(this, RegisterActivity::class.java)
-        startActivity(intent)
-    }
-
-    fun signIn(view: View) {
-        val intent = Intent(this, CategoryActivity::class.java)
+    fun login(view: View) {
+        val intent = Intent(this, LoginActivity::class.java)
         startActivity(intent)
         finish()
     }

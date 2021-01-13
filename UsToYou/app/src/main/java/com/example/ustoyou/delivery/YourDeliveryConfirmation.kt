@@ -6,17 +6,23 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ustoyou.ConfirmationActivity
+import com.example.ustoyou.DeclinedActivity
 import com.example.ustoyou.payment.PaymentDetailsActivity
 import com.example.ustoyou.R
 import com.example.ustoyou.adapters.DeliveryAdapter
+import com.example.ustoyou.babysitting.YourOrderBabysittingActivity
 import com.example.ustoyou.model.DeliveryObjects
 import com.example.ustoyou.model.Order
+import com.example.ustoyou.model.User
 
 class YourDeliveryConfirmation : AppCompatActivity() {
+    private var cardString: String = "XXXX-XXXX-XXXX-XXXX MM/YY CVV"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_your_delivery_confirmation)
@@ -63,21 +69,49 @@ class YourDeliveryConfirmation : AppCompatActivity() {
 
         val price: TextView = findViewById(R.id.pizzaDeliveryConfirmationTotal)
         price.text = "Price: ${intent.getStringExtra("total")}$"
+
+        if (intent.getStringExtra("card") != null) {
+            cardString = intent.getStringExtra("card")!!
+        }
+
+        creditCardEditText.setText(cardString)
     }
 
     fun back(view: View) {
-        //TODO
+        val intent1 = Intent(this, YourDeliveryActivity::class.java)
+        intent1.putExtra("payBack", true)
+        intent1.putExtra("name", intent.getStringExtra("name"))
+        intent1.putExtra("image", intent.getIntExtra("image", -1))
+        intent1.putExtra("deliveryOrder", intent.getSerializableExtra("deliveryOrder"))
+        intent1.putExtra("card", cardString)
+        startActivity(intent1)
     }
 
     fun order(view: View) {
-        val intent1 = Intent(this, ConfirmationActivity::class.java)
-        var name = intent.getStringExtra("name")
-        if (name == null) {
-            name = ""
+        if (User.currentUser?.cash!!) {
+            if (cardString != "XXXX-XXXX-XXXX-XXXX MM/YY CVV") {
+                val intent1 = Intent(this, ConfirmationActivity::class.java)
+                var name = intent.getStringExtra("name")
+                if (name == null) {
+                    name = ""
+                }
+                val order = Order("Delivery", name, intent.getIntExtra("image", -1))
+                intent1.putExtra("order", order)
+                startActivity(intent1)
+                finish()
+            } else {
+                Toast.makeText(this, "CARD REQUIRED", Toast.LENGTH_LONG).show()
+            }
+        } else {
+            if (cardString != "XXXX-XXXX-XXXX-XXXX MM/YY CVV") {
+                val intent = Intent(this, DeclinedActivity::class.java)
+                intent.putExtra("activity", "delivery")
+                startActivity(intent)
+                finish()
+            } else {
+                Toast.makeText(this, "CARD REQUIRED", Toast.LENGTH_LONG).show()
+            }
         }
-        val order = Order("Delivery", name, intent.getIntExtra("image", -1))
-        intent1.putExtra("order", order)
-        startActivity(intent1)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -90,7 +124,7 @@ class YourDeliveryConfirmation : AppCompatActivity() {
                 val creditCardEditText: EditText =
                     findViewById(R.id.yourDeliveryConfirmationCreditCardEditText)
 
-                val cardString = "$cardNumber $expDate $cvc"
+                cardString = "$cardNumber $expDate $cvc"
 
                 creditCardEditText.setText(cardString)
             }

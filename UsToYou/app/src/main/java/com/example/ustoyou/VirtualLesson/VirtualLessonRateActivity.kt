@@ -3,7 +3,9 @@ package com.example.ustoyou.VirtualLesson
 import android.content.DialogInterface
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.RatingBar
 import android.widget.Toast
@@ -18,19 +20,14 @@ class VirtualLessonRateActivity : AppCompatActivity() {
     private lateinit var virtualLessonServiceRating: RatingBar
     private lateinit var virtualLessonMessageTeacherInput: EditText
 
-    private lateinit var teacherName: String
-    private lateinit var date: String
-    private lateinit var type: String
-    private lateinit var paymentType: String
+    private var teacherName: String = ""
+    private var date: String = ""
+    private var lessonType: String = ""
+    private var paymentType: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_virtual_lesson_rate)
-
-        virtualLessonTeacherRating  = findViewById(R.id.providerRating)
-        virtualLessonContentRating  = findViewById(R.id.contentRating)
-        virtualLessonServiceRating  = findViewById(R.id.serviceRating)
-        virtualLessonMessageTeacherInput  = findViewById(R.id.virtualLessonMessageTeacherInput)
 
         supportActionBar?.title = "Rate your lesson"
 
@@ -43,14 +40,13 @@ class VirtualLessonRateActivity : AppCompatActivity() {
         virtualLessonTeacherRating  = findViewById(R.id.providerRating)
         virtualLessonContentRating  = findViewById(R.id.contentRating)
         virtualLessonServiceRating  = findViewById(R.id.serviceRating)
-
         virtualLessonMessageTeacherInput  = findViewById(R.id.virtualLessonMessageTeacherInput)
     }
 
     private fun getExtras() {
         teacherName = intent.getStringExtra("teacherName").toString()
         date = intent.getStringExtra("date").toString()
-        type = intent.getStringExtra("type").toString()
+        lessonType = intent.getStringExtra("lessonType").toString()
         paymentType = intent.getStringExtra("paymentType").toString()
     }
 
@@ -64,7 +60,7 @@ class VirtualLessonRateActivity : AppCompatActivity() {
         val intent  = Intent(this, VirtualLessonOrderDetailsActivity::class.java).apply {
             putExtra("teacherName", teacherName)
             putExtra("date", date)
-            putExtra("type", type)
+            putExtra("lessonType", lessonType)
             putExtra("paymentType", paymentType)
             putExtra("contentRating", virtualLessonContentRating.rating)
             putExtra("teacherRating", virtualLessonTeacherRating.rating)
@@ -77,8 +73,6 @@ class VirtualLessonRateActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        super.onBackPressed()
-
         lateinit var dialog: AlertDialog
 
         val builder: AlertDialog.Builder = AlertDialog.Builder(this@VirtualLessonRateActivity)

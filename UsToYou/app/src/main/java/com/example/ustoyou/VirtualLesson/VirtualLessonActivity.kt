@@ -4,6 +4,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -12,10 +13,10 @@ import androidx.appcompat.app.AlertDialog
 import com.example.ustoyou.R
 
 class VirtualLessonActivity : AppCompatActivity() {
-    private lateinit var teacherName: String
-    private lateinit var date: String
-    private lateinit var type: String
-    private lateinit var paymentType: String
+    private var teacherName: String = ""
+    private var date: String = ""
+    private var lessonType: String = ""
+    private var paymentType: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +30,7 @@ class VirtualLessonActivity : AppCompatActivity() {
     private fun getExtras() {
         teacherName = intent.getStringExtra("teacherName").toString()
         date = intent.getStringExtra("date").toString()
-        type = intent.getStringExtra("type").toString()
+        lessonType = intent.getStringExtra("lessonType").toString()
         paymentType = intent.getStringExtra("paymentType").toString()
     }
 
@@ -54,8 +55,6 @@ class VirtualLessonActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        super.onBackPressed()
-
         lateinit var dialog: AlertDialog
 
         val builder: AlertDialog.Builder = AlertDialog.Builder(this@VirtualLessonActivity)
@@ -76,7 +75,7 @@ class VirtualLessonActivity : AppCompatActivity() {
         val intent  = Intent(this, VirtualLessonRateActivity::class.java).apply {
             putExtra("teacherName", teacherName)
             putExtra("date", date)
-            putExtra("type", type)
+            putExtra("lessonType", lessonType)
             putExtra("paymentType", paymentType)
             putExtra("lessonFinished", true)
         }
