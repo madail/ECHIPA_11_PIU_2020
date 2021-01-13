@@ -64,24 +64,9 @@ class VirtualLessonOrderDetailsActivity : AppCompatActivity() {
 
     private fun getExtras() {
         teacherName = intent.getStringExtra("teacherName").toString()
-        if(teacherName.isEmpty()){
-            teacherName = "Teacher name"
-        }
-
         date = intent.getStringExtra("date").toString()
-        if(teacherName.isEmpty()){
-            date = "14/01/2021 14:30"
-        }
-
         type = intent.getStringExtra("type").toString()
-        if(type.isEmpty()){
-            type = "Virtual"
-        }
-
         paymentType = intent.getStringExtra("paymentType").toString()
-        if(teacherName.isEmpty()){
-            paymentType = "Credit Card"
-        }
 
         contentRating = intent.getFloatExtra("contentRating", 0.0F)
         teacherRating = intent.getFloatExtra("teacherRating", 0.0F)
