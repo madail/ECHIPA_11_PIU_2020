@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.RadioButton
 import com.example.ustoyou.model.Service
 import com.example.ustoyou.model.ServicesListSingleton
@@ -54,7 +55,7 @@ class TherapyServiceForm1Activity : AppCompatActivity() {
         val isValid = validate(name, description)
         if(isValid) {
             if (name.text.toString() != "") {
-                val service = Service(name.text.toString(), category)
+                val service = Service(name.text.toString(), category, R.drawable.therapy_service_1)
                 ServicesListSingleton.services.add(service)
             }
             val intent = Intent(this, TherapyServiceForm2Activity::class.java)

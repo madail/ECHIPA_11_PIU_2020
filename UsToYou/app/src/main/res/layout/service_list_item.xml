@@ -1,24 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="180dp"
+    android:layout_height="120dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="5dp"
+    android:layout_margin="15dp"
+    >
+
+    <ImageView
+        android:id="@+id/servicesImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/babysitting_service_1"
+        />
 
     <TextView
-        android:id="@+id/serviceName"
+        android:id="@+id/servicesName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Service name"
-        android:textColor="@color/primaryDarkColor"
-        android:textSize="24sp"
-        android:textStyle="bold" />
+        android:textColor="@color/white"
+        android:shadowColor="#000000"
+        android:shadowDx="1.5"
+        android:shadowDy="1.3"
+        android:shadowRadius="10"
+        tools:text="Title"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
 
     <TextView
-        android:id="@+id/serviceCategory"
+        android:id="@+id/servicesCategory"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Service category"
-        android:textColor="@color/primaryDarkColor"
-        android:textSize="16sp"
-        android:textStyle="italic"/>
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:textColor="@color/white"
+        android:shadowColor="#000000"
+        android:shadowDx="1.5"
+        android:shadowDy="1.3"
+        android:shadowRadius="10"
+        tools:text="Category"
+        android:gravity="center|bottom"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+</androidx.cardview.widget.CardView>

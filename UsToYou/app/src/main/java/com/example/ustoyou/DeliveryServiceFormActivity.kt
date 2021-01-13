@@ -67,7 +67,7 @@ class DeliveryServiceFormActivity : AppCompatActivity(), NavigationView.OnNaviga
         val isValid = validate(name, city, price)
         val category = "Delivery"
         if(isValid) {
-            val service = Service(name.text.toString(), category)
+            val service = Service(name.text.toString(), category, R.drawable.delivery_service_1)
             ServicesListSingleton.services.add(service)
             val intent = Intent(this, UploadPhotoActivity::class.java)
             startActivity(intent)

@@ -67,7 +67,7 @@ class BabysittingServiceFormActivity : AppCompatActivity(), NavigationView.OnNav
         val category = "Babysitting";
         val isValid = validate(name, city, age, price)
         if(isValid) {
-            val service = Service(name.text.toString(), category)
+            val service = Service(name.text.toString(), category, R.drawable.babysitting_service_1)
             ServicesListSingleton.services.add(service)
             val intent = Intent(this, UploadFileActivity::class.java)
             startActivity(intent)
