@@ -32,7 +32,6 @@ class VirtualLessonActivity : AppCompatActivity() {
         date = intent.getStringExtra("date").toString()
         lessonType = intent.getStringExtra("lessonType").toString()
         paymentType = intent.getStringExtra("paymentType").toString()
-        Log.v("Debug dless", lessonType)
     }
 
     fun toggleWebBetweenTeacherAndStudent(view: View) {

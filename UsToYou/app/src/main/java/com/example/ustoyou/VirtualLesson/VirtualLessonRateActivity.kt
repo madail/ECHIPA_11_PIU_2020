@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.RatingBar
 import android.widget.Toast
@@ -28,11 +29,6 @@ class VirtualLessonRateActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_virtual_lesson_rate)
 
-        virtualLessonTeacherRating  = findViewById(R.id.providerRating)
-        virtualLessonContentRating  = findViewById(R.id.contentRating)
-        virtualLessonServiceRating  = findViewById(R.id.serviceRating)
-        virtualLessonMessageTeacherInput  = findViewById(R.id.virtualLessonMessageTeacherInput)
-
         supportActionBar?.title = "Rate your lesson"
 
         bindItems()
@@ -44,7 +40,6 @@ class VirtualLessonRateActivity : AppCompatActivity() {
         virtualLessonTeacherRating  = findViewById(R.id.providerRating)
         virtualLessonContentRating  = findViewById(R.id.contentRating)
         virtualLessonServiceRating  = findViewById(R.id.serviceRating)
-
         virtualLessonMessageTeacherInput  = findViewById(R.id.virtualLessonMessageTeacherInput)
     }
 
@@ -52,8 +47,6 @@ class VirtualLessonRateActivity : AppCompatActivity() {
         teacherName = intent.getStringExtra("teacherName").toString()
         date = intent.getStringExtra("date").toString()
         lessonType = intent.getStringExtra("lessonType").toString()
-        Log.v("Debug rate", lessonType)
-
         paymentType = intent.getStringExtra("paymentType").toString()
     }
 

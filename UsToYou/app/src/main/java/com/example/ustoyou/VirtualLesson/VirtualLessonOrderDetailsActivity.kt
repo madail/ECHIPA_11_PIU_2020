@@ -69,8 +69,6 @@ class VirtualLessonOrderDetailsActivity : AppCompatActivity() {
         lessonType = intent.getStringExtra("lessonType").toString()
         paymentType = intent.getStringExtra("paymentType").toString()
 
-        Log.v("Debug det", lessonType)
-
         contentRating = intent.getFloatExtra("contentRating", 0.0F)
         teacherRating = intent.getFloatExtra("teacherRating", 0.0F)
         serviceRating = intent.getFloatExtra("serviceRating", 0.0F)
