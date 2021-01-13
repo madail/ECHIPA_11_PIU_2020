@@ -111,6 +111,7 @@ class YourDeliveryActivity : AppCompatActivity(), NavigationView.OnNavigationIte
             intent1.putExtra("total", currentPrice)
             intent1.putExtra("activity", "delivery")
             startActivity(intent1)
+            finish()
         }
 
     }

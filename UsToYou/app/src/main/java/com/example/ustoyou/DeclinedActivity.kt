@@ -1,11 +1,12 @@
 package com.example.ustoyou
 
 import android.content.Intent
-
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import com.example.ustoyou.payment.PaymentMethodActivity
+import androidx.appcompat.app.AppCompatActivity
+import com.example.ustoyou.babysitting.BabySittingServiceActivity
+import com.example.ustoyou.delivery.DeliveryServicesActivity
+import com.example.ustoyou.teaching.TeachingServiceActivity
 
 
 class DeclinedActivity : AppCompatActivity() {
@@ -15,7 +16,12 @@ class DeclinedActivity : AppCompatActivity() {
     }
 
     fun payment(view: View) {
-        val intent = Intent(this, PaymentMethodActivity::class.java)
-        startActivity(intent)
+        var intent1 = Intent()
+        when (intent1.getStringExtra("activity")) {
+            "babysitting" -> intent1 = Intent(this, BabySittingServiceActivity::class.java)
+            "delivery" -> intent1 = Intent(this, DeliveryServicesActivity::class.java)
+            "teaching" -> intent1 = Intent(this, TeachingServiceActivity::class.java)
+        }
+        startActivity(intent1)
     }
 }

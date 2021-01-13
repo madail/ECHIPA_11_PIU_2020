@@ -1,20 +1,28 @@
 package com.example.ustoyou
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.example.ustoyou.model.User
 import com.example.ustoyou.payment.PaymentDetailsActivity
 import com.google.android.material.navigation.NavigationView
 
-class ProfilePageActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener {
+class ProfilePageActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
+    private lateinit var firstNameEditText: EditText
+    private lateinit var lastNameEditText: EditText
+    private lateinit var phoneNameEditText: EditText
+    private lateinit var emailNameEditText: EditText
+    private lateinit var birthdayNameEditText: EditText
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,11 +42,31 @@ class ProfilePageActivity : AppCompatActivity() , NavigationView.OnNavigationIte
         setNavigationViewListener()
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        firstNameEditText = findViewById(R.id.profileFirstName)
+        lastNameEditText = findViewById(R.id.profileLastName)
+        phoneNameEditText = findViewById(R.id.profilePhoneNumber)
+        birthdayNameEditText = findViewById(R.id.profileBirthday)
+        emailNameEditText = findViewById(R.id.profileEmail)
+
+        firstNameEditText.setText(User.currentUser?.firstName)
+        lastNameEditText.setText(User.currentUser?.lastName)
+        phoneNameEditText.setText(User.currentUser?.phoneNumber)
+        birthdayNameEditText.setText(User.currentUser?.birthday)
+        emailNameEditText.setText(User.currentUser?.email)
     }
 
     fun save(view: View) {
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
+        User.setUser(
+            User(
+                firstNameEditText.text.toString(),
+                lastNameEditText.text.toString(),
+                phoneNameEditText.text.toString(),
+                emailNameEditText.text.toString(),
+                birthdayNameEditText.text.toString()
+            )
+        )
+        Toast.makeText(this, "Data saved", Toast.LENGTH_LONG).show()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

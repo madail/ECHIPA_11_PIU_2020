@@ -6,11 +6,14 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ustoyou.ConfirmationActivity
+import com.example.ustoyou.DeclinedActivity
 import com.example.ustoyou.R
 import com.example.ustoyou.model.BabysittingOrder
 import com.example.ustoyou.model.Order
+import com.example.ustoyou.model.User
 import com.example.ustoyou.payment.PaymentDetailsActivity
 
 class YourOrderBabysittingConfirmation : AppCompatActivity() {
@@ -74,11 +77,27 @@ class YourOrderBabysittingConfirmation : AppCompatActivity() {
     }
 
     fun order(view: View) {
-        val intent1 = Intent(this, ConfirmationActivity::class.java)
-        val order =
-            Order("Babysitting", intent.getStringExtra("name")!!, intent.getIntExtra("image", -1))
-        intent1.putExtra("order", order)
-        startActivity(intent1)
+        if(User.currentUser?.cash!!) {
+            if(cardString != "XXXX-XXXX-XXXX-XXXX MM/YY CVV") {
+                val intent1 = Intent(this, ConfirmationActivity::class.java)
+                val order =
+                    Order(
+                        "Babysitting",
+                        intent.getStringExtra("name")!!,
+                        intent.getIntExtra("image", -1)
+                    )
+                intent1.putExtra("order", order)
+                startActivity(intent1)
+                finish()
+            }else{
+                Toast.makeText(this,"CARD REQUIRED",Toast.LENGTH_LONG).show()
+            }
+        }else{
+            val intent = Intent(this, DeclinedActivity::class.java)
+            intent.putExtra("activity","babysitting")
+            startActivity(intent)
+            finish()
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

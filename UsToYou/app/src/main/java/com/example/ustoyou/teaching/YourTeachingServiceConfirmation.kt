@@ -6,12 +6,15 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ustoyou.ConfirmationActivity
+import com.example.ustoyou.DeclinedActivity
 import com.example.ustoyou.payment.PaymentDetailsActivity
 import com.example.ustoyou.R
 import com.example.ustoyou.model.Order
 import com.example.ustoyou.model.TeachingServiceOrderDetails
+import com.example.ustoyou.model.User
 
 class YourTeachingServiceConfirmation : AppCompatActivity() {
     private lateinit var order: Order
@@ -66,11 +69,25 @@ class YourTeachingServiceConfirmation : AppCompatActivity() {
     }
 
     fun order(view: View) {
-        val intent1 = Intent(this, ConfirmationActivity::class.java)
-        val newOrder = Order("Teaching",intent.getStringExtra("name")!!,
-            intent.getIntExtra("image",-1), order.date, order.type, order.paymentType)
-        intent1.putExtra("order",newOrder)
-        startActivity(intent1)
+        if(User.currentUser?.cash!!) {
+            if(cardString != "XXXX-XXXX-XXXX-XXXX MM/YY CVV") {
+                val intent1 = Intent(this, ConfirmationActivity::class.java)
+                val newOrder = Order(
+                    "Teaching", intent.getStringExtra("name")!!,
+                    intent.getIntExtra("image", -1), order.date, order.type, order.paymentType
+                )
+                intent1.putExtra("order", newOrder)
+                startActivity(intent1)
+                finish()
+            }else{
+                Toast.makeText(this,"CARD REQUIRED", Toast.LENGTH_LONG).show()
+            }
+        }else{
+            val intent = Intent(this, DeclinedActivity::class.java)
+            intent.putExtra("activity","teaching")
+            startActivity(intent)
+            finish()
+        }
     }
 
     fun back(view: View) {
@@ -81,6 +98,7 @@ class YourTeachingServiceConfirmation : AppCompatActivity() {
         intent1.putExtra("card", cardString)
         intent1.putExtra("teachingOrder", intent.getSerializableExtra("teachingOrder"))
         startActivity(intent1)
+        finish()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

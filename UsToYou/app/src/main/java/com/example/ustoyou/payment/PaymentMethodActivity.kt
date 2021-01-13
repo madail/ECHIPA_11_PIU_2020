@@ -13,6 +13,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.example.ustoyou.*
 import com.example.ustoyou.babysitting.YourOrderBabysittingConfirmation
 import com.example.ustoyou.delivery.YourDeliveryConfirmation
+import com.example.ustoyou.model.User
 import com.example.ustoyou.teaching.YourTeachingServiceConfirmation
 import com.google.android.material.navigation.NavigationView
 
@@ -75,6 +76,7 @@ class PaymentMethodActivity : AppCompatActivity(), NavigationView.OnNavigationIt
                 intent1.putExtra("image", image)
                 intent1.putExtra("card", intent.getStringExtra("card"))
                 intent1.putExtra("name", intent.getStringExtra("name"))
+                finish()
             }
             "babysitting"->{
                 intent1 = Intent(this, YourOrderBabysittingConfirmation::class.java)
@@ -82,6 +84,7 @@ class PaymentMethodActivity : AppCompatActivity(), NavigationView.OnNavigationIt
                 intent1.putExtra("image", image)
                 intent1.putExtra("card", intent.getStringExtra("card"))
                 intent1.putExtra("name", intent.getStringExtra("name"))
+                finish()
             }
             "delivery" ->{
                 intent1 = Intent(this, YourDeliveryConfirmation::class.java)
@@ -95,25 +98,16 @@ class PaymentMethodActivity : AppCompatActivity(), NavigationView.OnNavigationIt
                 intent1.putExtra("confirmation",true)
                 intent1.putExtra("image", image)
                 intent1.putExtra("card", intent.getStringExtra("card"))
+                finish()
             }
         }
 
         if (radioButtonSelected == "payment_method_cash") {
             intent1.putExtra("cash", true)
+            User.currentUser?.cash = true
         }
 
         startActivity(intent1)
-    }
-
-
-    fun goToPayment(view: View) {
-        val cashPayment: RadioButton = findViewById(R.id.payment_method_cash)
-        val cardPayment: RadioButton = findViewById(R.id.payment_method_card)
-        if (cashPayment.isChecked) {
-            val intent = Intent(this, ConfirmationActivity::class.java)
-            startActivity(intent)
-        }
-
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
