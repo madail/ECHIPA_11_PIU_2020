@@ -18,7 +18,8 @@ class ConfirmationActivity : AppCompatActivity() {
     fun home(view: View) {
         val order = intent.getSerializableExtra("order") as Order
         Orders.addOrder(order)
-        val intent = Intent(this, MyOrdersActivity::class.java)
+        val intent = Intent(this, CategoryActivity::class.java)
+        intent.putExtra("adding", false)
         startActivity(intent)
     }
 }

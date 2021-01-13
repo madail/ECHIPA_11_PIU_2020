@@ -1,53 +1,54 @@
-package com.example.ustoyou
+package com.example.ustoyou.ScheduleTherapySession
 
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Spinner
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.ActionBarDrawerToggle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import com.example.ustoyou.ScheduleTherapySession.ScheduleTherapyDetailsActivity
-import com.example.ustoyou.ScheduleTherapySession.TherapyServicesActivity
+import com.example.ustoyou.*
 import com.example.ustoyou.VisualAid.VisualAidActivity
 import com.example.ustoyou.babysitting.BabySittingServiceActivity
 import com.example.ustoyou.babysitting.BabysittingServiceFormActivity
 import com.example.ustoyou.delivery.DeliveryServiceFormActivity
 import com.example.ustoyou.delivery.DeliveryServicesActivity
+import com.example.ustoyou.model.BabysittingOrder
+import com.example.ustoyou.model.TherapyOrder
 import com.example.ustoyou.payment.PaymentDetailsActivity
+import com.example.ustoyou.payment.PaymentMethodActivity
 import com.example.ustoyou.teaching.TeachingServiceActivity
 import com.google.android.material.navigation.NavigationView
+import java.text.ParseException
+import java.text.SimpleDateFormat
+import java.util.*
 
-class CategoryActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
-    private lateinit var drawerLayout: DrawerLayout
+class ScheduleTherapyDetailsActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+    private lateinit var scheduleTherapyDrawerLayout: DrawerLayout
+
+    private lateinit var scheduleTherapyUserName: EditText
+    private lateinit var scheduleTherapyUserPhone: EditText
+    private lateinit var scheduleTherapyUserAddress: EditText
+    private lateinit var scheduleTherapyTypeDropdown: Spinner
+    private lateinit var scheduleTherapyDate: EditText
+
     private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
+
     var selectedPosition: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_category)
-        val adding = intent.getBooleanExtra("adding",false)
-        if(adding)
-            supportActionBar?.title = "Create a new service"
-        else supportActionBar?.title = "Categories"
+        setContentView(R.layout.activity_schedule_therapy_details)
 
-        val categories = resources.getStringArray(R.array.category_list)
+        supportActionBar?.title = "Your Order"
 
-        val spinner = findViewById<Spinner>(R.id.spinner)
-        if (spinner != null) {
-            val adapter =
-                ArrayAdapter(this, R.layout.support_simple_spinner_dropdown_item, categories)
-            spinner.adapter = adapter
-        }
+        bindItems()
 
-        spinner.prompt = "Choose a category"
+        scheduleTherapyTypeDropdown.prompt = "Choose a category"
 
-        spinner.onItemSelectedListener = object :
+        scheduleTherapyTypeDropdown.onItemSelectedListener = object :
             AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>,
@@ -62,19 +63,58 @@ class CategoryActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
             }
         }
 
-        drawerLayout = findViewById(R.id.drawerLayout)
+        scheduleTherapyDrawerLayout = findViewById(R.id.scheduleTherapyDrawerLayout)
         actionBarDrawerToggle = ActionBarDrawerToggle(
             this,
-            drawerLayout,
+            scheduleTherapyDrawerLayout,
             R.string.open,
             R.string.close
         )
-        drawerLayout.addDrawerListener(actionBarDrawerToggle)
+        scheduleTherapyDrawerLayout.addDrawerListener(actionBarDrawerToggle)
         actionBarDrawerToggle.syncState()
 
         setNavigationViewListener()
+    }
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    private fun bindItems() {
+        scheduleTherapyDrawerLayout = findViewById(R.id.scheduleTherapyDrawerLayout)
+
+        scheduleTherapyUserName = findViewById(R.id.scheduleTherapyUserName)
+        scheduleTherapyUserPhone = findViewById(R.id.scheduleTherapyUserPhone)
+        scheduleTherapyUserAddress = findViewById(R.id.scheduleTherapyUserAddress)
+        scheduleTherapyDate = findViewById(R.id.scheduleTherapyDate)
+
+        scheduleTherapyTypeDropdown = findViewById(R.id.scheduleTherapyTypeDropdown)
+    }
+
+    fun payOrder(view: View) {
+        val isValid = validateDetails(
+            scheduleTherapyUserName,
+            scheduleTherapyUserPhone,
+            scheduleTherapyUserAddress,
+            scheduleTherapyDate
+        )
+
+        if (isValid) {
+
+            val intent1 = Intent(this, PaymentMethodActivity::class.java)
+
+            val therapyOrder = TherapyOrder(
+                scheduleTherapyUserName.text.toString(),
+                scheduleTherapyUserPhone.text.toString(),
+                scheduleTherapyUserAddress.text.toString(),
+                "Virtual",
+                scheduleTherapyDate.text.toString(),
+            )
+
+            intent1.putExtra("therapyOrder", therapyOrder)
+            intent1.putExtra("activity","therapy")
+            intent1.putExtra("image", intent.getIntExtra("image", -1))
+            intent1.putExtra("name", intent.getStringExtra("name"))
+            intent1.putExtra("card", intent.getStringExtra("card"))
+            startActivity(intent1)
+            finish()
+        }
     }
 
     fun launchNextActivity(view: View) {
@@ -82,7 +122,7 @@ class CategoryActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
 
         if(!adding) {
             if (selectedPosition == 0) {
-                val intent = Intent(this, TherapyServicesActivity::class.java)
+                val intent = Intent(this, ScheduleTherapyDetailsActivity::class.java)
                 startActivity(intent)
             }
             if (selectedPosition == 1) {
@@ -137,13 +177,53 @@ class CategoryActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
         }
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
-            return true
+    private fun validateDetails(
+        name: EditText,
+        phone: EditText,
+        address: EditText,
+        date: EditText
+    ): Boolean {
+        if (name.text.toString().isEmpty()) {
+            name.error = "Name required!"
+            return false
         }
 
-        return super.onOptionsItemSelected(item)
+        if (phone.text.toString().isEmpty()) {
+            phone.error = "Phone required!"
+            return false
+        } else {
+            if (phone.text.toString().length != 10) {
+                phone.error = "Phone should contains 10 figure!"
+                return false
+            }
+        }
+
+        if (address.text.toString().isEmpty()) {
+            address.error = "Address required!"
+            return false
+        }
+
+        if (date.text.toString().isEmpty()) {
+            date.error = "Date required!"
+            return false
+        } else {
+            try {
+                val formatter = SimpleDateFormat("dd/MM/yyyy HH:MM", Locale.getDefault())
+                val myDate = formatter.parse(date.text.toString())
+                val current = Date()
+                if (!current.before(myDate)) {
+                    date.error = "The date should be in the future!"
+                    return false
+                }
+            } catch (ex: ParseException) {
+                date.error = "Format should be DD/MM/YYYY HH:MM"
+                return false
+            }
+        }
+
+        return true
     }
+
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
@@ -173,7 +253,7 @@ class CategoryActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
             }
         }
 
-        drawerLayout.closeDrawer(GravityCompat.START)
+        scheduleTherapyDrawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
 

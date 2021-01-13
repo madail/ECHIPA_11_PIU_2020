@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.ustoyou.*
+import com.example.ustoyou.ScheduleTherapySession.ScheduleTherapyConfirmationActivity
 import com.example.ustoyou.babysitting.YourOrderBabysittingConfirmation
 import com.example.ustoyou.delivery.YourDeliveryConfirmation
 import com.example.ustoyou.model.*
@@ -85,6 +86,7 @@ class PaymentMethodActivity : AppCompatActivity(), NavigationView.OnNavigationIt
         val deliveryOrderName = intent.getStringExtra("deliveryOrderName")
         val deliveryOrderPhone = intent.getStringExtra("deliveryOrderPhone")
         val deliveryOrderAddress = intent.getStringExtra("deliveryOrderAddress")
+        val therapyOrderDetails = intent.getStringExtra("therapyOrder")
 
         val radioGroup: RadioGroup = findViewById(R.id.payMethodRadioButtons)
         val radioButtonSelected = resources.getResourceEntryName(radioGroup.checkedRadioButtonId)
@@ -137,6 +139,11 @@ class PaymentMethodActivity : AppCompatActivity(), NavigationView.OnNavigationIt
                 intent1 = Intent(this, WoodCuttingConfirmation::class.java)
                 val details = intent.getSerializableExtra("WoodInfo") as WoodCuttingConfirmationDetails
                 intent1.putExtra("WoodInfo",details)
+            }
+            "therapy" ->{
+                intent1 = Intent(this, ScheduleTherapyConfirmationActivity::class.java)
+                val details = intent.getSerializableExtra("therapyOrder") as TherapyOrder
+                intent1.putExtra("sessionDetails", details)
             }
         }
 

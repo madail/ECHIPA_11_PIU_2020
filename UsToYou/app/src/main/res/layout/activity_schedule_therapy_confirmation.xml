@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ScheduleTherapySession.ScheduleTherapyConfirmationActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="30dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/name"
+                android:textColor="@color/primaryDarkColor"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:textSize="18sp"/>
+
+            <EditText
+                android:id="@+id/scheduleTherapyUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textColor="@color/primaryDarkColor"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:inputType="none"
+                android:clickable="false"
+                android:textSize="18sp"
+                android:hint="@string/your_name"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/phone"
+                android:textColor="@color/primaryDarkColor"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:textSize="18sp"/>
+
+            <EditText
+                android:id="@+id/scheduleTherapyUserPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textColor="@color/primaryDarkColor"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:textSize="18sp"
+                android:hint="@string/phone_number"
+                android:inputType="none"
+                android:clickable="false"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/address"
+                android:textColor="@color/primaryDarkColor"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:textSize="18sp"/>
+
+            <EditText
+                android:id="@+id/scheduleTherapyUserAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textColor="@color/primaryDarkColor"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:textSize="18sp"
+                android:hint="@string/your_current_address"
+                android:inputType="none"
+                android:clickable="false"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/session_type"
+                android:textColor="@color/primaryDarkColor"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:textSize="18sp"/>
+
+            <EditText
+                android:id="@+id/scheduleTherapyType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textColor="@color/primaryDarkColor"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:inputType="none"
+                android:clickable="false"
+                android:textSize="18sp"
+                android:hint="@string/dd_mm_yyyy_hh_mm"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/date"
+                android:textColor="@color/primaryDarkColor"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:textSize="18sp"/>
+
+            <EditText
+                android:id="@+id/scheduleTherapyDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:textColor="@color/primaryDarkColor"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:textSize="18sp"
+                android:hint="@string/dd_mm_yyyy_hh_mm"
+                android:inputType="none"
+                android:clickable="false"/>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/yourDeliveryConfirmationBackButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/back"
+                    android:onClick="onBack"
+                    android:textAllCaps="false"
+                    android:layout_gravity="start"
+                    android:background="@drawable/radius_dark_button"
+                    android:textColor="@color/white"
+                    android:padding="10dp"
+                    />
+
+                <Button
+                    android:id="@+id/yourDeliveryConfirmationConfirmButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:background="@drawable/radius_dark_button"
+                    android:onClick="onConfirm"
+                    android:padding="10dp"
+                    android:text="@string/confirm"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white" />
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

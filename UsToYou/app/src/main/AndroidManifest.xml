@@ -10,6 +10,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true">
         <activity
+            android:name=".ScheduleTherapySession.TherapyServicesActivity"
+            android:theme="@style/Theme.UsToYouTheme" />
+        <activity
+            android:name=".ScheduleTherapySession.ScheduleTherapyConfirmationActivity"
+            android:theme="@style/Theme.UsToYouTheme" />
+        <activity
+            android:name=".ScheduleTherapySession.ScheduleTherapyDetailsActivity"
+            android:theme="@style/Theme.UsToYouTheme" />
+        <activity
             android:name=".VisualAid.VisualAidRateActivity"
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
@@ -53,7 +62,7 @@
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
             android:name=".CategoryActivity"
-            android:theme="@style/Theme.UsToYouTheme"/>
+            android:theme="@style/Theme.UsToYouTheme" />
         <activity
             android:name=".MyServicesActivity"
             android:theme="@style/Theme.UsToYouTheme" />
@@ -108,9 +117,6 @@
         <activity
             android:name=".authentication.LoginActivity"
             android:theme="@style/Theme.FullScreen" />
-        <activity
-            android:name=".MainActivity"
-            android:theme="@style/Theme.UsToYouTheme" />
         <activity
             android:name=".HarvestActivity"
             android:theme="@style/Theme.UsToYouTheme" />
