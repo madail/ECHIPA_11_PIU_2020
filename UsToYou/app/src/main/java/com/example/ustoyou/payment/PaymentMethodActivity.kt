@@ -1,4 +1,4 @@
-package com.example.ustoyou
+package com.example.ustoyou.payment
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,6 +10,10 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.example.ustoyou.*
+import com.example.ustoyou.babysitting.YourOrderBabysittingConfirmation
+import com.example.ustoyou.delivery.YourDeliveryConfirmation
+import com.example.ustoyou.teaching.YourTeachingServiceConfirmation
 import com.google.android.material.navigation.NavigationView
 
 class PaymentMethodActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {

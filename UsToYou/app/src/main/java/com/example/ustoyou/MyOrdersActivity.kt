@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ustoyou.adapters.MyOrdersAdapter
 import com.example.ustoyou.model.Orders
+import com.example.ustoyou.payment.PaymentDetailsActivity
 import com.google.android.material.navigation.NavigationView
 
 class MyOrdersActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {

@@ -5,7 +5,7 @@
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PaymentDetailsActivity">
+    tools:context=".payment.PaymentDetailsActivity">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -35,11 +35,9 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
-                android:clickable="false"
                 android:ems="10"
-                android:focusable="false"
                 android:hint="@string/xxxx_xxxx_xxxx_xxxx_xxxx"
-                android:inputType="none"
+                android:inputType="number"
                 android:textColor="@color/primaryDarkColor"
                 android:textSize="18sp" />
 
@@ -60,11 +58,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:clickable="false"
                 android:ems="10"
-                android:focusable="false"
                 android:hint="@string/mmyy"
-                android:inputType="none"
+                android:inputType="datetime"
                 android:textColor="@color/primaryDarkColor"
                 android:textSize="18sp" />
 
@@ -86,11 +82,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
-                android:clickable="false"
                 android:ems="10"
-                android:focusable="false"
                 android:hint="@string/cvc2"
-                android:inputType="none"
+                android:inputType="number"
                 android:textColor="@color/primaryDarkColor"
                 android:textSize="18sp" />
 
@@ -156,42 +150,17 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <FrameLayout
-                android:layout_width="match_parent"
+            <Button
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="50dp"
-                android:layout_marginEnd="20dp"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/yourTeachingOrderConfirmationBackButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:layout_marginLeft="45dp"
-                    android:background="@drawable/radius_dark_button"
-                    android:onClick="back"
-                    android:padding="10dp"
-                    android:text="@string/back"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white" />
-
-                <Button
-                    android:id="@+id/yourTeachingOrderConfirmationConfirmButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:layout_marginRight="45dp"
-                    android:background="@drawable/radius_dark_button"
-                    android:onClick="next"
-                    android:padding="10dp"
-                    android:text="@string/next"
-                    android:textAllCaps="false"
-                    android:textColor="@color/white" />
-
-
-            </FrameLayout>
+                android:layout_gravity="center"
+                android:text="@string/confirm"
+                android:textAllCaps="false"
+                android:paddingStart="30dp"
+                android:onClick="confirm"
+                android:paddingEnd="30dp"
+                android:textColor="@color/white"
+                android:background="@drawable/radius_dark_button"/>
 
 
         </LinearLayout>

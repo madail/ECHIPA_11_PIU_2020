@@ -1,11 +1,15 @@
-package com.example.ustoyou
+package com.example.ustoyou.teaching
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.ustoyou.ConfirmationActivity
+import com.example.ustoyou.payment.PaymentDetailsActivity
+import com.example.ustoyou.R
 import com.example.ustoyou.model.Order
 import com.example.ustoyou.model.TeachingServiceOrderDetails
 
@@ -49,7 +53,7 @@ class YourTeachingServiceConfirmation : AppCompatActivity() {
 
         creditCardEditText.setOnClickListener {
             val intent1 = Intent(this, PaymentDetailsActivity::class.java)
-            startActivity(intent1)
+            startActivityForResult(intent1, 1234)
         }
 
     }
@@ -69,5 +73,24 @@ class YourTeachingServiceConfirmation : AppCompatActivity() {
         intent1.putExtra("image",intent.getIntExtra("image",-1))
         intent1.putExtra("teachingOrder", intent.getSerializableExtra("teachingOrder"))
         startActivity(intent1)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (requestCode == 1234) {
+            if (resultCode == Activity.RESULT_OK) {
+                val cardNumber = data!!.getStringExtra("cardNumber")
+                val expDate = data.getStringExtra("expirationDate")
+                val cvc = data.getStringExtra("cvc")
+
+                val creditCardEditText: EditText =
+                    findViewById(R.id.yourTeachingOrderConfirmationCreditCardEditText)
+
+                val cardString = "$cardNumber $expDate $cvc"
+
+                creditCardEditText.setText(cardString)
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data)
+        }
     }
 }

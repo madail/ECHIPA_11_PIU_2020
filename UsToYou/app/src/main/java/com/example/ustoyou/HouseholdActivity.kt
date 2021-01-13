@@ -9,6 +9,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.example.ustoyou.payment.PaymentDetailsActivity
 import com.google.android.material.navigation.NavigationView
 
 class HouseholdActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener {

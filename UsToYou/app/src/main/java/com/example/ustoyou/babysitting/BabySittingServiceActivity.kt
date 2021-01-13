@@ -1,4 +1,4 @@
-package com.example.ustoyou
+package com.example.ustoyou.babysitting
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,28 +10,30 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.ustoyou.*
 import com.example.ustoyou.adapters.ServiceAdapter
-import com.example.ustoyou.model.TeachingServices
+import com.example.ustoyou.model.BabysittingServices
+import com.example.ustoyou.payment.PaymentDetailsActivity
 import com.google.android.material.navigation.NavigationView
 
-class TeachingServiceActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class BabySittingServiceActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_teaching_service)
+        setContentView(R.layout.activity_baby_sitting_service)
 
-        val recyclerView: RecyclerView = findViewById(R.id.rvTeachingServices)
+        val recyclerView: RecyclerView = findViewById(R.id.rvBabySittingServices)
         val layoutManager: RecyclerView.LayoutManager =
             GridLayoutManager(this, 2)
         recyclerView.layoutManager = layoutManager
         val adapter = ServiceAdapter(
-            TeachingServices().getTeachingServices(),
+            BabysittingServices().getBabysittingServices(),
             this,
-            "teaching"
+            "babysitting"
         )
-        supportActionBar?.title = "Teaching Services"
+        supportActionBar?.title = "Babysitting Services"
 
         recyclerView.adapter = adapter
 

@@ -1,39 +1,26 @@
-package com.example.ustoyou
+package com.example.ustoyou.payment
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.ustoyou.adapters.ServiceAdapter
-import com.example.ustoyou.model.BabysittingServices
+import com.example.ustoyou.*
 import com.google.android.material.navigation.NavigationView
 
-class BabySittingServiceActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class PaymentDetailsActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener {
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_baby_sitting_service)
-
-        val recyclerView: RecyclerView = findViewById(R.id.rvBabySittingServices)
-        val layoutManager: RecyclerView.LayoutManager =
-            GridLayoutManager(this, 2)
-        recyclerView.layoutManager = layoutManager
-        val adapter = ServiceAdapter(
-            BabysittingServices().getBabysittingServices(),
-            this,
-            "babysitting"
-        )
-        supportActionBar?.title = "Babysitting Services"
-
-        recyclerView.adapter = adapter
+        setContentView(R.layout.activity_payment_details)
 
         drawerLayout = findViewById(R.id.drawerLayout)
         actionBarDrawerToggle = ActionBarDrawerToggle(
@@ -93,5 +80,42 @@ class BabySittingServiceActivity : AppCompatActivity(), NavigationView.OnNavigat
     private fun setNavigationViewListener() {
         val navigationView: NavigationView = findViewById(R.id.navigationView)
         navigationView.setNavigationItemSelectedListener(this)
+    }
+
+    fun confirm(view: View) {
+        val cardNumberEditText: EditText = findViewById(R.id.payment_details_cardDetailsEditText)
+        val expDateEditText: EditText = findViewById(R.id.payment_details_expirationEditText)
+        val cvcEditText: EditText = findViewById(R.id.payment_details_cvc2EditText)
+
+        val isValid = validate(cardNumberEditText, expDateEditText, cvcEditText)
+
+        if(isValid) {
+            val intent = Intent().apply {
+                putExtra("cardNumber", cardNumberEditText.text.toString())
+                putExtra("expirationDate", expDateEditText.text.toString())
+                putExtra("cvc",cvcEditText.text.toString())
+            }
+            setResult(Activity.RESULT_OK, intent)
+            finish()
+        }
+    }
+
+    private fun validate(cardNumber: EditText, expDate: EditText, cvvEditText: EditText): Boolean{
+        if(cardNumber.text.toString().isEmpty()){
+            cardNumber.error = "Card Number is required!"
+            return false
+        }
+
+        if(expDate.text.toString().isEmpty()){
+            expDate.error = "Card Number is required!"
+            return false
+        }
+
+        if(cvvEditText.text.toString().isEmpty()){
+            cvvEditText.error = "Card Number is required!"
+            return false
+        }
+
+        return true
     }
 }

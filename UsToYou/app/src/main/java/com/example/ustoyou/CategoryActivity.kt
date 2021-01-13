@@ -13,6 +13,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.ustoyou.VisualAid.VisualAidActivity
+import com.example.ustoyou.babysitting.BabySittingServiceActivity
+import com.example.ustoyou.babysitting.TeachingServiceActivity
+import com.example.ustoyou.delivery.DeliveryServicesActivity
+import com.example.ustoyou.payment.PaymentDetailsActivity
 import com.google.android.material.navigation.NavigationView
 
 class CategoryActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {

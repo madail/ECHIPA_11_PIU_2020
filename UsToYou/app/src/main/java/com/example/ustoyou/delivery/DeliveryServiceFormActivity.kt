@@ -1,28 +1,31 @@
-package com.example.ustoyou
+package com.example.ustoyou.delivery
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
+import android.widget.RadioButton
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.example.ustoyou.*
 import com.example.ustoyou.model.Service
 import com.example.ustoyou.model.ServicesListSingleton
+import com.example.ustoyou.payment.PaymentDetailsActivity
 import com.google.android.material.navigation.NavigationView
 
-class BabysittingServiceFormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+class DeliveryServiceFormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_babysitting_service_form)
-
-        supportActionBar?.title = "New babysitting service"
+        setContentView(R.layout.activity_delivery_service_form)
+        supportActionBar?.title = "New delivery service"
 
         drawerLayout = findViewById(R.id.drawerLayout)
         actionBarDrawerToggle = ActionBarDrawerToggle(
@@ -39,7 +42,7 @@ class BabysittingServiceFormActivity : AppCompatActivity(), NavigationView.OnNav
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
-    fun validate(name: EditText, city: EditText, age:EditText, price: EditText,) : Boolean {
+    fun validate(name: EditText, city: EditText, price: EditText,) : Boolean {
         if(name.text.toString() == "") {
             name.error = "Title missing!"
             return false
@@ -48,10 +51,6 @@ class BabysittingServiceFormActivity : AppCompatActivity(), NavigationView.OnNav
             price.error = "Price missing!"
             return false
         }
-        if(age.text.toString() == "") {
-            age.error = "Age missing!"
-            return false;
-        }
         if(city.text.toString() == "") {
             city.error = "City missing!"
             return false
@@ -59,21 +58,34 @@ class BabysittingServiceFormActivity : AppCompatActivity(), NavigationView.OnNav
         return true;
     }
 
-    fun continueToNextActivity(view: View) {
-        val name = findViewById<EditText>(R.id.babysittingServiceTitleEditText)
-        val city = findViewById<EditText>(R.id.babysittingServiceCityEditText)
-        val age = findViewById<EditText>(R.id.babysittingServiceAgeEditText)
-        val price = findViewById<EditText>(R.id.babysittingServicePriceEditText)
-        val category = "Babysitting";
-        val isValid = validate(name, city, age, price)
+    fun continueToConfirmation(view : View) {
+        val name = findViewById<EditText>(R.id.deliveryServiceTitleEditText)
+        val city = findViewById<EditText>(R.id.deliveryServiceCityEditText)
+        val price = findViewById<EditText>(R.id.deliveryServicePriceEditText)
+        val isValid = validate(name, city, price)
+        val category = "Delivery"
         if(isValid) {
-            val service = Service(name.text.toString(), category, R.drawable.babysitting_service_1)
+            val service = Service(name.text.toString(), category, R.drawable.delivery_service_1)
             ServicesListSingleton.services.add(service)
-            val intent = Intent(this, UploadFileActivity::class.java)
+            val intent = Intent(this, UploadPhotoActivity::class.java)
             startActivity(intent)
         }
     }
 
+    fun onRadioButtonClicked(view: View) {
+        if (view is RadioButton) {
+            val checked = view.isChecked
+            when (view.getId()) {
+                R.id.radioDrone ->
+                    if (checked) {
+
+                    }
+                R.id.radioCar ->
+                    if (checked) {
+                    }
+            }
+        }
+    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (actionBarDrawerToggle.onOptionsItemSelected(item)) {
@@ -119,4 +131,5 @@ class BabysittingServiceFormActivity : AppCompatActivity(), NavigationView.OnNav
         val navigationView: NavigationView = findViewById(R.id.navigationView)
         navigationView.setNavigationItemSelectedListener(this)
     }
+
 }
