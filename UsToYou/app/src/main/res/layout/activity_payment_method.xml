@@ -42,7 +42,7 @@
             android:layout_width="160dp"
             android:layout_height="50dp"
             android:layout_marginEnd="30dp"
-            android:hint="@string/_180"
+            android:text="@string/_180"
             android:textAlignment="center"
             app:layout_constraintTop_toBottomOf="@id/payment_method_textViewAmount"
             app:layout_constraintRight_toRightOf="parent"
