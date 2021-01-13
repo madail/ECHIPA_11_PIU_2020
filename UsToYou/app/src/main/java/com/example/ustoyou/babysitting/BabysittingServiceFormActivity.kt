@@ -1,22 +1,25 @@
 package com.example.ustoyou.babysitting
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.ustoyou.*
+import com.example.ustoyou.model.BabysittingServices
+import com.example.ustoyou.model.GenericService
 import com.example.ustoyou.model.Service
 import com.example.ustoyou.model.ServicesListSingleton
 import com.example.ustoyou.payment.PaymentDetailsActivity
 import com.google.android.material.navigation.NavigationView
 
-class BabysittingServiceFormActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+class BabysittingServiceFormActivity : AppCompatActivity(),
+    NavigationView.OnNavigationItemSelectedListener {
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var actionBarDrawerToggle: ActionBarDrawerToggle
 
@@ -41,23 +44,35 @@ class BabysittingServiceFormActivity : AppCompatActivity(), NavigationView.OnNav
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
-    fun validate(name: EditText, city: EditText, age:EditText, price: EditText,) : Boolean {
-        if(name.text.toString() == "") {
+    fun validate(
+        name: EditText,
+        city: EditText,
+        age: EditText,
+        price: EditText,
+        description: EditText
+    ): Boolean {
+        if (name.text.toString() == "") {
             name.error = "Title missing!"
             return false
         }
-        if(price.text.toString() == "") {
+        if (price.text.toString() == "") {
             price.error = "Price missing!"
             return false
         }
-        if(age.text.toString() == "") {
+        if (age.text.toString() == "") {
             age.error = "Age missing!"
             return false;
         }
-        if(city.text.toString() == "") {
+        if (city.text.toString() == "") {
             city.error = "City missing!"
             return false
         }
+
+        if (description.text.toString() == "") {
+            description.error = "Description missing!"
+            return false
+        }
+
         return true;
     }
 
@@ -66,11 +81,19 @@ class BabysittingServiceFormActivity : AppCompatActivity(), NavigationView.OnNav
         val city = findViewById<EditText>(R.id.babysittingServiceCityEditText)
         val age = findViewById<EditText>(R.id.babysittingServiceAgeEditText)
         val price = findViewById<EditText>(R.id.babysittingServicePriceEditText)
+        val description = findViewById<EditText>(R.id.babysittingServiceDescriptionEditText)
         val category = "Babysitting";
-        val isValid = validate(name, city, age, price)
-        if(isValid) {
+        val isValid = validate(name, city, age, price, description)
+        if (isValid) {
             val service = Service(name.text.toString(), category, R.drawable.babysitting_service_1)
             ServicesListSingleton.services.add(service)
+            val genericService = GenericService(
+                R.drawable.babysitting_service_1,
+                name.text.toString(),
+                description.text.toString(),
+                price.text.toString().toInt()
+            )
+            BabysittingServices.addServices(genericService)
             val intent = Intent(this, UploadFileActivity::class.java)
             startActivity(intent)
         }

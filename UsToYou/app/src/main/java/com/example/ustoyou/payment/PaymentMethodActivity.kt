@@ -57,7 +57,6 @@ class PaymentMethodActivity : AppCompatActivity(), NavigationView.OnNavigationIt
     fun confirm(view: View) {
         val teachingServiceOrderDetails = intent.getSerializableExtra("teachingOrder")
         val babysittingOrder = intent.getSerializableExtra("babySittingOrder")
-        val pizza = intent.getStringExtra("pizza")
         val image: Int = intent.getIntExtra("image", -1)
         val deliveryOrderName = intent.getStringExtra("deliveryOrderName")
         val deliveryOrderPhone = intent.getStringExtra("deliveryOrderPhone")
@@ -75,12 +74,14 @@ class PaymentMethodActivity : AppCompatActivity(), NavigationView.OnNavigationIt
                 intent1 = Intent(this, YourTeachingServiceConfirmation::class.java)
                 intent1.putExtra("teachingOrder", teachingServiceOrderDetails)
                 intent1.putExtra("image", image)
+                intent1.putExtra("card", intent.getStringExtra("card"))
                 intent1.putExtra("name", intent.getStringExtra("name"))
             }
             "babysitting"->{
                 intent1 = Intent(this, YourOrderBabysittingConfirmation::class.java)
                 intent1.putExtra("babySittingOrder", babysittingOrder)
                 intent1.putExtra("image", image)
+                intent1.putExtra("card", intent.getStringExtra("card"))
                 intent1.putExtra("name", intent.getStringExtra("name"))
             }
             "delivery" ->{
@@ -88,11 +89,13 @@ class PaymentMethodActivity : AppCompatActivity(), NavigationView.OnNavigationIt
                 intent1.putExtra("deliveryOrderName",deliveryOrderName)
                 intent1.putExtra("deliveryOrderPhone",deliveryOrderPhone)
                 intent1.putExtra("deliveryOrderAddress",deliveryOrderAddress)
+                intent1.putExtra("deliveryOrder",intent.getSerializableExtra("deliveryOrder"))
                 intent1.putExtra("name",intent.getStringExtra("name"))
                 intent1.putExtra( "typeOfDelivery",intent.getIntExtra("typeOfDelivery", -1))
                 intent1.putExtra("total",intent.getStringExtra("total"))
                 intent1.putExtra("confirmation",true)
                 intent1.putExtra("image", image)
+                intent1.putExtra("card", intent.getStringExtra("card"))
             }
         }
 

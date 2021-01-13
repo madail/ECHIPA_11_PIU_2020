@@ -14,6 +14,8 @@ import com.example.ustoyou.model.Order
 import com.example.ustoyou.payment.PaymentDetailsActivity
 
 class YourOrderBabysittingConfirmation : AppCompatActivity() {
+    private var cardString: String = "XXXX-XXXX-XXXX-XXXX MM/YY CVV"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_your_order_babysitting_confirmation)
@@ -53,6 +55,12 @@ class YourOrderBabysittingConfirmation : AppCompatActivity() {
             val intent1 = Intent(this, PaymentDetailsActivity::class.java)
             startActivityForResult(intent1, 1234)
         }
+
+        if(intent.getStringExtra("card") != null) {
+            cardString = intent.getStringExtra("card")!!
+        }
+
+        creditCardEditText.setText(cardString)
     }
 
     fun back(view: View) {
@@ -61,6 +69,7 @@ class YourOrderBabysittingConfirmation : AppCompatActivity() {
         intent1.putExtra("name", intent.getStringExtra("name"))
         intent1.putExtra("image", intent.getIntExtra("image", -1))
         intent1.putExtra("babySittingOrder", intent.getSerializableExtra("babySittingOrder"))
+        intent1.putExtra("card", cardString)
         startActivity(intent1)
     }
 
@@ -82,7 +91,7 @@ class YourOrderBabysittingConfirmation : AppCompatActivity() {
                 val creditCardEditText: EditText =
                     findViewById(R.id.yourDeliveryConfirmationCreditCardEditText)
 
-                val cardString = "$cardNumber $expDate $cvc"
+                cardString = "$cardNumber $expDate $cvc"
 
                 creditCardEditText.setText(cardString)
             }

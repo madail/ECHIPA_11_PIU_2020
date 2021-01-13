@@ -13,10 +13,13 @@ import com.example.ustoyou.ConfirmationActivity
 import com.example.ustoyou.payment.PaymentDetailsActivity
 import com.example.ustoyou.R
 import com.example.ustoyou.adapters.DeliveryAdapter
+import com.example.ustoyou.babysitting.YourOrderBabysittingActivity
 import com.example.ustoyou.model.DeliveryObjects
 import com.example.ustoyou.model.Order
 
 class YourDeliveryConfirmation : AppCompatActivity() {
+    private var cardString: String = "XXXX-XXXX-XXXX-XXXX MM/YY CVV"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_your_delivery_confirmation)
@@ -63,10 +66,22 @@ class YourDeliveryConfirmation : AppCompatActivity() {
 
         val price: TextView = findViewById(R.id.pizzaDeliveryConfirmationTotal)
         price.text = "Price: ${intent.getStringExtra("total")}$"
+
+        if(intent.getStringExtra("card") != null) {
+            cardString = intent.getStringExtra("card")!!
+        }
+
+        creditCardEditText.setText(cardString)
     }
 
     fun back(view: View) {
-        //TODO
+        val intent1 = Intent(this, YourDeliveryActivity::class.java)
+        intent1.putExtra("payBack", true)
+        intent1.putExtra("name", intent.getStringExtra("name"))
+        intent1.putExtra("image", intent.getIntExtra("image", -1))
+        intent1.putExtra("deliveryOrder", intent.getSerializableExtra("deliveryOrder"))
+        intent1.putExtra("card", cardString)
+        startActivity(intent1)
     }
 
     fun order(view: View) {
@@ -90,7 +105,7 @@ class YourDeliveryConfirmation : AppCompatActivity() {
                 val creditCardEditText: EditText =
                     findViewById(R.id.yourDeliveryConfirmationCreditCardEditText)
 
-                val cardString = "$cardNumber $expDate $cvc"
+                cardString = "$cardNumber $expDate $cvc"
 
                 creditCardEditText.setText(cardString)
             }

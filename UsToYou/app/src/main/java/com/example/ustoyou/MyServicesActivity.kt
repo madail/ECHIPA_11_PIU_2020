@@ -56,6 +56,7 @@ class MyServicesActivity : AppCompatActivity() , NavigationView.OnNavigationItem
 
     fun addService(view: View){
         val intent = Intent(this, CategoryActivity::class.java)
+        intent.putExtra("adding",true)
         startActivity(intent)
     }
 

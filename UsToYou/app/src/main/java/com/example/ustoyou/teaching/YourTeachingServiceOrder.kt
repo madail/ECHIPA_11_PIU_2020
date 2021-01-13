@@ -106,6 +106,7 @@ class YourTeachingServiceOrder : AppCompatActivity() , NavigationView.OnNavigati
             intent1.putExtra("activity","teaching")
             intent1.putExtra("image", intent.getIntExtra("image", -1))
             intent1.putExtra("name", intent.getStringExtra("name"))
+            intent1.putExtra("card", intent.getStringExtra("card"))
 
             startActivity(intent1)
         }

@@ -29,7 +29,7 @@ class DeliveryServicesActivity : AppCompatActivity(), NavigationView.OnNavigatio
             GridLayoutManager(this, 2)
         recyclerView.layoutManager = layoutManager
         val adapter = ServiceAdapter(
-            DeliveryServices().getDeliveryServices(),
+            DeliveryServices.deliveryServices,
             this,
             "delivery"
         )

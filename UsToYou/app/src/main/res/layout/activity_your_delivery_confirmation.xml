@@ -10,9 +10,11 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:paddingBottom="30dp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_pizzaDetailsDelivery"
@@ -36,14 +38,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:clickable="false"
                 android:ems="10"
+                android:focusable="false"
                 android:hint="@string/your_name"
+                android:inputType="none"
                 android:textColor="@color/primaryDarkColor"
                 android:textSize="18sp"
-                android:inputType="none"
-                android:focusable="false"
-                android:clickable="false"
-                android:layout_marginEnd="10dp"
                 app:layout_constraintTop_toBottomOf="@id/pizzaDeliveryConfirmationNameText" />
 
             <TextView
@@ -62,14 +64,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:clickable="false"
                 android:ems="10"
+                android:focusable="false"
                 android:hint="@string/phone_number"
+                android:inputType="none"
                 android:textColor="@color/primaryDarkColor"
                 android:textSize="18sp"
-                android:inputType="none"
-                android:layout_marginEnd="10dp"
-                android:focusable="false"
-                android:clickable="false"
                 app:layout_constraintTop_toBottomOf="@id/pizzaDeliveryConfirmationPhoneText" />
 
             <TextView
@@ -88,14 +90,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
-                android:ems="10"
-                android:hint="@string/your_current_address"
-                android:textColor="@color/primaryDarkColor"
-                android:textSize="18sp"
-                android:inputType="none"
-                android:focusable="false"
                 android:layout_marginEnd="10dp"
                 android:clickable="false"
+                android:ems="10"
+                android:focusable="false"
+                android:hint="@string/your_current_address"
+                android:inputType="none"
+                android:textColor="@color/primaryDarkColor"
+                android:textSize="18sp"
                 app:layout_constraintTop_toBottomOf="@id/pizzaDeliveryConfirmationAddressText" />
 
             <TextView
@@ -126,15 +128,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:clickable="false"
+                android:drawableEnd="@drawable/ic_card_primary"
                 android:ems="10"
+                android:focusable="false"
                 android:hint="@string/xxxx_xxxx_xxxx_xxxx_xxxx"
+                android:inputType="none"
                 android:textColor="@color/primaryDarkColor"
                 android:textSize="18sp"
-                android:inputType="none"
-                android:focusable="false"
-                android:clickable="false"
-                android:layout_marginEnd="10dp"
-                android:drawableEnd="@drawable/ic_card_primary"
                 app:layout_constraintTop_toBottomOf="@+id/yourDeliveryConfirmationCreditCardText" />
 
             <Button

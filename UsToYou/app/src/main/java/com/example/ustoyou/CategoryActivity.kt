@@ -14,9 +14,11 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.ustoyou.VisualAid.VisualAidActivity
 import com.example.ustoyou.babysitting.BabySittingServiceActivity
-import com.example.ustoyou.babysitting.TeachingServiceActivity
+import com.example.ustoyou.babysitting.BabysittingServiceFormActivity
+import com.example.ustoyou.delivery.DeliveryServiceFormActivity
 import com.example.ustoyou.delivery.DeliveryServicesActivity
 import com.example.ustoyou.payment.PaymentDetailsActivity
+import com.example.ustoyou.teaching.TeachingServiceActivity
 import com.google.android.material.navigation.NavigationView
 
 class CategoryActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -48,11 +50,10 @@ class CategoryActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
                 position: Int,
                 id: Long
             ) {
-                selectedPosition = position;
+                selectedPosition = position
             }
 
             override fun onNothingSelected(parent: AdapterView<*>) {
-                // write code to perform some action
             }
         }
 
@@ -72,33 +73,61 @@ class CategoryActivity : AppCompatActivity(), NavigationView.OnNavigationItemSel
     }
 
     fun launchNextActivity(view: View) {
-        if (selectedPosition == 0) {
-            val intent = Intent(this, TherapyServiceForm1Activity::class.java) //mada terapie
-            startActivity(intent)
-        }
-        if (selectedPosition == 1) {
-            val intent = Intent(this, BabySittingServiceActivity::class.java)
-            startActivity(intent)
-        }
-        if (selectedPosition == 2) {
-            val intent = Intent(this, DeliveryServicesActivity::class.java)
-            startActivity(intent)
-        }
-        if (selectedPosition == 3) {
-            val intent = Intent(this, TeachingServiceActivity::class.java)
-            startActivity(intent)
-        }
-        if (selectedPosition == 4) {
-            val intent = Intent(this, ITProvidersList::class.java)
-            startActivity(intent)
-        }
-        if (selectedPosition == 5) {
-            val intent = Intent(this, HouseholdActivity::class.java)
-            startActivity(intent)
-        }
-        if (selectedPosition == 6) {
-            val intent = Intent(this, VisualAidActivity::class.java)
-            startActivity(intent)
+        val adding = intent.getBooleanExtra("adding",false)
+
+        if(!adding) {
+            if (selectedPosition == 0) {
+               Toast.makeText(this,"Coming soon",Toast.LENGTH_LONG).show()
+            }
+            if (selectedPosition == 1) {
+                val intent = Intent(this, BabySittingServiceActivity::class.java)
+                startActivity(intent)
+            }
+            if (selectedPosition == 2) {
+                val intent = Intent(this, DeliveryServicesActivity::class.java)
+                startActivity(intent)
+            }
+            if (selectedPosition == 3) {
+                val intent = Intent(this, TeachingServiceActivity::class.java)
+                startActivity(intent)
+            }
+            if (selectedPosition == 4) {
+                val intent = Intent(this, ITProvidersList::class.java)
+                startActivity(intent)
+            }
+            if (selectedPosition == 5) {
+                val intent = Intent(this, HouseholdActivity::class.java)
+                startActivity(intent)
+            }
+            if (selectedPosition == 6) {
+                val intent = Intent(this, VisualAidActivity::class.java)
+                startActivity(intent)
+            }
+        }else{
+            if (selectedPosition == 0) {
+                val intent = Intent(this, TherapyServiceForm1Activity::class.java)
+                startActivity(intent)
+            }
+            if (selectedPosition == 1) {
+                val intent = Intent(this, BabysittingServiceFormActivity::class.java)
+                startActivity(intent)
+            }
+            if (selectedPosition == 2) {
+                val intent = Intent(this, DeliveryServiceFormActivity::class.java)
+                startActivity(intent)
+            }
+            if (selectedPosition == 3) {
+                Toast.makeText(this,"Coming soon",Toast.LENGTH_LONG).show()
+            }
+            if (selectedPosition == 4) {
+                Toast.makeText(this,"Coming soon",Toast.LENGTH_LONG).show()
+            }
+            if (selectedPosition == 5) {
+                Toast.makeText(this,"Coming soon",Toast.LENGTH_LONG).show()
+            }
+            if (selectedPosition == 6) {
+                Toast.makeText(this,"Coming soon",Toast.LENGTH_LONG).show()
+            }
         }
     }
 

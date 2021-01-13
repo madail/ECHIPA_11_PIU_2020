@@ -29,7 +29,7 @@ class BabySittingServiceActivity : AppCompatActivity(), NavigationView.OnNavigat
             GridLayoutManager(this, 2)
         recyclerView.layoutManager = layoutManager
         val adapter = ServiceAdapter(
-            BabysittingServices().getBabysittingServices(),
+            BabysittingServices.babysittingServices,
             this,
             "babysitting"
         )
