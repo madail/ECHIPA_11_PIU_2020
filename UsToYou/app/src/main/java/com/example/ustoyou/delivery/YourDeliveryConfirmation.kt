@@ -70,7 +70,7 @@ class YourDeliveryConfirmation : AppCompatActivity() {
         val price: TextView = findViewById(R.id.pizzaDeliveryConfirmationTotal)
         price.text = "Price: ${intent.getStringExtra("total")}$"
 
-        if(intent.getStringExtra("card") != null) {
+        if (intent.getStringExtra("card") != null) {
             cardString = intent.getStringExtra("card")!!
         }
 
@@ -88,8 +88,8 @@ class YourDeliveryConfirmation : AppCompatActivity() {
     }
 
     fun order(view: View) {
-        if(User.currentUser?.cash!!) {
-            if(cardString != "XXXX-XXXX-XXXX-XXXX MM/YY CVV") {
+        if (User.currentUser?.cash!!) {
+            if (cardString != "XXXX-XXXX-XXXX-XXXX MM/YY CVV") {
                 val intent1 = Intent(this, ConfirmationActivity::class.java)
                 var name = intent.getStringExtra("name")
                 if (name == null) {
@@ -99,14 +99,18 @@ class YourDeliveryConfirmation : AppCompatActivity() {
                 intent1.putExtra("order", order)
                 startActivity(intent1)
                 finish()
-            }else{
-                Toast.makeText(this,"CARD REQUIRED", Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(this, "CARD REQUIRED", Toast.LENGTH_LONG).show()
             }
-        }else{
-            val intent = Intent(this, DeclinedActivity::class.java)
-            intent.putExtra("activity","delivery")
-            startActivity(intent)
-            finish()
+        } else {
+            if (cardString != "XXXX-XXXX-XXXX-XXXX MM/YY CVV") {
+                val intent = Intent(this, DeclinedActivity::class.java)
+                intent.putExtra("activity", "delivery")
+                startActivity(intent)
+                finish()
+            } else {
+                Toast.makeText(this, "CARD REQUIRED", Toast.LENGTH_LONG).show()
+            }
         }
     }
 

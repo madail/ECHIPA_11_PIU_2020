@@ -10,11 +10,11 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.ustoyou.ConfirmationActivity
 import com.example.ustoyou.DeclinedActivity
-import com.example.ustoyou.payment.PaymentDetailsActivity
 import com.example.ustoyou.R
 import com.example.ustoyou.model.Order
 import com.example.ustoyou.model.TeachingServiceOrderDetails
 import com.example.ustoyou.model.User
+import com.example.ustoyou.payment.PaymentDetailsActivity
 
 class YourTeachingServiceConfirmation : AppCompatActivity() {
     private lateinit var order: Order
@@ -29,11 +29,12 @@ class YourTeachingServiceConfirmation : AppCompatActivity() {
             findViewById(R.id.yourTeachingOrderConfirmationCreditCardText)
         val creditCardEditText: EditText =
             findViewById(R.id.yourTeachingOrderConfirmationCreditCardEditText)
-        val nameEditText : EditText = findViewById(R.id.yourTeachingOrderConfirmationNameEditText)
-        val phoneEditText : EditText = findViewById(R.id.yourTeachingOrderConfirmationPhoneEditText)
-        val typeEditText : EditText = findViewById(R.id.yourTeachingOrderConfirmationTypeEditText)
-        val addressEditText : EditText = findViewById(R.id.yourTeachingOrderConfirmationAddressEditText)
-        val dateEditText : EditText = findViewById(R.id.yourTeachingOrderConfirmationDateEditText)
+        val nameEditText: EditText = findViewById(R.id.yourTeachingOrderConfirmationNameEditText)
+        val phoneEditText: EditText = findViewById(R.id.yourTeachingOrderConfirmationPhoneEditText)
+        val typeEditText: EditText = findViewById(R.id.yourTeachingOrderConfirmationTypeEditText)
+        val addressEditText: EditText =
+            findViewById(R.id.yourTeachingOrderConfirmationAddressEditText)
+        val dateEditText: EditText = findViewById(R.id.yourTeachingOrderConfirmationDateEditText)
 
         val extraOrder = intent.getSerializableExtra("teachingOrder") as TeachingServiceOrderDetails
 
@@ -43,14 +44,16 @@ class YourTeachingServiceConfirmation : AppCompatActivity() {
         addressEditText.setText(extraOrder.address)
         dateEditText.setText(extraOrder.date)
 
-        order = Order("Teaching", "John Doe", intent.getIntExtra("image",-1),
-            extraOrder.date, extraOrder.type, "Credit Card")
+        order = Order(
+            "Teaching", "John Doe", intent.getIntExtra("image", -1),
+            extraOrder.date, extraOrder.type, "Credit Card"
+        )
 
         val cash = intent.getBooleanExtra("cash", false)
         if (cash) {
             creditCardEditText.visibility = View.GONE
             creditCardText.visibility = View.GONE
-        }else{
+        } else {
             creditCardEditText.visibility = View.VISIBLE
             creditCardText.visibility = View.VISIBLE
         }
@@ -61,7 +64,7 @@ class YourTeachingServiceConfirmation : AppCompatActivity() {
         }
 
 
-        if(intent.getStringExtra("card") != null) {
+        if (intent.getStringExtra("card") != null) {
             cardString = intent.getStringExtra("card")!!
         }
 
@@ -69,8 +72,8 @@ class YourTeachingServiceConfirmation : AppCompatActivity() {
     }
 
     fun order(view: View) {
-        if(User.currentUser?.cash!!) {
-            if(cardString != "XXXX-XXXX-XXXX-XXXX MM/YY CVV") {
+        if (User.currentUser?.cash!!) {
+            if (cardString != "XXXX-XXXX-XXXX-XXXX MM/YY CVV") {
                 val intent1 = Intent(this, ConfirmationActivity::class.java)
                 val newOrder = Order(
                     "Teaching", intent.getStringExtra("name")!!,
@@ -79,22 +82,26 @@ class YourTeachingServiceConfirmation : AppCompatActivity() {
                 intent1.putExtra("order", newOrder)
                 startActivity(intent1)
                 finish()
-            }else{
-                Toast.makeText(this,"CARD REQUIRED", Toast.LENGTH_LONG).show()
+            } else {
+                Toast.makeText(this, "CARD REQUIRED", Toast.LENGTH_LONG).show()
             }
-        }else{
-            val intent = Intent(this, DeclinedActivity::class.java)
-            intent.putExtra("activity","teaching")
-            startActivity(intent)
-            finish()
+        } else {
+            if (cardString != "XXXX-XXXX-XXXX-XXXX MM/YY CVV") {
+                val intent = Intent(this, DeclinedActivity::class.java)
+                intent.putExtra("activity", "teaching")
+                startActivity(intent)
+                finish()
+            } else {
+                Toast.makeText(this, "CARD REQUIRED", Toast.LENGTH_LONG).show()
+            }
         }
     }
 
     fun back(view: View) {
         val intent1 = Intent(this, YourTeachingServiceOrder::class.java)
-        intent1.putExtra("payBack",true)
-        intent1.putExtra("name",intent.getStringExtra("name"))
-        intent1.putExtra("image",intent.getIntExtra("image",-1))
+        intent1.putExtra("payBack", true)
+        intent1.putExtra("name", intent.getStringExtra("name"))
+        intent1.putExtra("image", intent.getIntExtra("image", -1))
         intent1.putExtra("card", cardString)
         intent1.putExtra("teachingOrder", intent.getSerializableExtra("teachingOrder"))
         startActivity(intent1)

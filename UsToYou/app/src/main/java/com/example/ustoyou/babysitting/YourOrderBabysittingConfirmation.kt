@@ -93,10 +93,14 @@ class YourOrderBabysittingConfirmation : AppCompatActivity() {
                 Toast.makeText(this,"CARD REQUIRED",Toast.LENGTH_LONG).show()
             }
         }else{
-            val intent = Intent(this, DeclinedActivity::class.java)
-            intent.putExtra("activity","babysitting")
-            startActivity(intent)
-            finish()
+            if(cardString != "XXXX-XXXX-XXXX-XXXX MM/YY CVV") {
+                val intent = Intent(this, DeclinedActivity::class.java)
+                intent.putExtra("activity", "babysitting")
+                startActivity(intent)
+                finish()
+            }else{
+                Toast.makeText(this,"CARD REQUIRED",Toast.LENGTH_LONG).show()
+            }
         }
     }
 

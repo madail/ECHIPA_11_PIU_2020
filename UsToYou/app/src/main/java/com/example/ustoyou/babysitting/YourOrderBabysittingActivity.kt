@@ -106,6 +106,11 @@ class YourOrderBabysittingActivity : AppCompatActivity(), NavigationView.OnNavig
         if (childsAge.text.toString().isEmpty()) {
             childsAge.error = "Child's age required!"
             return false
+        }else{
+            if(childsAge.text.toString().toInt() > 15){
+                childsAge.error = "Child's age too big!"
+                return false
+            }
         }
 
         if (name.text.toString().isEmpty()) {
