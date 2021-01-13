@@ -110,6 +110,7 @@ class YourDeliveryActivity : AppCompatActivity(), NavigationView.OnNavigationIte
             intent1.putExtra("typeOfDelivery", intent.getIntExtra("typeOfDelivery", -1))
             intent1.putExtra("total", currentPrice)
             intent1.putExtra("activity", "delivery")
+            CurrentPrice.price = currentPrice.toInt()
             startActivity(intent1)
             finish()
         }

@@ -13,6 +13,9 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.example.ustoyou.*
 import com.google.android.material.navigation.NavigationView
+import java.text.ParseException
+import java.text.SimpleDateFormat
+import java.util.*
 
 class PaymentDetailsActivity : AppCompatActivity() , NavigationView.OnNavigationItemSelectedListener {
     private lateinit var drawerLayout: DrawerLayout
@@ -104,15 +107,33 @@ class PaymentDetailsActivity : AppCompatActivity() , NavigationView.OnNavigation
         if(cardNumber.text.toString().isEmpty()){
             cardNumber.error = "Card Number is required!"
             return false
+        }else if(cardNumber.text.toString().length != 16){
+            cardNumber.error = "Invalid card number!"
+            return false
         }
 
         if(expDate.text.toString().isEmpty()){
             expDate.error = "Card Number is required!"
             return false
+        }else{
+            try {
+                val data = expDate.text.toString().split("/")
+                if(data[0].toInt() > 12 || data[0].toInt() < 1 || data[1].toInt() < 1){
+                    expDate.error = "Invalid date!"
+                    return false
+                }
+
+            } catch (ex: Exception) {
+                expDate.error = "Invalid date!"
+                return false
+            }
         }
 
         if(cvvEditText.text.toString().isEmpty()){
             cvvEditText.error = "Card Number is required!"
+            return false
+        }else if(cvvEditText.text.toString().length != 3){
+            cvvEditText.error = "Invalid CVV!"
             return false
         }
 

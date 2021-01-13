@@ -13,6 +13,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.example.ustoyou.*
 import com.example.ustoyou.babysitting.YourOrderBabysittingConfirmation
 import com.example.ustoyou.delivery.YourDeliveryConfirmation
+import com.example.ustoyou.model.CurrentPrice
 import com.example.ustoyou.model.User
 import com.example.ustoyou.teaching.YourTeachingServiceConfirmation
 import com.google.android.material.navigation.NavigationView
@@ -52,6 +53,8 @@ class PaymentMethodActivity : AppCompatActivity(), NavigationView.OnNavigationIt
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        val price: EditText = findViewById(R.id.payment_method_textAmount)
+        price.setText(CurrentPrice.price.toString())
 
     }
 
