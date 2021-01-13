@@ -11,30 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/sadService"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:src="@drawable/sad"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:ignore="MissingConstraints" />
-
-        <TextView
-            android:id="@+id/noServiceText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="You have no services to offer yet."
-            android:textColor="@color/primaryDarkColor"
-            android:textSize="15sp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/sadService"
-            tools:ignore="MissingConstraints" />
-
         <ListView
             android:id="@+id/servicesListView"
             android:layout_width="match_parent"
