@@ -13,4 +13,5 @@
     <color name="primaryDarkColor">#00363a</color>
     <color name="accentColor">#ff7043</color>
     <color name="grey">#F5F5F5</color>
+    <color name="figmaGrey">#C5C5C5</color>
 </resources>
