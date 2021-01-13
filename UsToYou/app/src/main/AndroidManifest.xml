@@ -22,11 +22,6 @@
         <activity
             android:name=".VirtualLesson.VirtualLessonOrderDetailsActivity"
             android:theme="@style/Theme.UsToYouTheme" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".VirtualLesson.VirtualLessonActivity"
@@ -60,7 +55,13 @@
             android:theme="@style/Theme.UsToYouTheme" />
         <activity
             android:name=".MyOrdersActivity"
-            android:theme="@style/Theme.UsToYouTheme" />
+            android:theme="@style/Theme.UsToYouTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".YourOrderBabysittingConfirmation"
             android:theme="@style/Theme.UsToYouTheme" />
