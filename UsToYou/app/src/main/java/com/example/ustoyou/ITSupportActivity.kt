@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import com.example.ustoyou.model.CurrentPrice
 import com.example.ustoyou.model.ITConfirmationDetails
 import com.example.ustoyou.payment.PaymentMethodActivity
 
@@ -13,6 +14,7 @@ class ITSupportActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_it_support_info)
 
+        supportActionBar?.title = "IT Support"
 
     }
 
@@ -47,6 +49,7 @@ class ITSupportActivity: AppCompatActivity() {
 
             val intent1 = Intent(this, PaymentMethodActivity::class.java).apply {
                 putExtra("ITInfo", itConfirmationDetails)
+                CurrentPrice.price=price
                 putExtra("activity", "IT")
             }
             startActivity(intent1)

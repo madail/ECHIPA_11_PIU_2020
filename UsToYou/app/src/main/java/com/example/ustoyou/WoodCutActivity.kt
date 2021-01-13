@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import com.example.ustoyou.model.CurrentPrice
 import com.example.ustoyou.model.WoodCuttingConfirmationDetails
 import com.example.ustoyou.payment.PaymentMethodActivity
 
@@ -12,6 +13,8 @@ class WoodCutActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_wood_info)
+
+        supportActionBar?.title = "Wood Cutting"
     }
 
     fun goToPaymentMethod(view: View) {
@@ -42,6 +45,7 @@ class WoodCutActivity : AppCompatActivity() {
 
             val intent1 = Intent(this, PaymentMethodActivity::class.java).apply {
                 putExtra("WoodInfo", woodCuttingDetails)
+                CurrentPrice.price=total
                 putExtra("activity", "WoodCutting")
             }
             startActivity(intent1)

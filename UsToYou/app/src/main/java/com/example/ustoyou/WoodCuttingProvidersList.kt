@@ -20,6 +20,8 @@ class WoodCuttingProvidersList : AppCompatActivity(), AdapterView.OnItemClickLis
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_providers_list)
 
+        supportActionBar?.title = "Wood Cutting Providers"
+
         val listReference = findViewById<ListView>(R.id.providers_list)
         listReference.visibility = View.VISIBLE
 

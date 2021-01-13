@@ -21,6 +21,8 @@ class ITProvidersList : AppCompatActivity(), AdapterView.OnItemClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_providers_list)
 
+        supportActionBar?.title = "IT Support Providers"
+
         val listReference = findViewById<ListView>(R.id.providers_list)
         listReference.visibility = View.VISIBLE
 
