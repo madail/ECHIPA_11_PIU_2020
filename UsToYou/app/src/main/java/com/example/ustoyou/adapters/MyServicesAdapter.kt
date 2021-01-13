@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.ImageView
 import android.widget.TextView
 import com.example.ustoyou.R
 import com.example.ustoyou.model.Service
@@ -16,11 +17,13 @@ class MyServicesAdapter(private val context : Context, private val serviceList: 
     @SuppressLint("SetTextI18n", "ViewHolder")
     override fun getView(position: Int, containerView: View?, viewGroupParent: ViewGroup?): View {
         val item = inflater.inflate(R.layout.service_list_item, viewGroupParent, false)
-        val serviceName = item.findViewById<TextView>(R.id.serviceName)
-        val serviceCategory = item.findViewById<TextView>(R.id.serviceCategory)
+        val serviceName = item.findViewById<TextView>(R.id.servicesName)
+        val serviceCategory = item.findViewById<TextView>(R.id.servicesCategory)
+        val serviceImage = item.findViewById<ImageView>(R.id.servicesImage)
 
         serviceName.text = serviceList[position].name
         serviceCategory.text = "Category: " + serviceList[position].category
+        serviceImage.setImageResource(serviceList[position].imageRes)
 
         return item
     }

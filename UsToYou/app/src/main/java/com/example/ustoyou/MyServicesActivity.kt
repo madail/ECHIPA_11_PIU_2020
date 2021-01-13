@@ -36,10 +36,6 @@ class MyServicesActivity : AppCompatActivity() , NavigationView.OnNavigationItem
         listReference.adapter = servicesAdapter
 
         if(ServicesListSingleton.services.size != 0) {
-            val image = findViewById<ImageView>(R.id.sadService)
-            image.visibility = View.GONE
-            val text = findViewById<TextView>(R.id.noServiceText)
-            text.visibility = View.GONE
             val list = findViewById<ListView>(R.id.servicesListView)
             list.visibility = View.VISIBLE
         }

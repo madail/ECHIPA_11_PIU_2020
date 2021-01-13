@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.RadioButton
 import com.example.ustoyou.model.Service
 import com.example.ustoyou.model.ServicesListSingleton
@@ -35,14 +36,30 @@ class TherapyServiceForm1Activity : AppCompatActivity() {
         }
     }
 
-    fun continueToNextActivity(view: View) {
-        val name = findViewById<EditText>(R.id.therapyServiceTitleEditText).text.toString()
-        val category = "Therapy";
-        if( name != "") {
-            val service = Service(name, category)
-            ServicesListSingleton.services.add(service)
+    fun validate(name: EditText, description: EditText) : Boolean {
+        if(name.text.toString() == "") {
+            name.error = "Title missing!"
+            return false
         }
-        val intent = Intent(this, TherapyServiceForm2Activity::class.java)
-        startActivity(intent)
+        if(description.text.toString() == "") {
+            description.error = "Description missing!"
+            return false;
+        }
+        return true;
+    }
+
+    fun continueToNextActivity(view: View) {
+        val name = findViewById<EditText>(R.id.therapyServiceTitleEditText)
+        val description = findViewById<EditText>(R.id.therapyServiceDescriptionEditText)
+        val category = "Therapy";
+        val isValid = validate(name, description)
+        if(isValid) {
+            if (name.text.toString() != "") {
+                val service = Service(name.text.toString(), category, R.drawable.therapy_service_1)
+                ServicesListSingleton.services.add(service)
+            }
+            val intent = Intent(this, TherapyServiceForm2Activity::class.java)
+            startActivity(intent)
+        }
     }
 }

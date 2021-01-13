@@ -44,23 +44,39 @@ class DeliveryServiceFormActivity : AppCompatActivity(), NavigationView.OnNaviga
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
-    fun continueToConfirmation(view : View) {
-        val name = findViewById<EditText>(R.id.deliveryServiceTitleEditText).text.toString()
-        val category = "Delivery"
-        if(name != "") {
-            val service = Service(name, category)
-            ServicesListSingleton.services.add(service)
+    fun validate(name: EditText, city: EditText, price: EditText,) : Boolean {
+        if(name.text.toString() == "") {
+            name.error = "Title missing!"
+            return false
         }
-        val intent = Intent(this, UploadPhotoActivity::class.java)
-        startActivity(intent)
+        if(price.text.toString() == "") {
+            price.error = "Price missing!"
+            return false
+        }
+        if(city.text.toString() == "") {
+            city.error = "City missing!"
+            return false
+        }
+        return true;
+    }
+
+    fun continueToConfirmation(view : View) {
+        val name = findViewById<EditText>(R.id.deliveryServiceTitleEditText)
+        val city = findViewById<EditText>(R.id.deliveryServiceCityEditText)
+        val price = findViewById<EditText>(R.id.deliveryServicePriceEditText)
+        val isValid = validate(name, city, price)
+        val category = "Delivery"
+        if(isValid) {
+            val service = Service(name.text.toString(), category, R.drawable.delivery_service_1)
+            ServicesListSingleton.services.add(service)
+            val intent = Intent(this, UploadPhotoActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     fun onRadioButtonClicked(view: View) {
         if (view is RadioButton) {
-            // Is the button now checked?
             val checked = view.isChecked
-
-            // Check which radio button was clicked
             when (view.getId()) {
                 R.id.radioDrone ->
                     if (checked) {
@@ -68,7 +84,6 @@ class DeliveryServiceFormActivity : AppCompatActivity(), NavigationView.OnNaviga
                     }
                 R.id.radioCar ->
                     if (checked) {
-                        // Ninjas rule
                     }
             }
         }

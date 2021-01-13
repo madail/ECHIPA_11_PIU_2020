@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.EditText
 
 class TherapyServiceForm2Activity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -12,8 +13,35 @@ class TherapyServiceForm2Activity : AppCompatActivity() {
         supportActionBar?.title = "New therapy service"
     }
 
+    fun validate(price: EditText, city: EditText, phone: EditText, email: EditText) : Boolean {
+        if(price.text.toString() == "") {
+            price.error = "Price missing!"
+            return false
+        }
+        if(city.text.toString() == "") {
+            city.error = "City missing!"
+            return false
+        }
+        if(phone.text.toString() == "") {
+            phone.error = "Phone missing!"
+            return false
+        }
+        if(email.text.toString() == "") {
+            email.error = "E-mail missing!"
+            return false
+        }
+        return true;
+    }
+
     fun continueToNextActivity(view:View) {
-        val intent = Intent(this, ConfirmServiceActivity::class.java)
-        startActivity(intent)
+        val price = findViewById<EditText>(R.id.therapyServiceNameEditText)
+        val city = findViewById<EditText>(R.id.therapyServiceCityEditText)
+        val phone = findViewById<EditText>(R.id.therapyServicePhoneEditText)
+        val email = findViewById<EditText>(R.id.therapyServiceEmailEditText)
+        val isValid = validate(price, city, phone, email)
+        if(isValid) {
+            val intent = Intent(this, ConfirmServiceActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
