@@ -23,7 +23,7 @@
         <EditText
             android:id="@+id/image_name"
             android:layout_width="wrap_content"
-            android:hint="image uri"
+            android:hint="resume uri"
             android:layout_margin="20dp"
             android:focusable="false"
             android:clickable="false"
